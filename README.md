@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/CoVerlogo.png" alt="ControVerse logo" width="150"/>
+  <img src="assets/CoVerlogo.png" alt="ControVerse logo" width="300"/>
 </p>
 
 # ControVerse
