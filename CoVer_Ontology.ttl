@@ -4,12 +4,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix creon: <http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#> .
 
-# ! Note: we should add the labels too; and date ? (dc:date "2023-08-31T10:42:28Z"^^xsd:dateTime ;)
-# ? Gangemi also puts dc:creator "Aldo Gangemi" EVERYWHERE but it seems like a bit too much
-# ! we should also cite Muecke and Palacio as Gangemi did: <http://www.w3.org/ns/prov#wasAttributedTo> "Wallas (1926): identification of a goal and verification of an idea."
-# we need too cite also Gangemi's ontology with the same method when we are talking about his classes
+# Notes --------------------------------------------------------
 
-#############################################
+# ? Gangemi also puts dc:creator "Aldo Gangemi" EVERYWHERE but it seems like a bit too much. If we decide to put it, we need to cast it as an annotation property, unless we don't want to cast ourselves as objects, not literals 
+# ! we should cite Muecke and Palacio as Gangemi did: <http://www.w3.org/ns/prov#wasAttributedTo> "Wallas (1926): identification of a goal and verification of an idea." ? and the dates? 
+# do we need too cite also Gangemi's ontology with the same method when we are talking about his classes?
+# ----------------------------------------------------------------
 
 # Ontology: ControVerse (CoVer)
 
@@ -19,13 +19,18 @@
                                             "Regina Manyara";
                                 rdfs:comment "An ontology about irony in Lyrical works.".
 
+
+# Annotation property 
+
+<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:AnnotationProperty . # now it can have a literal as object 
+# ! If Palacio took something from Muecke, then we should say that what she said 'wasDerivedFrom'; see here: https://www.w3.org/ns/prov :D
+
 # Classes
 
 cover:CreativeWork a owl:Class ;
     owl:equivalentClass creon:CreativeProduct ;
     rdfs:comment "It is something that is produced as a result of the creative process, by a specific Person" .
     
-
 cover:LyricalWork a owl:Class ;
     owl:equivalentClass creon:CreativeDomain ; 
     rdfs:subClassOf cover:CreativeWork .
@@ -38,48 +43,62 @@ cover:Poem a owl:Class ;
 
 cover:Actor a owl:Class ;
     owl:equivalentClass creon:Agent ;
-    rdfs:comment "An entity performing an action in an ironic context. Can include author, performer, ironist, or interpreter." .
+    rdfs:comment "An entity performing an action in an creative context. Includes author, performer, ironist, or interpreter." .
 
 cover:Author a owl:Class ;
     rdfs:subClassOf cover:Actor ;
-    rdfs:comment "The person who may produce or convey irony. Called Ironist only when irony is involved." .
+    rdfs:comment "The creator of the text or composition that doesn't contain irony, but sincerity." .
 
 cover:Ironist a owl:Class ;
-    rdfs:subClassOf cover:Author ;
+    rdfs:subClassOf cover:Actor ;
     rdfs:comment "The creator of the text or composition that contains irony." .
 
 cover:Interpreter a owl:Class ;
     rdfs:subClassOf cover:Actor ;
-    rdfs:comment "The one who perceives or decodes irony and makes the Ironic Event possible." .
+    rdfs:comment "The one who perceives or decodes irony and makes the Ironic Event possible. It can be a listener or a reader." .
+
+cover:Reader a owl:Class ;
+    rdfs:subClassOf cover:Interpreter ;
+    rdfs:comment "The one who is able to decode irony while reading to the Creative Work. " .
+
+cover:Listener a owl:Class ;
+    rdfs:subClassOf cover:Interpreter ;
+    rdfs:comment "The one who is able to decode irony while listening to the Creative Work. " .
 
 cover:Performer a owl:Class ;
     rdfs:subClassOf cover:Actor ;
-    rdfs:comment "The person who performs or stages the ironic work." .
+    rdfs:comment "The person who performs or stages the Creative work work." .
 
 cover:Target a owl:Class ;
     rdfs:comment "The object, person, or concept toward which irony is directed." .
 
 cover:Institution a owl:Class ;
-    rdfs:subClassOf cover:Target .
+    rdfs:subClassOf cover:Target ;
+    rdfs:comment "The collective entity toward which irony is directed." .
 
 cover:Community a owl:Class ;
-    rdfs:subClassOf cover:Target .
+    rdfs:subClassOf cover:Target ;
+    rdfs:comment "The social or cultural entity toward which irony is directed." .
 
 cover:Person a owl:Class ;
-    rdfs:subClassOf cover:Target .
+    rdfs:subClassOf cover:Target ;
+    rdfs:comment "The individual toward which irony is directed." .
 
 cover:Self a owl:Class ;
     rdfs:subClassOf cover:Person ;
     rdfs:comment "The self as the subject or object of irony (self-irony)." .
 
 cover:Concept a owl:Class ;
-    rdfs:subClassOf cover:Target .
+    rdfs:subClassOf cover:Target ;
+    rdfs:comment "The abstract idea or notion toward which irony is directed." .
 
 cover:Thing a owl:Class ;
-    rdfs:subClassOf cover:Target .
+    rdfs:subClassOf cover:Target ;
+    rdfs:comment "The concrete object toward which irony is directed." .
 
 cover:StateOfAffair a owl:Class ;
-    rdfs:subClassOf cover:Target .
+    rdfs:subClassOf cover:Target ;
+    rdfs:comment "The situation or condition toward which irony is directed." .
 
 cover:Event a owl:Class ;
     rdfs:comment "A situation or condition in which irony may or may not arise." .
@@ -87,14 +106,14 @@ cover:Event a owl:Class ;
 cover:IronicEvent a owl:Class ;
     rdfs:subClassOf cover:Event ;
     owl:equivalentClass creon:CreativeSituation ;
-    rdfs:comment "The situation where the concept of irony arises, there is a clash between the Epistemic and the Observable Scenarios." .
+    rdfs:comment "The situation where the concept of irony arises: there is a clash between the Epistemic and the Observable Scenarios." .
 
 cover:SincereEvent a owl:Class ;
     rdfs:subClassOf cover:Event ;
-    rdfs:comment "The situation where the concept of irony does not arise, there is no clash between the Epistemic and the Observable Scenarios.".
+    rdfs:comment "The situation where the concept of irony does not arise: there is no clash between the Epistemic and the Observable Scenarios.".
 
 cover:EpistemicScenario a owl:Class ;
-    rdfs:comment "A cognitive scenario related to the perception of irony." .
+    rdfs:comment "A cognitive scenario related to the perception of irony or sincerity." .
 
 cover:ObservableScenario a owl:Class ;
     rdfs:comment "A visible or represented scenario where irony occurs." .
@@ -113,63 +132,82 @@ cover:Irony a owl:Class ;
 
 cover:Sincerity a owl:Class ;
     owl:equivalentClass creon:CreativeIdea ;
-    rdfs:comment "The opposite of irony; there is no clash between scenarios." .
+    rdfs:comment "The concept opposite to irony; there is no clash between scenarios." .
 
-cover:VerbalIrony a owl:Class ; # ! Ila: comments missing
-    rdfs:subClassOf cover:Irony .
+cover:VerbalIrony a owl:Class ; 
+    rdfs:subClassOf cover:Irony ;
+    rdfs:comment "A figure of speech in which the intended meaning is the opposite of that expressed by the words used. Implies an ironist, someone who intentionally employs a technique." .
 
 cover:SituationalIrony a owl:Class ;
-    rdfs:subClassOf cover:Irony .
+    rdfs:subClassOf cover:Irony ;
+    rdfs:comment "A condition or outcome of events contradictory to what was, or what was expected, in a mockery of the promises and appropriateness of things (figurative sense). Is a transferred or figurative sense." .
 
 cover:ImpersonalIrony a owl:Class ;
-    rdfs:subClassOf cover:VerbalIrony .
+    rdfs:subClassOf cover:VerbalIrony ;
+    rdfs:comment "The irony resides more in what is said than in the specific person saying it." .
 
 cover:SelfDisparagingIrony a owl:Class ;
-    rdfs:subClassOf cover:VerbalIrony .
+    rdfs:subClassOf cover:VerbalIrony ;
+    rdfs:comment "The opposition is between the ironist's real opinion and that expressed by their persona (e.g., an ignorant or naive individual)." .
 
 cover:IngenuIrony a owl:Class ;
-    rdfs:subClassOf cover:VerbalIrony .
+    rdfs:subClassOf cover:VerbalIrony ;
+    rdfs:comment "The duality is created because the observer recognizes the narrator's innocence and, through their literal and non-judgmental observations, the stupidity of the reality being described." .
 
-cover:DramaticIrony a owl:Class ;
-    rdfs:subClassOf cover:VerbalIrony .
+cover:DramatizedIrony a owl:Class ;
+    rdfs:subClassOf cover:VerbalIrony ;
+    rdfs:comment "The ironist creates a narrative structure so complex or a world so self-contradictory that its irony arises spontaneously." .
 
 cover:IronyOfSimpleIncongruency a owl:Class ;
-    rdfs:subClassOf cover:SituationalIrony .
+    rdfs:subClassOf cover:SituationalIrony ;
+    rdfs:comment "Irony based on the juxtaposition of precisely parallel incidents or the isolation of a particular, self-evident incongruity." .
 
 cover:IronyOfSimpleEvents a owl:Class ;
-    rdfs:subClassOf cover:SituationalIrony .
+    rdfs:subClassOf cover:SituationalIrony ;
+    rdfs:comment "This occurs when an outcome or occurrence is contrary to what was intended or expected." .
+
+cover:IronyOfDrama a owl:CLass ;
+    rdfs:subClassOf cover:SituationalIrony ;
+    rdfs:comment "Dramatic Irony (or Irony of Drama) relies on the audience's superior awareness compared to that of the characters." .
 
 cover:IronyOfSelfBetrayal a owl:Class ;
-    rdfs:subClassOf cover:SituationalIrony .
+    rdfs:subClassOf cover:SituationalIrony ;
+    rdfs:comment "The irony occurs when an action, taken for a specific purpose (e.g., defending an ideal), unintentionally results in the annulment or betrayal of that very purpose." .
 
 cover:IronyOfDilemma a owl:Class ;
-    rdfs:subClassOf cover:SituationalIrony .
+    rdfs:subClassOf cover:SituationalIrony ;
+    rdfs:comment "Typically takes the form of logical contradictions, paradoxes, or 'impossible situations.' When viewed as an insurmountable dilemma, the Actor's response is often a detached attitude that abandons the concept of a rational or moral world." .
 
 # Object Properties
 
 cover:hasScenario a owl:ObjectProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range [ a owl:Class ; owl:unionOf (cover:EpistemicScenario cover:ObservableScenario) ] ;
-    rdfs:comment "Links a work or event to the scenario in which irony occurs if there is a clash between them." .
+    rdfs:label "has scenario" ;
+    rdfs:comment "Links a work or event to the scenario in which irony may occur." .
 
 cover:hasActor a owl:ObjectProperty ;
     rdfs:domain cover:IronicEvent ;
     rdfs:range cover:Actor ;
+    rdfs:label "has actor" ;
     rdfs:comment "Any person involved in a Creative Process." .
 
 cover:hasTarget a owl:ObjectProperty ;
     rdfs:domain cover:IronicEvent ;
     rdfs:range cover:Target ;
+    rdfs:label "has target" ;
     rdfs:comment "Indicates the target or object of irony." .
 
 cover:hasEvent a owl:ObjectProperty ;
     rdfs:domain cover:IronicEvent ;
     rdfs:range cover:Event ;
+    rdfs:label "has event" ;
     rdfs:comment "Connects irony to a specific event (performance, reading, listening)." .
 
 cover:hasIronyType a owl:ObjectProperty ;
     rdfs:domain cover:Irony ;
     rdfs:range [ a owl:Class ; owl:unionOf (cover:VerbalIrony cover:SituationalIrony) ] ;
+    rdfs:label "has irony type" ;
     rdfs:comment "Specifies whether irony is Verbal or Situational." .
 
 cover:hasIronySubtype a owl:ObjectProperty ;
@@ -183,55 +221,101 @@ cover:hasIronySubtype a owl:ObjectProperty ;
         cover:IronyOfSimpleEvents
         cover:IronyOfSelfBetrayal
         cover:IronyOfDilemma ) ] ;
+    rdfs:label "has irony subtype" ;
     rdfs:comment "Defines the subtype of irony." .
 
 cover:hasInstance a owl:ObjectProperty ;
     rdfs:domain cover:Event ;
     rdfs:range [ a owl:Class ; owl:unionOf (cover:Irony cover:Sincerity) ] ;
-    rdfs:comment "Whether the event is Ironic (clash) or Sincere (no clash)." .
+    rdfs:label "has instance" ;
+    rdfs:comment "Whether the event is Ironic (clash between Epistemic and Observable Scenarios) or Sincere (no clash between the two scenarios)." .
+
+cover:hasInterpreter a owl:ObjectProperty ;
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range cover:Interpreter ;
+    rdfs:label "has interpreter" ;
+    rdfs:comment "Language of the work." .
+
+cover:hasCreator a owl:ObjectProperty ; # creator as Object 
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range [
+        a owl:Class ;
+        owl:unionOf ( cover:Author cover:Ironist )
+    ] ;
+    rdfs:label "has creator" ;
+    rdfs:comment "Links a creative work to the one who perceives or decodes irony and makes the Ironic Event possible. It can be a reader or listener" .
+
+cover:hasPerformer a owl:ObjectProperty ; # performer as Object
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range cover:Performer ;
+    rdfs:label "has performer" ;
+    rdfs:comment "Links a creative work to the person or entity who performed it." .
 
 # Data Properties
 
 cover:hasCreationDate a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range xsd:date ;
+    rdfs:label "has creation date" ;
     rdfs:comment "Date when the work was created." .
 
 cover:hasTitle a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range xsd:string ;
+    rdfs:label "has title" ;
     rdfs:comment "Title of the work." .
 
 cover:hasEventLocation a owl:DatatypeProperty ;
     rdfs:domain cover:Event ;
     rdfs:range xsd:string ;
-    rdfs:comment "Location where the event took place." .
-
-cover:tookPlaceIn a owl:DatatypeProperty ;
-    rdfs:domain cover:Event ;
-    rdfs:range xsd:string ;
+    rdfs:label "has event location" ;
     rdfs:comment "Location where the event took place." .
 
 cover:hasCreationLocation a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range xsd:string ;
+    rdfs:label "has creation location" ;
     rdfs:comment "Location where the work was created." .
 
 cover:hasDescription a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
+    rdfs:label "has description" ;
     rdfs:comment "Any general description." .
 
 cover:hasLanguage a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range xsd:string ;
+    rdfs:label "has language" ;
     rdfs:comment "Language of the work." .
 
 cover:hasPoeticForm a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range xsd:string ;
-    rdfs:comment "Specifies the poetic form (e.g., sonnet, ballad, cantata)." .
+    rdfs:label "has poetic form" ;
+    rdfs:comment "Specifies the poetic form (e.g., sonnet, ballad, cantata, song)." .
 
 cover:hasGenre a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range xsd:string ;
-    rdfs:comment "Indicates the artistic or literary genre." .
+    rdfs:label "has genre" ;
+    rdfs:comment "Indicates the musical or literary genre." .
+
+cover:hasCreatorName a owl:DatatypeProperty ; # creator as Literal
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range xsd:string ;
+    rdfs:label "has creator name" ;
+    rdfs:comment "Indicates the creator of the work as a literal name (string)." .
+
+cover:hasPerformerName a owl:DatatypeProperty ; # performer as Literal
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range xsd:string ;
+    rdfs:label "has performer name" ;
+    rdfs:comment "Indicates the performer of the work as a literal name (string)." .
+
+# disjoint Classes
+
+cover:Interpreter owl:disjointWith cover:Author . # int. is never the author of the work...
+cover:Interpreter owl:disjointWith cover:Ironist . #... or the ironist
+cover:Author owl:disjointWith cover:Ironist . # a. is for sincerity, i. is for irony
+cover:Irony owl:disjointWith cover:Sincerity . 
+cover:IronicEvent owl:disjointWith cover:SincereEvent .
