@@ -4,12 +4,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix creon: <http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#> .
 
-# Notes --------------------------------------------------------
+# ? Notes --------------------------------------------------------
 
 # ? Gangemi also puts dc:creator "Aldo Gangemi" EVERYWHERE but it seems like a bit too much. If we decide to put it, we need to cast it as an annotation property, unless we don't want to cast ourselves as objects, not literals 
-# ! we should cite Muecke and Palacio as Gangemi did: <http://www.w3.org/ns/prov#wasAttributedTo> "Wallas (1926): identification of a goal and verification of an idea." ? and the dates? 
-# do we need too cite also Gangemi's ontology with the same method when we are talking about his classes?
-# ----------------------------------------------------------------
+# ? we should cite Muecke and Palacio as Gangemi did: <http://www.w3.org/ns/prov#wasAttributedTo> "Wallas (1926): identification of a goal and verification of an idea." ? and the dates? 
+# ? do we need too cite also Gangemi's ontology with the same method when we are talking about his classes?
+# ? ----------------------------------------------------------------
 
 # Ontology: ControVerse (CoVer)
 
@@ -23,7 +23,7 @@
 # Annotation property 
 
 <http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:AnnotationProperty . # now it can have a literal as object 
-# ! If Palacio took something from Muecke, then we should say that what she said 'wasDerivedFrom'; see here: https://www.w3.org/ns/prov :D
+# ? If Palacio took something from Muecke, then we should say that what she said 'wasDerivedFrom'; see here: https://www.w3.org/ns/prov :D
 
 # Classes
 
@@ -33,13 +33,16 @@ cover:CreativeWork a owl:Class ;
     
 cover:LyricalWork a owl:Class ;
     owl:equivalentClass creon:CreativeDomain ; 
-    rdfs:subClassOf cover:CreativeWork .
+    rdfs:subClassOf cover:CreativeWork ;
+    rdfs:comment "A piece of writing, art, or music that is beautifully expressive and emotional, often with a poetic, song-like quality." .
 
 cover:Song a owl:Class ;
-    rdfs:subClassOf cover:LyricalWork .
+    rdfs:subClassOf cover:LyricalWork ;
+    rdfs:comment "A short poem or other set of words set to music or meant to be sung." . # ! source: oxford language
 
 cover:Poem a owl:Class ;
-    rdfs:subClassOf cover:LyricalWork .
+    rdfs:subClassOf cover:LyricalWork ;
+    rdfs:comment "A piece of writing in which the expression of feelings and ideas is given intensity by particular attention to diction (sometimes involving rhyme), rhythm, and imagery." . # ! source: oxford language
 
 cover:Actor a owl:Class ;
     owl:equivalentClass creon:Agent ;
@@ -50,7 +53,7 @@ cover:Author a owl:Class ;
     rdfs:comment "The creator of the text or composition that doesn't contain irony, but sincerity." .
 
 cover:Ironist a owl:Class ;
-    rdfs:subClassOf cover:Actor ;
+    rdfs:subClassOf cover:Author ;
     rdfs:comment "The creator of the text or composition that contains irony." .
 
 cover:Interpreter a owl:Class ;
@@ -255,7 +258,7 @@ cover:hasPerformer a owl:ObjectProperty ; # performer as Object
 
 cover:hasCreationDate a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
-    rdfs:range xsd:date ;
+    rdfs:range xsd:string ; # ! xsd:date requires year, month and day so maybe it's better just say string and use dc:date
     rdfs:label "has creation date" ;
     rdfs:comment "Date when the work was created." .
 
@@ -286,13 +289,13 @@ cover:hasLanguage a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range xsd:string ;
     rdfs:label "has language" ;
-    rdfs:comment "Language of the work." .
+    rdfs:comment "Language of the work or the instance." .
 
 cover:hasPoeticForm a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range xsd:string ;
     rdfs:label "has poetic form" ;
-    rdfs:comment "Specifies the poetic form (e.g., sonnet, ballad, cantata, song)." .
+    rdfs:comment "Specifies the poetic form (e.g., sonnet, ballad, cantata)." .
 
 cover:hasGenre a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
@@ -316,6 +319,7 @@ cover:hasPerformerName a owl:DatatypeProperty ; # performer as Literal
 
 cover:Interpreter owl:disjointWith cover:Author . # int. is never the author of the work...
 cover:Interpreter owl:disjointWith cover:Ironist . #... or the ironist
-cover:Author owl:disjointWith cover:Ironist . # a. is for sincerity, i. is for irony
 cover:Irony owl:disjointWith cover:Sincerity . 
 cover:IronicEvent owl:disjointWith cover:SincereEvent .
+
+# ! disjoint union ????
