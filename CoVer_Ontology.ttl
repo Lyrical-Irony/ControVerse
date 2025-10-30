@@ -1,6 +1,8 @@
 @prefix : <https://w3id.org/controverse#> .
 @prefix cover: <https://w3id.org/controverse#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix creon: <http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#> .
@@ -10,18 +12,15 @@
 # Ontology: ControVerse (CoVer)
 
 <https://w3id.org/controverse#> rdf:type owl:Ontology ;
-                                dc:creator "Fahmida Islam" ,
-                                            "Ilaria De Dominicis",
-                                            "Regina Manyara";
-                                rdfs:comment "An ontology about irony in Lyrical works.";
-                                owl:versionInfo "November 2025". # ! put the date of the exam here
-
+    dc:creator "Fahmida Islam" ,
+               "Ilaria De Dominicis" ,
+               "Regina Manyara" ;
+    rdfs:comment "An ontology about irony in Lyrical works." ;
+    owl:versionInfo "November 2025" .
 
 # Annotation property 
 
-<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:AnnotationProperty . # now it can have a literal as object 
-# ! If Palacio took something from Muecke, then we should say that what she said 'wasDerivedFrom'; see here: https://www.w3.org/ns/prov :D 
-
+<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:AnnotationProperty . 
 # Classes
 
 cover:CreativeWork a owl:Class ;
@@ -35,7 +34,8 @@ cover:LyricalWork a owl:Class ;
 
 cover:Song a owl:Class ;
     rdfs:subClassOf cover:LyricalWork ;
-    rdfs:comment "A short poem or other set of words set to music or meant to be sung." ; <http://www.w3.org/ns/prov#wasAttributedTo> "Oxford Languages" .
+    rdfs:comment "A short poem or other set of words set to music or meant to be sung." ; 
+    <http://www.w3.org/ns/prov#wasAttributedTo> "Oxford Languages" .
 
 cover:Poem a owl:Class ;
     rdfs:subClassOf cover:LyricalWork ;
@@ -66,7 +66,7 @@ cover:Reader a owl:Class ;
 
 cover:Listener a owl:Class ;
     rdfs:subClassOf cover:Interpreter ;
-    rdfs:comment "The one who is able to decode irony while listening to the Creative Work. " .
+    rdfs:comment "The one who is able to decode irony while listening to the Creative Work." .
 
 cover:Performer a owl:Class ;
     rdfs:subClassOf cover:Actor ;
@@ -114,7 +114,7 @@ cover:IronicEvent a owl:Class ;
 
 cover:SincereEvent a owl:Class ;
     rdfs:subClassOf cover:Event ;
-    rdfs:comment "The situation where the concept of irony does not arise: there is no clash between the Epistemic and the Observable Scenarios.".
+    rdfs:comment "The situation where the concept of irony does not arise: there is no clash between the Epistemic and the Observable Scenarios." .
 
 cover:EpistemicScenario a owl:Class ;
     rdfs:comment "We define the epistemic scenario as the conceptual correlate of a state of affairs that someone regards as highly likely or certain to occur. (Lozano Palacio, 2020, p. 101)" ;
@@ -182,7 +182,7 @@ cover:IronyOfEvents a owl:Class ;
     rdfs:comment "Here the ironic incongruity is between the expectation and the event. We say it is ironic when, after we have more or less explicitly or confidently expressed reliance in the way things go, some subsequent unforeseen turn of events reverses and frustrates our expectations or designs. It is ironic when we meet what we set out to avoid, especially when the means we take to avoid something turn out to be the very means of bringing about what we sought to avoid. It is ironic when we get at last what we no longer desire. (Muecke, D.C., 2020, p. 102)" ;
     <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
 
-cover:IronyOfDrama a owl:CLass ;
+cover:IronyOfDrama a owl:Class ;
     rdfs:subClassOf cover:SituationalIrony ;
     rdfs:comment "Generally speaking the irony is more striking when an observer already knows what the victim has yet to find out. To the examiner who has already failed the student whom he hears expressing a confident expectation of passing, the situation is already ironic; to others there is no irony until the results come out. (Muecke, D.C., 2020, p. 104)" ;
     <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
@@ -225,9 +225,8 @@ cover:hasEvent a owl:ObjectProperty ;
 
 cover:hasLyricalType a owl:ObjectProperty ;
     rdfs:domain cover:CreativeWork ;
-    rdfs:range [ a owl:Class ; owl:unionOf (cover:Poem cover:Song) ] ; # ! should they be disjointed?
-    rdfs:label "has irony type" ;
-    rdfs:comment "Specifies whether irony is Verbal or Situational." .
+    rdfs:range [ a owl:Class ; owl:unionOf (cover:Poem cover:Song) ] ; 
+    rdfs:comment "Specifies the type of LyricalWork, such as a Poem or a Song." .
 
 cover:hasIronyType a owl:ObjectProperty ;
     rdfs:domain cover:Irony ;
@@ -238,12 +237,13 @@ cover:hasIronyType a owl:ObjectProperty ;
 cover:hasIronySubtype a owl:ObjectProperty ;
     rdfs:domain cover:Irony ;
     rdfs:range [ a owl:Class ; owl:unionOf (
-        cover:DramaticIrony
+        cover:DramatizedIrony
         cover:ImpersonalIrony
         cover:SelfDisparagingIrony
         cover:IngenuIrony
+        cover:IronyOfDrama
         cover:IronyOfSimpleIncongruency
-        cover:IronyOfSimpleEvents
+        cover:IronyOfEvents
         cover:IronyOfSelfBetrayal
         cover:IronyOfDilemma ) ] ;
     rdfs:label "has irony subtype" ;
@@ -259,7 +259,7 @@ cover:hasInterpreter a owl:ObjectProperty ;
     rdfs:domain cover:CreativeWork ;
     rdfs:range cover:Interpreter ;
     rdfs:label "has interpreter" ;
-    rdfs:comment "Language of the work." .
+    rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." .
 
 cover:hasCreator a owl:ObjectProperty ; # creator as Object 
     rdfs:domain cover:CreativeWork ;
@@ -268,7 +268,7 @@ cover:hasCreator a owl:ObjectProperty ; # creator as Object
         owl:unionOf ( cover:Author cover:Ironist )
     ] ;
     rdfs:label "has creator" ;
-    rdfs:comment "Links a creative work to the one who perceives or decodes irony and makes the Ironic Event possible. It can be a reader or listener" .
+    rdfs:comment "Links a creative work to its creator (Author or Ironist)." .
 
 cover:hasPerformer a owl:ObjectProperty ; # performer as Object
     rdfs:domain cover:CreativeWork ;
@@ -309,6 +309,16 @@ cover:hasDescription a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "has description" ;
     rdfs:comment "Any general description." .
+
+cover:hasEpistemicDescription a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "has epistemic description" ;
+    rdfs:comment "The epistemic description." .
+
+cover:hasObservableDescription a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "has observable description" ;
+    rdfs:comment "The observable description." .
 
 cover:hasLanguage a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeWork ;
