@@ -1,5 +1,6 @@
 @prefix : <https://w3id.org/controverse#> .
-@prefix cover: <https://w3id.org/controverse#> .
+@prefix cover: <https://w3id.org/controverse#> . ## why are there three different prefixes for <https://w3id.org/controverse#>
+@prefix covercore: <https://w3id.org/controverse/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -57,7 +58,7 @@ cover:Actor a owl:Class ;
 
 cover:Author a owl:Class ;
     rdfs:subClassOf cover:Actor ;
-    rdfs:comment "The creator of the text or composition that doesn't contain irony, but sincerity." .
+    rdfs:comment "The creator of the text or composition." .
 
 cover:Ironist a owl:Class ;
     rdfs:subClassOf cover:Author ;
@@ -76,34 +77,6 @@ cover:Performer a owl:Class ;
 cover:Target a owl:Class ;
     rdfs:comment "We understand the notion of target as the object of the ironic remark, be it (i) a person, (ii) a state of affairs, (iii) an institution, or (iv) another type of animate or inanimate entity. If the target of the irony is a person, he/she may be either present or absent. (Lozano Palacio, 2020, p. 159)" ;
     <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
-
-cover:Institution a owl:Class ;
-    rdfs:subClassOf cover:Target ;
-    rdfs:comment "The collective entity toward which irony is directed." .
-
-cover:Community a owl:Class ;
-    rdfs:subClassOf cover:Target ;
-    rdfs:comment "The social or cultural entity toward which irony is directed." .
-
-cover:Person a owl:Class ;
-    rdfs:subClassOf cover:Target ;
-    rdfs:comment "The individual toward which irony is directed." .
-
-cover:Self a owl:Class ;
-    rdfs:subClassOf cover:Person ;
-    rdfs:comment "The self as the subject or object of irony (self-irony)." .
-
-cover:Concept a owl:Class ;
-    rdfs:subClassOf cover:Target ;
-    rdfs:comment "The abstract idea or notion toward which irony is directed." .
-
-cover:Thing a owl:Class ;
-    rdfs:subClassOf cover:Target ;
-    rdfs:comment "The concrete object toward which irony is directed." .
-
-cover:StateOfAffair a owl:Class ;
-    rdfs:subClassOf cover:Target ;
-    rdfs:comment "The situation or condition toward which irony is directed." .
 
 cover:Event a owl:Class ;
     rdfs:comment "A situation or condition in which irony may or may not arise." .
@@ -214,6 +187,41 @@ cover:IronyOfDilemma a cover:SituationalIrony ;
     rdfs:comment "The victim of a dilemma or some other impossible situation may be a victim of an ironic situation in several different ways. He may, for example, be confidently unaware of being so situated. (Muecke, D.C., 2020, p. 113)" ;
     <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
 
+cover:Institution a cover:Target ;
+    rdfs:label "Institution" ;
+    rdfs:comment "The collective entity towards which a creative idea is directed." ;
+    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
+
+cover:Community a cover:Target ;
+    rdfs:label "Community" ;
+    rdfs:comment "The social or cultural entity towards which a creative idea is directed." ;
+    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
+
+cover:Person a cover:Target  ;
+    rdfs:label "Person" ;
+    rdfs:comment "The individual towards which a creative idea is directed." ;
+    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
+
+cover:Self a cover:Target  ;
+    rdfs:label "Self" ;
+    rdfs:comment "The self as the target of a creative idea." ;
+    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
+
+cover:Concept a cover:Target  ;
+    rdfs:label "Concept" ;
+    rdfs:comment "The abstract idea or notion towards which a creative idea is directed." ;
+    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
+
+cover:Thing a cover:Target ;
+    rdfs:label "Thing" ; ;
+    rdfs:comment "The concrete object towards which a creative idea is directed." ;
+    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
+
+cover:StateOfAffair a cover:Target ;
+    rdfs:label "State of Affairs" ;
+    rdfs:comment "The situation or condition towards which a creative idea is directed." ;
+    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
+
 #################################################################
 #    Object Properties
 #################################################################
@@ -240,21 +248,28 @@ cover:hasObservableScenario a owl:ObjectProperty ;
     rdfs:comment "Links an event (ironic or sincere) to an observable scenario" .
 
 cover:hasActor a owl:ObjectProperty ;
-    rdfs:domain cover:IronicEvent ;
+    rdfs:domain cover:CreativeEvent ;
     rdfs:range cover:Actor ;
     rdfs:label "has actor" ;
     rdfs:comment "Any person involved in a Creative Process." .
 
 cover:hasTarget a owl:ObjectProperty ;
-    rdfs:domain cover:IronicEvent ;
+    rdfs:domain cover:CreativeIdea ;
     rdfs:range cover:Target ;
     rdfs:label "has target" ;
     rdfs:comment "Indicates the target or object of irony." .
 
 #:hasEvent -> :createdDuring
 cover:createdDuring a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeIdea ; 
+    rdfs:domain cover:CreativeEvent ; 
     rdfs:range [a owl:Class ; owl:oneOf (cover:ListeningEvent cover:ReadingEvent)] ;
+    rdfs:label "created during" ;
+    rdfs:comment "Points a creative event to the larger event it is taking place in." .
+
+# adding property :createdFrom to link irony to ironic event
+cover:createdFrom a owl:ObjectProperty ;
+    rdfs:domain cover:CreativeIdea ; 
+    rdfs:range cover:CreativeEvent ;
     rdfs:label "created during" ;
     rdfs:comment "Points a creative event to the larger event it is taking place in." .
 
@@ -283,6 +298,13 @@ cover:hasInterpreter a owl:ObjectProperty ;
     rdfs:label "has interpreter" ;
     rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." .
 
+## adding hasIronist property for irony event
+cover:hasIronist a owl:ObjectProperty ;
+    rdfs:domain cover:CreativeEvent ;
+    rdfs:range cover:Author ;
+    rdfs:label "has interpreter" ;
+    rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." .
+
 cover:hasCreator a owl:ObjectProperty ; # creator as Object 
     rdfs:domain cover:CreativeWork ;
     rdfs:range [
@@ -297,6 +319,14 @@ cover:hasPerformer a owl:ObjectProperty ; # performer as Object
     rdfs:range cover:Performer ;
     rdfs:label "has performer" ;
     rdfs:comment "Links a creative work to the person or entity who performed it." .
+
+## adding property to connect instance to creative work
+cover:foundIn a owl:ObjectProperty ;
+    rdfs:domain cover:CreativeIdea ;
+    rdfs:range cover:LyricalWork ;
+    rdfs:label "found in" ;
+    rdfs:comment "Links a creative idea to the lyrical work it was found in" .
+
 
 #################################################################
 #    Data Properties
@@ -363,6 +393,13 @@ cover:hasName a owl:DatatypeProperty ;
     rdfs:label "has name" ;
     rdfs:comment "The name of the actor involved in a creative event." .
 
+## adding property to connect a creative idea to  a target desciption 
+cover:hasTargetDescription a owl:DatatypeProperty ;
+    rdfs:domain cover:CreativeIdea ;
+    rdsf:range xsd:string ;
+    rdsf:label "has target description" ;
+    rdfs:comment "Connects a description of a target to the creative idea directed towards it." .
+
 #################################################################
 #    Disjoint Classes
 #################################################################
@@ -375,3 +412,63 @@ cover:IronicEvent owl:disjointWith cover:SincereEvent .
 #################################################################
 #    Individuals
 #################################################################
+
+### Yeats - An irish airman forsees his death
+covercore:Inst1 a cover:Irony ;
+    cover:foundIn covercore:IrishAirman ;
+    cover:createdFrom covercore:IEvent1 ;
+    hasText: "Nor law, nor duty bade me fight,/Nor public men, nor cheering crowds,/A lonely impulse of delight/Drove to this tumult in the clouds;" ;
+    cover:hasTarget cover:StateOfAffair ;
+    cover:hasTargetDescription "The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs." ;
+    cover:hasIronyType cover:IronyOfEvents .
+
+covercore:IEvent1 a cover:IronicEvent ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario covercore:EpSce1 ;
+    cover:hasObservableScenario covercore:ObSce1 ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist cover:WBYeats .
+
+covercore:EpSce1 a cover:EpistemicScenario ;
+    cover:hasText "A fighter pilot flies for honour and duty to his country" .
+
+covercore:ObSce1 a cover:ObservableScenario ;
+    cover:hasText "The airman does not care about honour but flies just for the pleasure of being in the sky" .
+
+covercore:WBYeats a cover:Author ;
+    a cover:Ironist ;
+    rdfs:label "W.B. Yeats" ;
+    cover:hasName "W.B. Yeats" .
+
+covercore:IrishAirman a cover:Poem ;
+    rdfs:label "An Irish Airman forsees his Death" ;
+    cover:hasTitle "An Irish Airman forsees his Death" ;
+    cover:hasCreationDate "1919"^^xsd:gYear ;
+    cover:hasCreationLocation "Ireland" ;
+    cover:hasLanguage "English" ;
+    cover:hasPoeticForm "Elegy" ;
+    cover:hasCreator covercore:WBYeats .
+
+### Yeats - An irish airman forsees his death
+
+covercore:Inst2 a cover:Sincerity ;
+    cover:foundIn covercore:IrishAirman ;
+    cover:createdFrom covercore:SEvent2 ;
+    hasText: "The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death." ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "The meaning and purpose of life." .
+
+covercore:SEvent2 a cover:SincereEvent ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario covercore:EpSce2 ;
+    cover:hasObservableScenario covercore:ObSce2 ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasActor cover:WBYeats .
+
+covercore:EpSce1 a cover:EpistemicScenario ;
+    cover:hasText "In the face of death, everything about life can seem meaningless." .
+
+covercore:ObSce1 a cover:ObservableScenario ;
+    cover:hasText "In the face of death, everything about life can seem meaningless." .
+
+
