@@ -1,5 +1,5 @@
 @prefix : <https://w3id.org/controverse#> .
-@prefix cover: <https://w3id.org/controverse#> . ## why are there three different prefixes for <https://w3id.org/controverse#>
+@prefix cover: <https://w3id.org/controverse#> .
 @prefix covercore: <https://w3id.org/controverse/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,11 +8,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix creon: <http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#> .
 @base <https://w3id.org/controverse#> .
-
+## why are there three different prefixes for <https://w3id.org/controverse#>
 #################################################################
 #    Ontology: ControVerse (CoVer)
 #################################################################
-
 <https://w3id.org/controverse#> rdf:type owl:Ontology ;
     dc:creator "Fahmida Islam" ,
                "Ilaria De Dominicis" ,
@@ -213,7 +212,7 @@ cover:Concept a cover:Target  ;
     <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
 
 cover:Thing a cover:Target ;
-    rdfs:label "Thing" ; ;
+    rdfs:label "Thing" ;
     rdfs:comment "The concrete object towards which a creative idea is directed." ;
     <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
 
@@ -396,8 +395,8 @@ cover:hasName a owl:DatatypeProperty ;
 ## adding property to connect a creative idea to  a target desciption 
 cover:hasTargetDescription a owl:DatatypeProperty ;
     rdfs:domain cover:CreativeIdea ;
-    rdsf:range xsd:string ;
-    rdsf:label "has target description" ;
+    rdfs:range xsd:string ;
+    rdfs:label "has target description" ;
     rdfs:comment "Connects a description of a target to the creative idea directed towards it." .
 
 #################################################################
@@ -465,10 +464,10 @@ covercore:SEvent2 a cover:SincereEvent ;
     cover:hasInterpreter cover:Reader ;
     cover:hasActor cover:WBYeats .
 
-covercore:EpSce1 a cover:EpistemicScenario ;
+covercore:EpSce2 a cover:EpistemicScenario ;
     cover:hasText "In the face of death, everything about life can seem meaningless." .
 
-covercore:ObSce1 a cover:ObservableScenario ;
+covercore:ObSce2 a cover:ObservableScenario ;
     cover:hasText "In the face of death, everything about life can seem meaningless." .
 
 
