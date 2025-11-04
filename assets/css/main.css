@@ -1435,6 +1435,19 @@ section,
   column-gap: 15px;
 }
 
+/* Keep portfolio icon links always black */
+.icon-card a {
+  color: #000 !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Underline on hover instead of color change */
+.icon-card a:hover {
+  text-decoration: underline;
+  color: #000 !important; /* stays black */
+}
+
 /*--------------------------------------------------------------
 # Team Section
 --------------------------------------------------------------*/
