@@ -332,10 +332,10 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
-  color: var(--default-color);
+  color: #000000;
   background-color: var(--background-color);
   font-size: 14px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   position: relative;
 }
 
@@ -678,15 +678,20 @@ section,
 .hero .hero-content .content h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  padding-right: 20px;
   color: var(--heading-color);
 }
 
 @media (max-width: 768px) {
-  .hero .hero-content .content h1 {
-    font-size: 2.5rem;
+  .hero .hero-content .content .cta-group {
+    justify-content: center; /* centers horizontally */
+    flex-direction: column;  /* stacks buttons vertically if there’s more than one */
+    align-items: center;     /* centers them perfectly */
+    gap: 1.5rem;             /* keeps spacing consistent */
   }
 }
+
 
 .hero .hero-content .content p {
   font-size: 1.125rem;
@@ -877,19 +882,6 @@ section,
     padding: 40px 0 60px;
   }
 }
-
-/*put background img url if needed*/
-/*.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: url("") center/cover no-repeat;
-  opacity: 0.03;
-  z-index: 1;
-}*/
 
 /*--------------------------------------------------------------
 # About Section
