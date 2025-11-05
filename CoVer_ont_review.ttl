@@ -1,479 +1,681 @@
 @prefix : <https://w3id.org/controverse#> .
-@prefix cover: <https://w3id.org/controverse#> .
-@prefix covercore: <https://w3id.org/controverse/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cover: <https://w3id.org/controverse#> .
 @prefix creon: <http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#> .
+@prefix covercore: <https://w3id.org/controverse/> .
 @base <https://w3id.org/controverse#> .
-## why are there three different prefixes for <https://w3id.org/controverse#>
-#################################################################
-#    Ontology: ControVerse (CoVer)
-#################################################################
+
 <https://w3id.org/controverse#> rdf:type owl:Ontology ;
-    dc:creator "Fahmida Islam" ,
-               "Ilaria De Dominicis" ,
-               "Regina Manyara" ;
-    rdfs:comment "An ontology about irony in Lyrical works." ;
-    owl:versionInfo "November 2025" .
+                                 dc:creator "Fahmida Islam" ,
+                                            "Ilaria De Dominicis" ,
+                                            "Regina Manyara" ;
+                                 rdfs:comment "An ontology about irony in Lyrical works." ;
+                                 owl:versionInfo "November 2025" .
 
 #################################################################
-#    Annotation property
+#    Annotation properties
 #################################################################
 
-<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:AnnotationProperty . 
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
 
-#################################################################
-#    Classes
-#################################################################
 
-cover:CreativeIdea a owl:Class ;
-    owl:equivalentClass creon:CreativeIdea .
-
-cover:CreativeWork a owl:Class ;
-    owl:equivalentClass creon:CreativeProduct ;
-    rdfs:comment "It is something that is produced as a result of the creative process, by a specific Person" .
-    
-cover:LyricalWork a owl:Class ;
-    owl:equivalentClass creon:CreativeDomain ; 
-    rdfs:subClassOf cover:CreativeWork ;
-    rdfs:comment "A piece of writing, art, or music that is beautifully expressive and emotional, often with a poetic, song-like quality." .
-
-cover:Song a owl:Class ;
-    rdfs:subClassOf cover:LyricalWork ;
-    rdfs:comment "A short poem or other set of words set to music or meant to be sung." ; 
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Oxford Languages" .
-
-cover:Poem a owl:Class ;
-    rdfs:subClassOf cover:LyricalWork ;
-    rdfs:comment "A piece of writing in which the expression of feelings and ideas is given intensity by particular attention to diction (sometimes involving rhyme), rhythm, and imagery." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Oxford Languages" .
-
-cover:Actor a owl:Class ;
-    owl:equivalentClass creon:Agent ;
-    rdfs:comment "An entity performing an action in an creative context. Includes author, performer, ironist, or interpreter." .
-
-cover:Author a owl:Class ;
-    rdfs:subClassOf cover:Actor ;
-    rdfs:comment "The creator of the text or composition." .
-
-cover:Ironist a owl:Class ;
-    rdfs:subClassOf cover:Author ;
-    rdfs:comment "The creator of the text or composition that contains irony." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
-
-cover:Interpreter a owl:Class ;
-    rdfs:subClassOf cover:Actor ;
-    rdfs:comment "The one who perceives or decodes irony and makes the Ironic Event possible. It can be a listener or a reader." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
-
-cover:Performer a owl:Class ;
-    rdfs:subClassOf cover:Actor ;
-    rdfs:comment "The person who performs or stages the Creative work work." .
-
-cover:Target a owl:Class ;
-    rdfs:comment "We understand the notion of target as the object of the ironic remark, be it (i) a person, (ii) a state of affairs, (iii) an institution, or (iv) another type of animate or inanimate entity. If the target of the irony is a person, he/she may be either present or absent. (Lozano Palacio, 2020, p. 159)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
-
-cover:Event a owl:Class ;
-    rdfs:comment "A situation or condition in which irony may or may not arise." .
-
-## adding :CreativeEvent
-cover:CreativeEvent a owl:Class ;
-    rdfs:subClassOf cover:Event ;
-    rdfs:comment "An event in which a creative idea is created" .
-
-cover:IronicEvent a owl:Class ;
-    rdfs:subClassOf cover:CreativeEvent ;
-    owl:equivalentClass creon:CreativeSituation ;
-    rdfs:comment "The situation where the concept of irony arises: there is a clash between the Epistemic and the Observable Scenarios." .
-
-cover:SincereEvent a owl:Class ;
-    rdfs:subClassOf cover:CreativeEvent ;
-    rdfs:comment "The situation where the concept of irony does not arise: there is no clash between the Epistemic and the Observable Scenarios." .
-
-cover:EpistemicScenario a owl:Class ;
-    rdfs:comment "We define the epistemic scenario as the conceptual correlate of a state of affairs that someone regards as highly likely or certain to occur. (Lozano Palacio, 2020, p. 101)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
-
-cover:ObservableScenario a owl:Class ;
-    rdfs:comment "The observable scenario, both in verbal and situational irony, can be what the ironist and the interpreter perceive, which contradicts their expectations or firm beliefs about a given state of affairs. (Lozano Palacio, 2020, p. 124)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
-
-cover:Irony a owl:Class ;
-    rdfs:subClassOf cover:CreativeIdea ;
-    rdfs:comment "The abstract concept of irony." .
-
-cover:Sincerity a owl:Class ;
-    rdfs:subClassOf cover:CreativeIdea ;
-    rdfs:comment "The concept opposite to irony; there is no clash between scenarios." .
-
-cover:VerbalIrony a owl:Class ; 
-    rdfs:subClassOf cover:Irony ;
-    rdfs:comment "Verbal Irony implies an ironist, someone consciously and intentionally employing a technique. (Muecke, D.C., 2020, p. 42)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:SituationalIrony a owl:Class ;
-    rdfs:subClassOf cover:Irony ;
-    rdfs:comment "Situational Irony does not imply an ironist but merely 'a condition of affairs' or 'outcome of events' which, we add, is seen and felt to be ironic. (Muecke, D.C., 2020, p. 42)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+###  http://www.w3.org/ns/prov#wasAttributedTo
+<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
-#    Class Instances
+#    Datatypes
 #################################################################
 
-cover:Reader a cover:Interpreter ;
-    rdfs:label "Reader" ;
-    rdfs:comment "The one who is able to decode irony while reading to the Creative Work. " .
+###  http://www.w3.org/2001/XMLSchema#gYear
+xsd:gYear rdf:type rdfs:Datatype .
 
-cover:Listener a cover:Interpreter ;
-    rdfs:label "Listener" ;
-    rdfs:comment "The one who is able to decode irony while listening to the Creative Work." .
-
-cover:ListeningEvent a cover:Event ;
-    rdfs:label "Listening Event" ;
-    rdfs:comment "An event of oral reception (e.g., listening to an ironic song)." .
-
-cover:ReadingEvent a cover:Event ;
-    rdfs:label "Reading Event" ;
-    rdfs:comment "An event of textual reception (e.g., reading an ironic poem)." .
-
-cover:ImpersonalIrony a cover:VerbalIrony ;
-    rdfs:label "Reading Event" ;
-    rdfs:comment "The irony resides more in what he (the ironist) says than in the fact that it is a man of a particular character saying it.(Muecke, D.C., 2020, p. 61)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:SelfDisparagingIrony a cover:VerbalIrony ;
-    rdfs:label "Self Disparaging Irony" ;
-    rdfs:comment "The ironist is present not simply as an impersonal voice but, in disguise, as a person with certain characteristics. And the sort of person the ironist presents himself as being is our guide to his real opinion. He understates or overstates himself, assuming such qualities as ignorance, deference, complaisance, co-operativeness, naivety, over-enthusiasm, eagerness to learn, and inability to understand. But his disguise is meant to be penetrated, and our judgement is directed not against the ignorance or naivety of the speaker but against the object of the irony.(Muecke, D.C., 2020, p. 87)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:IngenuIrony a cover:VerbalIrony ;
-    rdfs:label "Ingenu Irony" ;
-    rdfs:comment "Ingénu Irony is almost archetypically represented by Hans Andersen's fable, The Emperor's New Clothes. The effectiveness of this kind of irony conies from its economy of means: mere common sense or even simple innocence or ignorance may suffice to see through the woven complexities of hypocrisy and rationalization or pierce the protective tissues of convention and idées revues. The ironist does not need to put forth all his powers. (Muecke, D.C., 2020, p. 91)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:DramatizedIrony a cover:VerbalIrony ;
-    rdfs:label "Dramatized Irony" ;
-    rdfs:comment "The function of the ironist in Dramatized Irony is simply to present ironic situations or events to our sense of irony. (Ironic situations and events themselves I shall discuss and attempt to classify in the next chapter.) In this ironic mode the ironist does not appear either as an impersonal voice or in any disguise. He simply arranges that the characters of his play or novel, story, verse narrative, or dramatic monologue expose themselves in their ironic predicament directly to the audience or reader. He himself is the puppet-master and as such out of sight. This is the only way in which dramatists can be ironical (short of bringing themselves more or less identifiably on stage). This is the way in which such novelists as Flaubert and Joyce are ironical. Novelists, such as Thackeray, who comment on their characters. (Muecke, D.C., 2020, pp. 92-93)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:IronyOfSimpleIncongruency a cover:SituationalIrony ;
-    rdfs:label "Irony of Simple Incongruency" ;
-    rdfs:comment "Since there is incongruity in all ironic situations, the kind of ironic situation that, for want of any other distinguishing characteristic, appears under this unsatisfactory heading must be regarded as, formally speaking, a sort of minimal irony. It is irony in its barest and simplest terms uncomplicated by the presentation of action or character or the victim's imperception (though, of course, there is an imperception to be inferred). (Muecke, D.C., 2020, p. 100)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:IronyOfEvents a cover:SituationalIrony ;
-    rdfs:label "Irony of Events" ;
-    rdfs:comment "Here the ironic incongruity is between the expectation and the event. We say it is ironic when, after we have more or less explicitly or confidently expressed reliance in the way things go, some subsequent unforeseen turn of events reverses and frustrates our expectations or designs. It is ironic when we meet what we set out to avoid, especially when the means we take to avoid something turn out to be the very means of bringing about what we sought to avoid. It is ironic when we get at last what we no longer desire. (Muecke, D.C., 2020, p. 102)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:IronyOfDrama a cover:SituationalIrony ;
-    rdfs:label "Irony of Drama" ;
-    rdfs:comment "Generally speaking the irony is more striking when an observer already knows what the victim has yet to find out. To the examiner who has already failed the student whom he hears expressing a confident expectation of passing, the situation is already ironic; to others there is no irony until the results come out. (Muecke, D.C., 2020, p. 104)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:IronyOfSelfBetrayal a cover:SituationalIrony ;
-    rdfs:label "Irony of Self Betrayal" ;
-    rdfs:comment "It is exemplified whenever someone, by what he says or does (not by what happens to him), exposes unawares his own ignorance, weaknesses, errors, or follies [...] The dramatist or novelist who is interested in people will be aware that, in spite of much unexceptionable advice, mankind's progress in self-knowledge has been indifferent; he hath ever but slenderly known himself, and consequently can scarcely open his mouth without betraying himself. (Muecke, D.C., 2020, p. 107)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:IronyOfDilemma a cover:SituationalIrony ;
-    rdfs:label "Irony of Dilemma" ;
-    rdfs:comment "The victim of a dilemma or some other impossible situation may be a victim of an ironic situation in several different ways. He may, for example, be confidently unaware of being so situated. (Muecke, D.C., 2020, p. 113)" ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
-
-cover:Institution a cover:Target ;
-    rdfs:label "Institution" ;
-    rdfs:comment "The collective entity towards which a creative idea is directed." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
-
-cover:Community a cover:Target ;
-    rdfs:label "Community" ;
-    rdfs:comment "The social or cultural entity towards which a creative idea is directed." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
-
-cover:Person a cover:Target  ;
-    rdfs:label "Person" ;
-    rdfs:comment "The individual towards which a creative idea is directed." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
-
-cover:Self a cover:Target  ;
-    rdfs:label "Self" ;
-    rdfs:comment "The self as the target of a creative idea." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
-
-cover:Concept a cover:Target  ;
-    rdfs:label "Concept" ;
-    rdfs:comment "The abstract idea or notion towards which a creative idea is directed." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
-
-cover:Thing a cover:Target ;
-    rdfs:label "Thing" ;
-    rdfs:comment "The concrete object towards which a creative idea is directed." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
-
-cover:StateOfAffair a cover:Target ;
-    rdfs:label "State of Affairs" ;
-    rdfs:comment "The situation or condition towards which a creative idea is directed." ;
-    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." . 
 
 #################################################################
 #    Object Properties
 #################################################################
 
-#:hasScenario -> :hasEpistemicScenario and :hasObservableScenario
-cover:hasScenario a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeWork ;
-    rdfs:range [ a owl:Class ; owl:unionOf (cover:EpistemicScenario cover:ObservableScenario) ] ;
-    rdfs:label "has scenario" ;
-    rdfs:comment "Links a work or event to the scenario in which irony may occur." .
+###  https://w3id.org/controverse#createdDuring
+cover:createdDuring rdf:type owl:ObjectProperty ;
+                    rdfs:domain cover:CreativeEvent ;
+                    rdfs:range [ rdf:type owl:Class ;
+                                 owl:oneOf ( cover:ListeningEvent
+                                             cover:ReadingEvent
+                                           )
+                               ] ;
+                    rdfs:comment "Points a creative event to the larger event it is taking place in." ;
+                    rdfs:label "created during" .
 
-cover:hasEpistemicScenario a owl:ObjectProperty ;
-    rdfs:subClassOf cover:hasScenario ;
-    rdfs:domain [a owl:Class ; owl:unionOf (cover:IronicEvent cover:SincereEvent)] ;
-    rdfs:range cover:EpistemicScenario ;
-    rdfs:label "has epistemic scenario" ;
-    rdfs:comment "Links an event (ironic or sincere) to an epistemic scenario" .
 
-cover:hasObservableScenario a owl:ObjectProperty ;
-    rdfs:subClassOf cover:hasScenario ;
-    rdfs:domain [a owl:Class ; owl:unionOf (cover:IronicEvent cover:SincereEvent)] ;
-    rdfs:range cover:ObservableScenario ;
-    rdfs:label "has observable scenario" ;
-    rdfs:comment "Links an event (ironic or sincere) to an observable scenario" .
+###  https://w3id.org/controverse#createdFrom
+cover:createdFrom rdf:type owl:ObjectProperty ;
+                  owl:inverseOf cover:createsIdea ;
+                  rdfs:domain cover:CreativeIdea ;
+                  rdfs:range cover:CreativeEvent ;
+                  rdfs:comment "Points a creative event to the larger event it is taking place in." ;
+                  rdfs:label "created during" .
 
-cover:hasActor a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeEvent ;
-    rdfs:range cover:Actor ;
-    rdfs:label "has actor" ;
-    rdfs:comment "Any person involved in a Creative Process." .
 
-cover:hasTarget a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeIdea ;
-    rdfs:range cover:Target ;
-    rdfs:label "has target" ;
-    rdfs:comment "Indicates the target or object of irony." .
+###  https://w3id.org/controverse#createsIdea
+cover:createsIdea rdf:type owl:ObjectProperty ;
+                  rdfs:domain cover:CreativeEvent ;
+                  rdfs:range cover:CreativeIdea ;
+                  rdfs:label "creates idea" .
 
-#:hasEvent -> :createdDuring
-cover:createdDuring a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeEvent ; 
-    rdfs:range [a owl:Class ; owl:oneOf (cover:ListeningEvent cover:ReadingEvent)] ;
-    rdfs:label "created during" ;
-    rdfs:comment "Points a creative event to the larger event it is taking place in." .
 
-# adding property :createdFrom to link irony to ironic event
-cover:createdFrom a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeIdea ; 
-    rdfs:range cover:CreativeEvent ;
-    rdfs:label "created during" ;
-    rdfs:comment "Points a creative event to the larger event it is taking place in." .
+###  https://w3id.org/controverse#createsWork
+cover:createsWork rdf:type owl:ObjectProperty ;
+                  owl:inverseOf cover:hasCreator ;
+                  rdfs:domain cover:Author ;
+                  rdfs:range cover:CreativeWork ;
+                  rdfs:comment "connects a creator to their work" ;
+                  rdfs:label "creates work" .
 
-# skipped :hasLyricalType because it is implied when creating the instance
 
-#merge :hasIronyType with hasIronySubtype
-cover:hasIronyType a owl:ObjectProperty ;
-    rdfs:domain cover:Irony ;
-    rdfs:range [a owl:Class ; owl:oneOf ( cover:DramatizedIrony
-        cover:ImpersonalIrony
-        cover:SelfDisparagingIrony
-        cover:IngenuIrony
-        cover:IronyOfDrama
-        cover:IronyOfSimpleIncongruency
-        cover:IronyOfEvents
-        cover:IronyOfSelfBetrayal
-        cover:IronyOfDilemma )] ;
-    rdfs:label "has irony type" ;
-    rdfs:comment "Specifies the verbal or situational type of irony" .
+###  https://w3id.org/controverse#foundIn
+cover:foundIn rdf:type owl:ObjectProperty ;
+              owl:inverseOf cover:hasIdea ;
+              rdfs:domain cover:CreativeIdea ;
+              rdfs:range cover:LyricalWork ;
+              rdfs:comment "Links a creative idea to the lyrical work it was found in" ;
+              rdfs:label "found in" .
 
-# skipped :hasInstance because it is implied when creating the instance
 
-cover:hasInterpreter a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeEvent ;
-    rdfs:range [a owl:Class ; owl:oneOf (cover:Reader cover:Listener)] ;
-    rdfs:label "has interpreter" ;
-    rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." .
+###  https://w3id.org/controverse#hasActor
+cover:hasActor rdf:type owl:ObjectProperty ;
+               owl:inverseOf cover:takesPartIn ;
+               rdfs:domain cover:CreativeEvent ;
+               rdfs:range cover:Actor ;
+               rdfs:comment "Any person involved in a Creative Process." ;
+               rdfs:label "has actor" .
 
-## adding hasIronist property for irony event
-cover:hasIronist a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeEvent ;
-    rdfs:range cover:Author ;
-    rdfs:label "has interpreter" ;
-    rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." .
 
-cover:hasCreator a owl:ObjectProperty ; # creator as Object 
-    rdfs:domain cover:CreativeWork ;
-    rdfs:range [
-        a owl:Class ;
-        owl:unionOf ( cover:Author cover:Ironist )
-    ] ;
-    rdfs:label "has creator" ;
-    rdfs:comment "Links a creative work to its creator (Author or Ironist)." .
+###  https://w3id.org/controverse#hasCreator
+cover:hasCreator rdf:type owl:ObjectProperty ;
+                 rdfs:domain cover:CreativeWork ;
+                 rdfs:range [ rdf:type owl:Class ;
+                              owl:unionOf ( cover:Author
+                                            cover:Ironist
+                                          )
+                            ] ;
+                 rdfs:comment "Links a creative work to its creator (Author or Ironist)." ;
+                 rdfs:label "has creator" .
 
-cover:hasPerformer a owl:ObjectProperty ; # performer as Object
-    rdfs:domain cover:CreativeWork ;
-    rdfs:range cover:Performer ;
-    rdfs:label "has performer" ;
-    rdfs:comment "Links a creative work to the person or entity who performed it." .
 
-## adding property to connect instance to creative work
-cover:foundIn a owl:ObjectProperty ;
-    rdfs:domain cover:CreativeIdea ;
-    rdfs:range cover:LyricalWork ;
-    rdfs:label "found in" ;
-    rdfs:comment "Links a creative idea to the lyrical work it was found in" .
+###  https://w3id.org/controverse#hasIdea
+cover:hasIdea rdf:type owl:ObjectProperty ;
+              rdfs:domain cover:CreativeWork ;
+              rdfs:range cover:CreativeIdea ;
+              rdfs:comment "connects a work to a particular creative idea" ;
+              rdfs:label "has creative idea" .
+
+
+###  https://w3id.org/controverse#hasInterpreter
+cover:hasInterpreter rdf:type owl:ObjectProperty ;
+                     rdfs:domain cover:CreativeEvent ;
+                     rdfs:range [ rdf:type owl:Class ;
+                                  owl:oneOf ( cover:Listener
+                                              cover:Reader
+                                            )
+                                ] ;
+                     rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." ;
+                     rdfs:label "has interpreter" .
+
+
+###  https://w3id.org/controverse#hasIronist
+cover:hasIronist rdf:type owl:ObjectProperty ;
+                 owl:inverseOf cover:isIronistOf ;
+                 rdfs:domain cover:IronicEvent ;
+                 rdfs:range cover:Author ;
+                 rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." ;
+                 rdfs:label "has interpreter" .
+
+
+###  https://w3id.org/controverse#hasIronyType
+cover:hasIronyType rdf:type owl:ObjectProperty ;
+                   rdfs:domain cover:Irony ;
+                   rdfs:range [ rdf:type owl:Class ;
+                                owl:oneOf ( cover:DramatizedIrony
+                                            cover:ImpersonalIrony
+                                            cover:IngenuIrony
+                                            cover:IronyOfDilemma
+                                            cover:IronyOfDrama
+                                            cover:IronyOfEvents
+                                            cover:IronyOfSelfBetrayal
+                                            cover:IronyOfSimpleIncongruency
+                                            cover:SelfDisparagingIrony
+                                          )
+                              ] ;
+                   rdfs:comment "Specifies the verbal or situational type of irony" ;
+                   rdfs:label "has irony type" .
+
+
+###  https://w3id.org/controverse#hasPerformer
+cover:hasPerformer rdf:type owl:ObjectProperty ;
+                   rdfs:domain cover:CreativeWork ;
+                   rdfs:range cover:Performer ;
+                   rdfs:comment "Links a creative work to the person or entity who performed it." ;
+                   rdfs:label "has performer" .
+
+
+###  https://w3id.org/controverse#hasTarget
+cover:hasTarget rdf:type owl:ObjectProperty ;
+                rdfs:domain cover:CreativeIdea ;
+                rdfs:range cover:Target ;
+                rdfs:comment "Indicates the target or object of irony." ;
+                rdfs:label "has target" .
+
+
+###  https://w3id.org/controverse#isIronistOf
+cover:isIronistOf rdf:type owl:ObjectProperty ;
+                  rdfs:domain cover:Author ;
+                  rdfs:range cover:IronicEvent ;
+                  rdfs:comment "connects an actor to an instance of irony they have created" ;
+                  rdfs:label "is ironist of" .
+
+
+###  https://w3id.org/controverse#takesPartIn
+cover:takesPartIn rdf:type owl:ObjectProperty ;
+                  rdfs:domain cover:Actor ;
+                  rdfs:range cover:CreativeEvent ;
+                  rdfs:comment "connects an actor to the event they are a part of" ;
+                  rdfs:label "takes part in" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/controverse#hasCreationDate
+cover:hasCreationDate rdf:type owl:DatatypeProperty ;
+                      rdfs:domain cover:CreativeWork ;
+                      rdfs:range [ rdf:type rdfs:Datatype ;
+                                   owl:unionOf ( xsd:gYear
+                                                 xsd:string
+                                               )
+                                 ] ;
+                      rdfs:comment "Date when the work was created. Can be expressed as a year or a string." ;
+                      rdfs:label "has creation date" .
+
+
+###  https://w3id.org/controverse#hasCreationLocation
+cover:hasCreationLocation rdf:type owl:DatatypeProperty ;
+                          rdfs:domain cover:CreativeWork ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "Location where the work was created." ;
+                          rdfs:label "has creation location" .
+
+
+###  https://w3id.org/controverse#hasDescription
+cover:hasDescription rdf:type owl:DatatypeProperty ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Any general description." ;
+                     rdfs:label "has description" .
+
+
+###  https://w3id.org/controverse#hasEpistemicScenario
+cover:hasEpistemicScenario rdf:type owl:DatatypeProperty ;
+                           rdfs:domain [ rdf:type owl:Class ;
+                                         owl:unionOf ( cover:IronicEvent
+                                                       cover:SincereEvent
+                                                     )
+                                       ] ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "Links an event (ironic or sincere) to an epistemic scenario" ;
+                           rdfs:label "has epistemic scenario" ;
+                           <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#hasEventLocation
+cover:hasEventLocation rdf:type owl:DatatypeProperty ;
+                       rdfs:domain cover:Event ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Location where the event took place." ;
+                       rdfs:label "has event location" .
+
+
+###  https://w3id.org/controverse#hasGenre
+cover:hasGenre rdf:type owl:DatatypeProperty ;
+               rdfs:domain cover:LyricalWork ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Indicates the musical or literary genre." ;
+               rdfs:label "has genre" .
+
+
+###  https://w3id.org/controverse#hasLanguage
+cover:hasLanguage rdf:type owl:DatatypeProperty ;
+                  rdfs:domain cover:CreativeWork ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Language of the work or the instance." ;
+                  rdfs:label "has language" .
+
+
+###  https://w3id.org/controverse#hasName
+cover:hasName rdf:type owl:DatatypeProperty ;
+              rdfs:domain cover:Actor ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The name of the actor involved in a creative event." ;
+              rdfs:label "has name" .
+
+
+###  https://w3id.org/controverse#hasObservableScenario
+cover:hasObservableScenario rdf:type owl:DatatypeProperty ;
+                            rdfs:domain [ rdf:type owl:Class ;
+                                          owl:unionOf ( cover:IronicEvent
+                                                        cover:SincereEvent
+                                                      )
+                                        ] ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "Links an event (ironic or sincere) to an observable scenario" ;
+                            rdfs:label "has observable scenario" ;
+                            <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#hasPoeticForm
+cover:hasPoeticForm rdf:type owl:DatatypeProperty ;
+                    rdfs:domain cover:LyricalWork ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Specifies the poetic form (e.g., sonnet, ballad, cantata)." ;
+                    rdfs:label "has poetic form" .
+
+
+###  https://w3id.org/controverse#hasTargetDescription
+cover:hasTargetDescription rdf:type owl:DatatypeProperty ;
+                           rdfs:domain cover:CreativeIdea ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "Connects a description of a target to the creative idea directed towards it." ;
+                           rdfs:label "has target description" .
+
+
+###  https://w3id.org/controverse#hasText
+cover:hasText rdf:type owl:DatatypeProperty ;
+              rdfs:domain cover:CreativeIdea ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The text which makes up a creative idea." ;
+              rdfs:label "has text" .
+
+
+###  https://w3id.org/controverse#hasTitle
+cover:hasTitle rdf:type owl:DatatypeProperty ;
+               rdfs:domain cover:CreativeWork ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Title of the work." ;
+               rdfs:label "has title" .
 
 
 #################################################################
-#    Data Properties
+#    Classes
 #################################################################
 
-cover:hasCreationDate a owl:DatatypeProperty ;
-    rdfs:domain cover:CreativeWork ;
-    rdfs:range [
-        a rdfs:Datatype ;
-        owl:unionOf ( xsd:gYear xsd:string )
-    ] ;
-    rdfs:label "has creation date" ;
-    rdfs:comment "Date when the work was created. Can be expressed as a year or a string." .
+###  http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#Agent
+creon:Agent rdf:type owl:Class ;
+            owl:equivalentClass cover:Actor .
 
-cover:hasTitle a owl:DatatypeProperty ;
-    rdfs:domain cover:CreativeWork ;
-    rdfs:range xsd:string ;
-    rdfs:label "has title" ;
-    rdfs:comment "Title of the work." .
 
-cover:hasEventLocation a owl:DatatypeProperty ;
-    rdfs:domain cover:Event ;
-    rdfs:range xsd:string ;
-    rdfs:label "has event location" ;
-    rdfs:comment "Location where the event took place." .
+###  http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#CreativeDomain
+creon:CreativeDomain rdf:type owl:Class ;
+                     owl:equivalentClass cover:LyricalWork .
 
-cover:hasCreationLocation a owl:DatatypeProperty ;
-    rdfs:domain cover:CreativeWork ;
-    rdfs:range xsd:string ;
-    rdfs:label "has creation location" ;
-    rdfs:comment "Location where the work was created." .
 
-cover:hasDescription a owl:DatatypeProperty ;
-    rdfs:range xsd:string ;
-    rdfs:label "has description" ;
-    rdfs:comment "Any general description." .
+###  http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#CreativeIdea
+creon:CreativeIdea rdf:type owl:Class ;
+                   owl:equivalentClass cover:CreativeIdea .
 
-## skipped :hasEpistemicDescription and :hasObservableDescription because we already have :hasDescription
 
-cover:hasLanguage a owl:DatatypeProperty ;
-    rdfs:domain cover:CreativeWork ;
-    rdfs:range xsd:string ;
-    rdfs:label "has language" ;
-    rdfs:comment "Language of the work or the instance." .
+###  http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#CreativeProduct
+creon:CreativeProduct rdf:type owl:Class ;
+                      owl:equivalentClass cover:CreativeWork .
 
-## changing domain for :hasPoeticForm :hasGenre
 
-cover:hasPoeticForm a owl:DatatypeProperty ;
-    rdfs:domain cover:LyricalWork ;
-    rdfs:range xsd:string ;
-    rdfs:label "has poetic form" ;
-    rdfs:comment "Specifies the poetic form (e.g., sonnet, ballad, cantata)." .
+###  http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#CreativeSituation
+creon:CreativeSituation rdf:type owl:Class ;
+                        owl:equivalentClass cover:IronicEvent .
 
-cover:hasGenre a owl:DatatypeProperty ;
-    rdfs:domain cover:LyricalWork ;
-    rdfs:range xsd:string ;
-    rdfs:label "has genre" ;
-    rdfs:comment "Indicates the musical or literary genre." .
 
-## merging :hasCreatorName and :hasPerformerName -> :hasName
-cover:hasName a owl:DatatypeProperty ;
-    rdfs:domain cover:Actor ;
-    rdfs:range xsd:string ;
-    rdfs:label "has name" ;
-    rdfs:comment "The name of the actor involved in a creative event." .
+###  https://w3id.org/controverse#Actor
+cover:Actor rdf:type owl:Class ;
+            rdfs:comment "An entity performing an action in an creative context. Includes author, performer, ironist, or interpreter." .
 
-## adding property to connect a creative idea to  a target desciption 
-cover:hasTargetDescription a owl:DatatypeProperty ;
-    rdfs:domain cover:CreativeIdea ;
-    rdfs:range xsd:string ;
-    rdfs:label "has target description" ;
-    rdfs:comment "Connects a description of a target to the creative idea directed towards it." .
 
-cover:hasText a owl:DatatypeProperty ;
-    rdfs:domain cover:CreativeIdea ;
-    rdfs:range xsd:string ;
-    rdfs:label "has text" ;
-    rdfs:comment "The text which makes up a creative idea." .
+###  https://w3id.org/controverse#Author
+cover:Author rdf:type owl:Class ;
+             rdfs:subClassOf cover:Actor ;
+             owl:disjointWith cover:Interpreter ;
+             rdfs:comment "The creator of the text or composition." .
 
-#################################################################
-#    Disjoint Classes
-#################################################################
 
-cover:Interpreter owl:disjointWith cover:Author . # int. is never the author of the work...
-cover:Interpreter owl:disjointWith cover:Ironist . #... or the ironist
-cover:Irony owl:disjointWith cover:Sincerity . 
-cover:IronicEvent owl:disjointWith cover:SincereEvent .
+###  https://w3id.org/controverse#CreativeEvent
+cover:CreativeEvent rdf:type owl:Class ;
+                    rdfs:subClassOf cover:Event ;
+                    rdfs:comment "An event in which a creative idea is created" .
+
+
+###  https://w3id.org/controverse#CreativeIdea
+cover:CreativeIdea rdf:type owl:Class .
+
+
+###  https://w3id.org/controverse#CreativeWork
+cover:CreativeWork rdf:type owl:Class ;
+                   rdfs:comment "It is something that is produced as a result of the creative process, by a specific Person" .
+
+
+###  https://w3id.org/controverse#Event
+cover:Event rdf:type owl:Class ;
+            rdfs:comment "A situation or condition in which irony may or may not arise." .
+
+
+###  https://w3id.org/controverse#Interpreter
+cover:Interpreter rdf:type owl:Class ;
+                  rdfs:subClassOf cover:Actor ;
+                  owl:disjointWith cover:Ironist ;
+                  rdfs:comment "The one who perceives or decodes irony and makes the Ironic Event possible. It can be a listener or a reader." ;
+                  <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#IronicEvent
+cover:IronicEvent rdf:type owl:Class ;
+                  rdfs:subClassOf cover:CreativeEvent ;
+                  owl:disjointWith cover:SincereEvent ;
+                  rdfs:comment "The situation where the concept of irony arises: there is a clash between the Epistemic and the Observable Scenarios." .
+
+
+###  https://w3id.org/controverse#Ironist
+cover:Ironist rdf:type owl:Class ;
+              rdfs:subClassOf cover:Author ;
+              rdfs:comment "The creator of the text or composition that contains irony." ;
+              <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#Irony
+cover:Irony rdf:type owl:Class ;
+            rdfs:subClassOf cover:CreativeIdea ;
+            owl:disjointWith cover:Sincerity ;
+            rdfs:comment "The abstract concept of irony." .
+
+
+###  https://w3id.org/controverse#LyricalWork
+cover:LyricalWork rdf:type owl:Class ;
+                  rdfs:subClassOf cover:CreativeWork ;
+                  rdfs:comment "A piece of writing, art, or music that is beautifully expressive and emotional, often with a poetic, song-like quality." .
+
+
+###  https://w3id.org/controverse#Performer
+cover:Performer rdf:type owl:Class ;
+                rdfs:subClassOf cover:Actor ;
+                rdfs:comment "The person who performs or stages the Creative work work." .
+
+
+###  https://w3id.org/controverse#Poem
+cover:Poem rdf:type owl:Class ;
+           rdfs:subClassOf cover:LyricalWork ;
+           rdfs:comment "A piece of writing in which the expression of feelings and ideas is given intensity by particular attention to diction (sometimes involving rhyme), rhythm, and imagery." ;
+           <http://www.w3.org/ns/prov#wasAttributedTo> "Oxford Languages" .
+
+
+###  https://w3id.org/controverse#SincereEvent
+cover:SincereEvent rdf:type owl:Class ;
+                   rdfs:subClassOf cover:CreativeEvent ;
+                   rdfs:comment "The situation where the concept of irony does not arise: there is no clash between the Epistemic and the Observable Scenarios." .
+
+
+###  https://w3id.org/controverse#Sincerity
+cover:Sincerity rdf:type owl:Class ;
+                rdfs:subClassOf cover:CreativeIdea ;
+                rdfs:comment "The concept opposite to irony; there is no clash between scenarios." .
+
+
+###  https://w3id.org/controverse#SituationalIrony
+cover:SituationalIrony rdf:type owl:Class ;
+                       rdfs:subClassOf cover:Irony ;
+                       rdfs:comment "Situational Irony does not imply an ironist but merely 'a condition of affairs' or 'outcome of events' which, we add, is seen and felt to be ironic. (Muecke, D.C., 2020, p. 42)" ;
+                       <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#Song
+cover:Song rdf:type owl:Class ;
+           rdfs:subClassOf cover:LyricalWork ;
+           rdfs:comment "A short poem or other set of words set to music or meant to be sung." ;
+           <http://www.w3.org/ns/prov#wasAttributedTo> "Oxford Languages" .
+
+
+###  https://w3id.org/controverse#Target
+cover:Target rdf:type owl:Class ;
+             rdfs:comment "We understand the notion of target as the object of the ironic remark, be it (i) a person, (ii) a state of affairs, (iii) an institution, or (iv) another type of animate or inanimate entity. If the target of the irony is a person, he/she may be either present or absent. (Lozano Palacio, 2020, p. 159)" ;
+             <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#VerbalIrony
+cover:VerbalIrony rdf:type owl:Class ;
+                  rdfs:subClassOf cover:Irony ;
+                  rdfs:comment "Verbal Irony implies an ironist, someone consciously and intentionally employing a technique. (Muecke, D.C., 2020, p. 42)" ;
+                  <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
 
 #################################################################
 #    Individuals
 #################################################################
 
-### Yeats - An irish airman forsees his death
-covercore:Inst1 a cover:Irony ;
-    cover:foundIn covercore:IrishAirman ;
-    cover:createdFrom covercore:IEvent1 ;
-    cover:hasText "Nor law, nor duty bade me fight,/Nor public men, nor cheering crowds,/A lonely impulse of delight/Drove to this tumult in the clouds;" ;
-    cover:hasTarget cover:StateOfAffair ;
-    cover:hasTargetDescription "The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs." ;
-    cover:hasIronyType cover:IronyOfEvents .
-
-covercore:IEvent1 a cover:IronicEvent ;
-    cover:createdDuring cover:ReadingEvent ;
-    cover:hasEpistemicScenario covercore:EpSce1 ;
-    cover:hasObservableScenario covercore:ObSce1 ;
-    cover:hasInterpreter cover:Reader ;
-    cover:hasIronist covercore:WBYeats .
-
-covercore:EpSce1 a cover:EpistemicScenario ;
-    cover:hasText "A fighter pilot flies for honour and duty to his country" .
-
-covercore:ObSce1 a cover:ObservableScenario ;
-    cover:hasText "The airman does not care about honour but flies just for the pleasure of being in the sky" .
-
-covercore:WBYeats a cover:Author ;
-    a cover:Ironist ;
-    rdfs:label "W.B. Yeats" ;
-    cover:hasName "W.B. Yeats" .
-
-covercore:IrishAirman a cover:Poem ;
-    rdfs:label "An Irish Airman forsees his Death" ;
-    cover:hasTitle "An Irish Airman forsees his Death" ;
-    cover:hasCreationDate "1919"^^xsd:gYear ;
-    cover:hasCreationLocation "Ireland" ;
-    cover:hasLanguage "English" ;
-    cover:hasPoeticForm "Elegy" ;
-    cover:hasCreator covercore:WBYeats .
-
-### Yeats - An irish airman forsees his death
-
-covercore:Inst2 a cover:Sincerity ;
-    cover:foundIn covercore:IrishAirman ;
-    cover:createdFrom covercore:SEvent2 ;
-    cover:hasText "The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death." ;
-    cover:hasTarget cover:Concept ;
-    cover:hasTargetDescription "The meaning and purpose of life." .
-
-covercore:SEvent2 a cover:SincereEvent ;
-    cover:createdDuring cover:ReadingEvent ;
-    cover:hasEpistemicScenario covercore:EpSce2 ;
-    cover:hasObservableScenario covercore:ObSce2 ;
-    cover:hasInterpreter cover:Reader ;
-    cover:hasActor covercore:WBYeats .
-
-covercore:EpSce2 a cover:EpistemicScenario ;
-    cover:hasText "In the face of death, everything about life can seem meaningless." .
-
-covercore:ObSce2 a cover:ObservableScenario ;
-    cover:hasText "In the face of death, everything about life can seem meaningless." .
+###  https://w3id.org/controverse#Community
+cover:Community rdf:type owl:NamedIndividual ,
+                         cover:Target ;
+                rdfs:comment "The social or cultural entity towards which a creative idea is directed." ;
+                rdfs:label "Community" ;
+                <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
 
 
+###  https://w3id.org/controverse#Concept
+cover:Concept rdf:type owl:NamedIndividual ,
+                       cover:Target ;
+              rdfs:comment "The abstract idea or notion towards which a creative idea is directed." ;
+              rdfs:label "Concept" ;
+              <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#DramatizedIrony
+cover:DramatizedIrony rdf:type owl:NamedIndividual ,
+                               cover:VerbalIrony ;
+                      rdfs:comment "The function of the ironist in Dramatized Irony is simply to present ironic situations or events to our sense of irony. (Ironic situations and events themselves I shall discuss and attempt to classify in the next chapter.) In this ironic mode the ironist does not appear either as an impersonal voice or in any disguise. He simply arranges that the characters of his play or novel, story, verse narrative, or dramatic monologue expose themselves in their ironic predicament directly to the audience or reader. He himself is the puppet-master and as such out of sight. This is the only way in which dramatists can be ironical (short of bringing themselves more or less identifiably on stage). This is the way in which such novelists as Flaubert and Joyce are ironical. Novelists, such as Thackeray, who comment on their characters. (Muecke, D.C., 2020, pp. 92-93)" ;
+                      rdfs:label "Dramatized Irony" ;
+                      <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#ImpersonalIrony
+cover:ImpersonalIrony rdf:type owl:NamedIndividual ,
+                               cover:VerbalIrony ;
+                      rdfs:comment "The irony resides more in what he (the ironist) says than in the fact that it is a man of a particular character saying it.(Muecke, D.C., 2020, p. 61)" ;
+                      rdfs:label "Reading Event" ;
+                      <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#IngenuIrony
+cover:IngenuIrony rdf:type owl:NamedIndividual ,
+                           cover:VerbalIrony ;
+                  rdfs:comment "Ingénu Irony is almost archetypically represented by Hans Andersen's fable, The Emperor's New Clothes. The effectiveness of this kind of irony conies from its economy of means: mere common sense or even simple innocence or ignorance may suffice to see through the woven complexities of hypocrisy and rationalization or pierce the protective tissues of convention and idées revues. The ironist does not need to put forth all his powers. (Muecke, D.C., 2020, p. 91)" ;
+                  rdfs:label "Ingenu Irony" ;
+                  <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#Institution
+cover:Institution rdf:type owl:NamedIndividual ,
+                           cover:Target ;
+                  rdfs:comment "The collective entity towards which a creative idea is directed." ;
+                  rdfs:label "Institution" ;
+                  <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#IronyOfDilemma
+cover:IronyOfDilemma rdf:type owl:NamedIndividual ,
+                              cover:SituationalIrony ;
+                     rdfs:comment "The victim of a dilemma or some other impossible situation may be a victim of an ironic situation in several different ways. He may, for example, be confidently unaware of being so situated. (Muecke, D.C., 2020, p. 113)" ;
+                     rdfs:label "Irony of Dilemma" ;
+                     <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#IronyOfDrama
+cover:IronyOfDrama rdf:type owl:NamedIndividual ,
+                            cover:SituationalIrony ;
+                   rdfs:comment "Generally speaking the irony is more striking when an observer already knows what the victim has yet to find out. To the examiner who has already failed the student whom he hears expressing a confident expectation of passing, the situation is already ironic; to others there is no irony until the results come out. (Muecke, D.C., 2020, p. 104)" ;
+                   rdfs:label "Irony of Drama" ;
+                   <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#IronyOfEvents
+cover:IronyOfEvents rdf:type owl:NamedIndividual ,
+                             cover:SituationalIrony ;
+                    rdfs:comment "Here the ironic incongruity is between the expectation and the event. We say it is ironic when, after we have more or less explicitly or confidently expressed reliance in the way things go, some subsequent unforeseen turn of events reverses and frustrates our expectations or designs. It is ironic when we meet what we set out to avoid, especially when the means we take to avoid something turn out to be the very means of bringing about what we sought to avoid. It is ironic when we get at last what we no longer desire. (Muecke, D.C., 2020, p. 102)" ;
+                    rdfs:label "Irony of Events" ;
+                    <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#IronyOfSelfBetrayal
+cover:IronyOfSelfBetrayal rdf:type owl:NamedIndividual ,
+                                   cover:SituationalIrony ;
+                          rdfs:comment "It is exemplified whenever someone, by what he says or does (not by what happens to him), exposes unawares his own ignorance, weaknesses, errors, or follies [...] The dramatist or novelist who is interested in people will be aware that, in spite of much unexceptionable advice, mankind's progress in self-knowledge has been indifferent; he hath ever but slenderly known himself, and consequently can scarcely open his mouth without betraying himself. (Muecke, D.C., 2020, p. 107)" ;
+                          rdfs:label "Irony of Self Betrayal" ;
+                          <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#IronyOfSimpleIncongruency
+cover:IronyOfSimpleIncongruency rdf:type owl:NamedIndividual ,
+                                         cover:SituationalIrony ;
+                                rdfs:comment "Since there is incongruity in all ironic situations, the kind of ironic situation that, for want of any other distinguishing characteristic, appears under this unsatisfactory heading must be regarded as, formally speaking, a sort of minimal irony. It is irony in its barest and simplest terms uncomplicated by the presentation of action or character or the victim's imperception (though, of course, there is an imperception to be inferred). (Muecke, D.C., 2020, p. 100)" ;
+                                rdfs:label "Irony of Simple Incongruency" ;
+                                <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#Listener
+cover:Listener rdf:type owl:NamedIndividual ,
+                        cover:Interpreter ;
+               rdfs:comment "The one who is able to decode irony while listening to the Creative Work." ;
+               rdfs:label "Listener" .
+
+
+###  https://w3id.org/controverse#ListeningEvent
+cover:ListeningEvent rdf:type owl:NamedIndividual ,
+                              cover:Event ;
+                     rdfs:comment "An event of oral reception (e.g., listening to an ironic song)." ;
+                     rdfs:label "Listening Event" .
+
+
+###  https://w3id.org/controverse#Person
+cover:Person rdf:type owl:NamedIndividual ,
+                      cover:Target ;
+             rdfs:comment "The individual towards which a creative idea is directed." ;
+             rdfs:label "Person" ;
+             <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#Reader
+cover:Reader rdf:type owl:NamedIndividual ,
+                      cover:Interpreter ;
+             rdfs:comment "The one who is able to decode irony while reading to the Creative Work. " ;
+             rdfs:label "Reader" .
+
+
+###  https://w3id.org/controverse#ReadingEvent
+cover:ReadingEvent rdf:type owl:NamedIndividual ,
+                            cover:Event ;
+                   rdfs:comment "An event of textual reception (e.g., reading an ironic poem)." ;
+                   rdfs:label "Reading Event" .
+
+
+###  https://w3id.org/controverse#Self
+cover:Self rdf:type owl:NamedIndividual ,
+                    cover:Target ;
+           rdfs:comment "The self as the target of a creative idea." ;
+           rdfs:label "Self" ;
+           <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#SelfDisparagingIrony
+cover:SelfDisparagingIrony rdf:type owl:NamedIndividual ,
+                                    cover:VerbalIrony ;
+                           rdfs:comment "The ironist is present not simply as an impersonal voice but, in disguise, as a person with certain characteristics. And the sort of person the ironist presents himself as being is our guide to his real opinion. He understates or overstates himself, assuming such qualities as ignorance, deference, complaisance, co-operativeness, naivety, over-enthusiasm, eagerness to learn, and inability to understand. But his disguise is meant to be penetrated, and our judgement is directed not against the ignorance or naivety of the speaker but against the object of the irony.(Muecke, D.C., 2020, p. 87)" ;
+                           rdfs:label "Self Disparaging Irony" ;
+                           <http://www.w3.org/ns/prov#wasAttributedTo> "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+
+###  https://w3id.org/controverse#StateOfAffair
+cover:StateOfAffair rdf:type owl:NamedIndividual ,
+                             cover:Target ;
+                    rdfs:comment "The situation or condition towards which a creative idea is directed." ;
+                    rdfs:label "State of Affairs" ;
+                    <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse#Thing
+cover:Thing rdf:type owl:NamedIndividual ,
+                     cover:Target ;
+            rdfs:comment "The concrete object towards which a creative idea is directed." ;
+            rdfs:label "Thing" ;
+            <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+
+###  https://w3id.org/controverse/IEvent1
+covercore:IEvent1 rdf:type owl:NamedIndividual ,
+                           cover:IronicEvent ;
+                  cover:createdDuring cover:ReadingEvent ;
+                  cover:hasInterpreter cover:Reader ;
+                  cover:hasIronist covercore:WBYeats ;
+                  cover:hasEpistemicScenario "A fighter pilot flies for honour and duty to his country" ;
+                  cover:hasObservableScenario "The airman does not care about honour but flies just for the pleasure of being in the sky" .
+
+
+###  https://w3id.org/controverse/Inst1
+covercore:Inst1 rdf:type owl:NamedIndividual ,
+                         cover:Irony ;
+                cover:createdFrom covercore:IEvent1 ;
+                cover:foundIn covercore:IrishAirman ;
+                cover:hasIronyType cover:IronyOfEvents ;
+                cover:hasTarget cover:StateOfAffair ;
+                cover:hasTargetDescription "The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs." ;
+                cover:hasText "Nor law, nor duty bade me fight,/Nor public men, nor cheering crowds,/A lonely impulse of delight/Drove to this tumult in the clouds;" .
+
+
+###  https://w3id.org/controverse/Inst2
+covercore:Inst2 rdf:type owl:NamedIndividual ,
+                         cover:Sincerity ;
+                cover:createdFrom covercore:SEvent2 ;
+                cover:foundIn covercore:IrishAirman ;
+                cover:hasTarget cover:Concept ;
+                cover:hasTargetDescription "The meaning and purpose of life." ;
+                cover:hasText "The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death." .
+
+
+###  https://w3id.org/controverse/IrishAirman
+covercore:IrishAirman rdf:type owl:NamedIndividual ,
+                               cover:Poem ;
+                      cover:hasCreator covercore:WBYeats ;
+                      cover:hasCreationDate "1919"^^xsd:gYear ;
+                      cover:hasCreationLocation "Ireland" ;
+                      cover:hasLanguage "English" ;
+                      cover:hasPoeticForm "Elegy" ;
+                      cover:hasTitle "An Irish Airman forsees his Death" ;
+                      rdfs:label "An Irish Airman forsees his Death" .
+
+
+###  https://w3id.org/controverse/SEvent2
+covercore:SEvent2 rdf:type owl:NamedIndividual ,
+                           cover:SincereEvent ;
+                  cover:createdDuring cover:ReadingEvent ;
+                  cover:hasActor covercore:WBYeats ;
+                  cover:hasInterpreter cover:Reader ;
+                  cover:hasEpistemicScenario "In the face of death, everything about life can seem meaningless." ;
+                  cover:hasObservableScenario "In the face of death, everything about life can seem meaningless." .
+
+
+###  https://w3id.org/controverse/WBYeats
+covercore:WBYeats rdf:type owl:NamedIndividual ,
+                           cover:Author ,
+                           cover:Ironist ;
+                  cover:hasName "W.B. Yeats" ;
+                  rdfs:label "W.B. Yeats" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
