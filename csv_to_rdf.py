@@ -1,5 +1,5 @@
 import csv
-from rdflib import Graph, Namespace, Literal, RDF, URIRef
+from rdflib import Graph, Namespace, Literal, RDF, URIRef, RDFS, OWL
 from rdflib.namespace import XSD
 
 COVER = Namespace("https://w3id.org/controverse#")
@@ -7,7 +7,7 @@ COVERCORE = Namespace("https://w3id.org/controverse/")
 
 # Graph
 g = Graph()
-g.parse("C:\\Users\\ilari\\Desktop\\PYTHON\\GANGEMI\\CoVer_Ontology.ttl", format="turtle")
+g.parse("CoVer_Ont_v2.ttl", format="turtle")
 
 g.bind("cover", COVER)
 g.bind("covercore", COVERCORE)
@@ -34,57 +34,101 @@ with open("C:\\Users\\ilari\\Desktop\\PYTHON\\GANGEMI\\creative_works.csv", newl
         inst_uri = COVERCORE[row["ID"].strip()]
         event_uri = COVERCORE["event"+row["ID"]] 
         work_uri = COVERCORE[row["Creative Work"].strip()]
+        creator_uri = COVERCORE[row["Creator"].strip()]
 
+        ironicTypes = {
+            "cover:DramatizedIrony":COVER.DramatizedIrony,
+            "cover:ImpersonalIrony": COVER.ImpersonalIrony,
+            "cover:IngenuIrony":COVER.IngenuIrony,
+            "cover:IronyOfDilemma":COVER.IronyOfDilemma,
+            "cover:IronyOfDrama":COVER.IronyOfDrama,
+            "cover:IronyOfEvents":COVER.IronyOfEvents,
+            "cover:IronyOfSelfBetrayal":COVER.IronyOfSelfBetrayal,
+            "cover:IronyOfSimpleIncongruency":COVER.IronyOfSimpleIncongruency,
+            "cover:SelfDisparagingIrony":COVER.SelfDisparagingIrony
+        }
+
+        targetTypes = {
+            "cover:Community":COVER.Community,
+            "cover:Concept":COVER.Concept,
+            "cover:Institution":COVER.Institution,
+            "cover:Person":COVER.Person,
+            "cover:Self":COVER.Self,
+            "cover:StateOfAffair":COVER.StateOfAffair,
+            "cover:Thing":COVER.Thing,
+        }
+
+        #checking for ironic or sincere instances
         if row["Instance Type"] == "Irony":
             g.add((inst_uri, RDF.type, COVER.Irony))
+            g.add((inst_uri, COVER.hasIronyType, ironicTypes[row["Ironic Type"]]))
             g.add((event_uri, RDF.type, COVER.IronicEvent))
+            g.add((creator_uri, RDF.type, COVER.Ironist))
+            g.add((event_uri, COVER.hasIronist, creator_uri))
         else:
             g.add((inst_uri, RDF.type, COVER.Sincerity))
             g.add((event_uri, RDF.type, COVER.SincereEvent))
+            g.add((event_uri, COVER.hasActor, creator_uri))
 
+        #triples for instance   
+        g.add((inst_uri, COVER.hasText, Literal(row["Text"])))
+        g.add((inst_uri, COVER.hasTranslation, Literal(row["hasTranslation"])))
+        g.add((inst_uri, COVER.createdFrom, event_uri))
+        g.add((inst_uri, COVER.foundIn, work_uri))
+        g.add((inst_uri, COVER.hasTarget, targetTypes[row["Target Type"]]))
+        g.add((inst_uri, COVER.hasTargetDescription, Literal(row["Target Description"])))
+        g.add((inst_uri, RDFS.label, Literal(f'Creative Instance {row["ID"]}')))
 
-        mapping = {
-            "Creative Work" : COVER.hasTitle,
-            "hasLyricalType": COVER.hasLyricalType,
-            "hasGenre": COVER.hasGenre,
-            "hasPoeticForm": COVER.hasPoeticForm,
-            "hasEvent": COVER.hasEvent,
-            "Epistemic Scenario description": COVER.hasEpistemicDescription,  
-            "Observable Scenario description": COVER.hasObservableDescription,
-            "Ironic instance": COVER.hasInstance,
-            "Sincerity Instance": COVER.hasInstance,
-            "Instance Translation": COVER.hasDescription,
-            "ironic type - muecke": COVER.hasIronyType,
-            "ironic subtype- muecke": COVER.hasIronySubtype,
-            "target type": COVER.hasTarget,
-            "(target) description": COVER.hasDescription,
-            "interpreter type": COVER.hasInterpreter,
-            "Creator - ironist": COVER.hasCreatorName,
-            "creation date": COVER.hasCreationDate,
-            "creation location": COVER.hasCreationLocation,
-            "language": COVER.hasLanguage,
-            "performer": COVER.hasPerformerName,
-        }
+        #triples for event
+        if row["hasEvent"] == "cover:ReadingEvent" :
+            g.add((event_uri, COVER.createdDuring, COVER.ReadingEvent))
+            g.add((event_uri, COVER.hasInterpreter, COVER.Reader))
+        else:
+            g.add((event_uri, COVER.createdDuring, COVER.ListeningEvent))
+            g.add((event_uri, COVER.hasInterpreter, COVER.Listener))
 
-        # triples
-        #triples for instance
-        #triple for event
+        g.add((event_uri, COVER.hasEpistemicScenario, Literal(row["Epistemic Scenario"])))
+        g.add((event_uri, COVER.hasObservableScenario, Literal(row["Observable Scenario"])))
+        g.add((event_uri, RDFS.label, Literal(f'Event {row["ID"]}')))
+             
         #triple for work
+        if row["Lyrical Type"] == "cover:Poem":
+            g.add((work_uri, RDF.type, COVER.Poem))
+        else:
+            g.add((work_uri, RDF.type, COVER.Song))
 
-        for col, prop in mapping.items(): 
-            val = row.get(col, "").strip()
-            if not val:
-                continue
+        g.add((work_uri, COVER.hasCreator, creator_uri))
+        g.add((work_uri, COVER.hasCreationLocation, Literal(row["Creation Location"])))
+        g.add((work_uri, COVER.hasLanguage, Literal(row["Language"])))
+        if row["hasPoeticForm"] != "N/A":
+            g.add((work_uri, COVER.hasPoeticForm, Literal(row["hasPoeticForm"])))
+        g.add((work_uri, COVER.hasGenre, Literal(row["hasGenre"])))
+        g.add((work_uri, COVER.hasTitle, Literal(row["hasTitle"])))
+        g.add((work_uri, RDFS.label, Literal(row["hasTitle"])))
 
-            # for the date
-            if col == "creation date":
-                try:
-                    g.add((work_uri, prop, Literal(int(val), datatype=XSD.gYear)))
-                except ValueError:
-                    g.add((work_uri, prop, Literal(val)))
+        try:
+            g.add((work_uri, COVER.hasCreationDate, Literal(int(row["Creation Date"]), datatype=XSD.gYear)))
+        except ValueError:
+            g.add((work_uri, COVER.hasCreationDate, Literal(row["Creation Date"])))
+
+        #triple for creator
+        g.add((creator_uri, RDF.type, COVER.Author))
+        g.add((creator_uri, COVER.hasName, Literal(row["Creator Name"])))
+        g.add((creator_uri, RDFS.label, Literal(row["Creator Name"])))
+        g.add((creator_uri, OWL.sameAs, URIRef(row["CreatorURI"])))
+
+        #triples for performer
+        if row["Performer"] != "N/A":
+            if row["Performer"] == row["Creator"]:
+                g.add((creator_uri, RDF.type, COVER.Performer))
+                g.add((work_uri, COVER.hasPerformer, creator_uri))
             else:
-                g.add((work_uri, prop, as_node(val)))
+                performer_uri = COVERCORE[row["Performer"].strip()]
+                g.add((performer_uri, RDF.type, COVER.Performer))
+                g.add((performer_uri, COVER.hasName, Literal(row["Performer Name"])))
+                g.add((performer_uri, RDFS.label, Literal(row["Performer Name"])))
+                g.add((performer_uri, OWL.sameAs, URIRef(row["PerformerURI"])))
 
 # save
-g.serialize(destination="C:\\Users\\ilari\\Desktop\\PYTHON\\GANGEMI\\creative_works.ttl", format="turtle")
-print("RDF file successfully saved as 'creative_works_cover.ttl'")
+g.serialize(destination="IronicCreativity_Data.ttl", format="turtle")
+print("RDF file successfully saved as 'IronicCreativity_Data.ttl'")

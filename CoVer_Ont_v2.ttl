@@ -300,6 +300,13 @@ cover:hasText rdf:type owl:DatatypeProperty ;
               rdfs:comment "The text which makes up a creative idea." ;
               rdfs:label "has text" .
 
+###  https://w3id.org/controverse#hasTranslation
+cover:hasTranslation rdf:type owl:DatatypeProperty ;
+              rdfs:domain cover:CreativeIdea ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The translation of a creative text." ;
+              rdfs:label "has translation" .
+
 
 ###  https://w3id.org/controverse#hasTitle
 cover:hasTitle rdf:type owl:DatatypeProperty ;
