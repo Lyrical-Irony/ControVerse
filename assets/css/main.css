@@ -22,12 +22,12 @@
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 /*Change the coloursss*/
 :root { 
-  --background-color: #14a5ff92; /* Background color for the entire website, including individual sections */
-  --default-color: #000000; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #000000; /* Color for headings, subheadings and title throughout the website */
+  --background-color: #040346; /* Background color for the entire website, including individual sections */
+  --default-color: #ffffff; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #d31abbeb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --contrast-color: #000000; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -97,7 +97,7 @@ h6 {
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
-  background-color: #5eacdc;
+  background-color: #d31abbeb;
 }
 
 .header .topbar {
@@ -182,6 +182,7 @@ h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
+
 /* Navmenu - Desktop */
 @media (min-width: 1200px) {
   .navmenu {
@@ -202,7 +203,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
+    color: #ffffff; /* white text */
     padding: 18px 15px;
     font-size: 15px;
     font-family: var(--nav-font);
@@ -226,17 +227,18 @@ h6 {
     padding-right: 0;
   }
 
-  .navmenu li:hover>a,
+  /* hover + active color = pink */
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-hover-color);
+    color: #15146692; /* pink */
   }
 }
 
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
+    color: #ffffff; /* white icon */
     font-size: 28px;
     line-height: 0;
     margin-right: 10px;
@@ -257,7 +259,7 @@ h6 {
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
+    background-color: #d31abbeb; /* 🔵 change this to #0000ff for blue box */
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -266,7 +268,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-dropdown-color);
+    color: #ffffff; /* white text */
     padding: 10px 20px;
     font-family: var(--nav-font);
     font-size: 17px;
@@ -290,26 +292,13 @@ h6 {
     justify-content: center;
     border-radius: 50%;
     transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
+    background-color: color-mix(in srgb, #15146692, transparent 90%);
   }
 
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
+    color: #15146692; /* blue on hover + active */
   }
 
   .mobile-nav-active {
@@ -334,7 +323,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .mobile-nav-active .navmenu>ul {
+  .mobile-nav-active .navmenu > ul {
     display: block;
   }
 }
@@ -671,10 +660,11 @@ section,
 --------------------------------------------------------------*/
 .hero {
   padding: 0;
-  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+  background: #15146692; /* solid background only */
   position: relative;
   overflow: hidden;
 }
+
 
 .hero .hero-content {
   position: relative;
@@ -888,17 +878,18 @@ section,
   }
 }
 
-.hero::before {
+/*put background img url if needed*/
+/*.hero::before {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   width: 50%;
   height: 100%;
-  background: url("../img/bg/abstract-bg-1.webp") center/cover no-repeat;
+  background: url("") center/cover no-repeat;
   opacity: 0.03;
   z-index: 1;
-}
+}*/
 
 /*--------------------------------------------------------------
 # About Section
@@ -1146,6 +1137,14 @@ section,
   word-wrap: break-word;
 }
 
+/* 🔹 Ensure all text inside the white about cards is black */
+.about-card,
+.about-card * {
+  color: #000 !important;
+}
+
+
+
 /* 🔹 Carousel controls below the card */
 .carousel-controls {
   display: flex;
@@ -1172,7 +1171,7 @@ section,
 
 /* 🔹 Style for your text navigation links */
 .section-title a {
-  color: #6e0e62eb;
+  color: #ff76ed;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -1185,7 +1184,7 @@ section,
 
 /* 🔹 Active link (when card is showing) */
 .section-title a.active {
-  color: #111;
+  color: #ffffff;
   font-weight: 700;
   text-decoration: underline;
 }
@@ -1449,110 +1448,68 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Team Section
+# Team Section - Simplified Modern Layout
 --------------------------------------------------------------*/
-.team .member-card {
-  background-color: var(--surface-color);
-  border-radius: 10px;
-  overflow: hidden;
+.team {
+  padding: 60px 0;
   text-align: center;
-  box-shadow: 0 5px 25px color-mix(in srgb, var(--default-color), transparent 85%);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  flex-wrap: wrap; /* wraps nicely on smaller screens */
+  margin-top: 2rem;
+}
+
+.member-card {
+  background: #ffffff;
+  color: #000;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  width: 300px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.team .member-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 35px color-mix(in srgb, var(--default-color), transparent 80%);
+.member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-.team .member-card:hover .member-image-wrapper img {
-  transform: scale(1.05);
-}
-
-.team .member-image-wrapper {
-  overflow: hidden;
-  position: relative;
-}
-
-.team .member-image-wrapper img {
+.member-card img {
   width: 100%;
-  aspect-ratio: 1/1.1;
+  height: 240px;
   object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.team .member-content {
-  padding: 20px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.team .member-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--heading-color);
-  margin-bottom: 0.25rem;
-}
-
-.team .member-role {
-  font-size: 0.875rem;
-  color: var(--accent-color);
-  display: block;
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-}
-
-.team .member-bio {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  border-radius: 12px;
   margin-bottom: 1rem;
-  flex-grow: 1;
 }
 
-.team .member-socials {
-  margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.team .member-socials a {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  margin: 0 8px;
+.member-card h4 {
   font-size: 1.1rem;
-  transition: color 0.3s;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #000;
 }
 
-.team .member-socials a:hover {
-  color: var(--accent-color);
+.member-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #000;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: 991.98px) {
-  .team .member-name {
-    font-size: 1.15rem;
-  }
-
-  .team .member-role {
-    font-size: 0.8rem;
-  }
+.github-link {
+  color: #000;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
 }
 
-@media (max-width: 767.98px) {
-  .team .row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 1.5rem;
-  }
-
-  .team .member-card {
-    box-shadow: 0 3px 15px color-mix(in srgb, var(--default-color), transparent 90%);
-  }
-
-  .team .member-name {
-    font-size: 1.1rem;
-  }
+.github-link:hover {
+  color: #ff52d9; /* your accent pink */
 }
