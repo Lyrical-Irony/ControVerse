@@ -399,6 +399,12 @@ cover:hasTargetDescription a owl:DatatypeProperty ;
     rdfs:label "has target description" ;
     rdfs:comment "Connects a description of a target to the creative idea directed towards it." .
 
+cover:hasText a owl:DatatypeProperty ;
+    rdfs:domain cover:CreativeIdea ;
+    rdfs:range xsd:string ;
+    rdfs:label "has text" ;
+    rdfs:comment "The text which makes up a creative idea." .
+
 #################################################################
 #    Disjoint Classes
 #################################################################
@@ -416,7 +422,7 @@ cover:IronicEvent owl:disjointWith cover:SincereEvent .
 covercore:Inst1 a cover:Irony ;
     cover:foundIn covercore:IrishAirman ;
     cover:createdFrom covercore:IEvent1 ;
-    hasText: "Nor law, nor duty bade me fight,/Nor public men, nor cheering crowds,/A lonely impulse of delight/Drove to this tumult in the clouds;" ;
+    cover:hasText "Nor law, nor duty bade me fight,/Nor public men, nor cheering crowds,/A lonely impulse of delight/Drove to this tumult in the clouds;" ;
     cover:hasTarget cover:StateOfAffair ;
     cover:hasTargetDescription "The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs." ;
     cover:hasIronyType cover:IronyOfEvents .
@@ -426,7 +432,7 @@ covercore:IEvent1 a cover:IronicEvent ;
     cover:hasEpistemicScenario covercore:EpSce1 ;
     cover:hasObservableScenario covercore:ObSce1 ;
     cover:hasInterpreter cover:Reader ;
-    cover:hasIronist cover:WBYeats .
+    cover:hasIronist covercore:WBYeats .
 
 covercore:EpSce1 a cover:EpistemicScenario ;
     cover:hasText "A fighter pilot flies for honour and duty to his country" .
@@ -453,7 +459,7 @@ covercore:IrishAirman a cover:Poem ;
 covercore:Inst2 a cover:Sincerity ;
     cover:foundIn covercore:IrishAirman ;
     cover:createdFrom covercore:SEvent2 ;
-    hasText: "The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death." ;
+    cover:hasText "The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death." ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "The meaning and purpose of life." .
 
@@ -462,7 +468,7 @@ covercore:SEvent2 a cover:SincereEvent ;
     cover:hasEpistemicScenario covercore:EpSce2 ;
     cover:hasObservableScenario covercore:ObSce2 ;
     cover:hasInterpreter cover:Reader ;
-    cover:hasActor cover:WBYeats .
+    cover:hasActor covercore:WBYeats .
 
 covercore:EpSce2 a cover:EpistemicScenario ;
     cover:hasText "In the face of death, everything about life can seem meaningless." .
