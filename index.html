@@ -37,7 +37,7 @@
   ======================================================== -->
 </head>
 
-<body class="index-page">
+<body class="index-page no-scroll">
 
     <header id="header" class="header sticky-top">
 
@@ -792,6 +792,23 @@
             showCard(current);
         });
     </script>
+
+    <script>
+        window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+        window.scrollTo(0, 0);
+        if (preloader) {
+            preloader.style.opacity = "0";
+            setTimeout(() => {
+            preloader.remove();
+            document.body.classList.remove("no-scroll");
+            }, 600); // match your fade duration
+        } else {
+            document.body.classList.remove("no-scroll");
+        }
+        });
+    </script>
+
 
 
 </body>

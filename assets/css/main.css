@@ -67,7 +67,14 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  overflow-x: hidden;
 }
+
+/* Prevent scroll before the page fully loads */
+body.no-scroll {
+  overflow: hidden;
+}
+
 
 a {
   color: var(--accent-color);
