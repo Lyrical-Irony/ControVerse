@@ -104,7 +104,7 @@ h6 {
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
-  background-color: #d31abbeb;
+  background-color: #d31aba;
 }
 
 .header .topbar {
@@ -1462,7 +1462,7 @@ section,
   color: #000;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  width: 300px;
+  width: 350px;
   padding: 1.5rem;
   transition: all 0.3s ease;
   display: flex;
@@ -1472,7 +1472,7 @@ section,
 
 .member-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--accent-color);
 }
 
 .member-card img {
