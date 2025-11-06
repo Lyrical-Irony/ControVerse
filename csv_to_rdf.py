@@ -15,7 +15,7 @@ g.bind("covercore", COVERCORE)
 # handling Literals and Object properties 
 def as_node(value: str):
     value = value.strip()
-    if not value:
+    if value == "N/A":
         return None
 
     if value.startswith("http://") or value.startswith("https://"):
@@ -71,7 +71,7 @@ with open("C:\\Users\\ilari\\Desktop\\PYTHON\\GANGEMI\\creative_works.csv", newl
             g.add((event_uri, COVER.hasActor, creator_uri))
 
         #triples for instance   
-        g.add((inst_uri, COVER.hasText, Literal(row["Text"])))
+        g.add((inst_uri, COVER.hasText, Literal(row["Text"]))) #should we add language tags?
         g.add((inst_uri, COVER.hasTranslation, Literal(row["hasTranslation"])))
         g.add((inst_uri, COVER.createdFrom, event_uri))
         g.add((inst_uri, COVER.foundIn, work_uri))
@@ -80,29 +80,22 @@ with open("C:\\Users\\ilari\\Desktop\\PYTHON\\GANGEMI\\creative_works.csv", newl
         g.add((inst_uri, RDFS.label, Literal(f'Creative Instance {row["ID"]}')))
 
         #triples for event
-        if row["hasEvent"] == "cover:ReadingEvent" :
-            g.add((event_uri, COVER.createdDuring, COVER.ReadingEvent))
-            g.add((event_uri, COVER.hasInterpreter, COVER.Reader))
-        else:
-            g.add((event_uri, COVER.createdDuring, COVER.ListeningEvent))
-            g.add((event_uri, COVER.hasInterpreter, COVER.Listener))
+        g.add((event_uri, COVER.createdDuring, as_node(row["Event"])))
+        g.add((event_uri, COVER.hasInterpreter, as_node(row["Interpreter Type"])))
 
         g.add((event_uri, COVER.hasEpistemicScenario, Literal(row["Epistemic Scenario"])))
         g.add((event_uri, COVER.hasObservableScenario, Literal(row["Observable Scenario"])))
         g.add((event_uri, RDFS.label, Literal(f'Event {row["ID"]}')))
              
         #triple for work
-        if row["Lyrical Type"] == "cover:Poem":
-            g.add((work_uri, RDF.type, COVER.Poem))
-        else:
-            g.add((work_uri, RDF.type, COVER.Song))
-
+        g.add((work_uri, RDF.type, as_node(row["Lyrical Type"])))
         g.add((work_uri, COVER.hasCreator, creator_uri))
         g.add((work_uri, COVER.hasCreationLocation, Literal(row["Creation Location"])))
         g.add((work_uri, COVER.hasLanguage, Literal(row["Language"])))
         if row["hasPoeticForm"] != "N/A":
             g.add((work_uri, COVER.hasPoeticForm, Literal(row["hasPoeticForm"])))
-        g.add((work_uri, COVER.hasGenre, Literal(row["hasGenre"])))
+        if row["hasGenre"] != "N/A":
+            g.add((work_uri, COVER.hasGenre, Literal(row["hasGenre"])))
         g.add((work_uri, COVER.hasTitle, Literal(row["hasTitle"])))
         g.add((work_uri, RDFS.label, Literal(row["hasTitle"])))
 
