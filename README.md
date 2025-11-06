@@ -1,4 +1,4 @@
-# <h1 align="center"><img src="assets/img/favicon.png" alt="ControVerse logo" width="150"/> <br>ControVerse: <br>an ontology on Lyrical Irony</h1>
+<h1 align="center">ControVerse: <br>an ontology on</h1>
 
 
 <p align="center">
