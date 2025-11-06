@@ -1,8 +1,9 @@
-<p align="center">
-  <img src="assets/img/favicon.png" alt="ControVerse logo" width="300"/>
-</p>
+# <h1 align="center"><img src="assets/img/favicon.png" alt="ControVerse logo" width="50"/> <br>ControVerse: <br>an ontology on Lyrical Irony</h1>
+<hr>
 
-# 🎭 ControVerse: an ontology on Lyrical Irony
+<p align="center">
+  <img src="assets/img/about/hero.gif" alt="ControVerse logo" width="300"/>
+</p>
 
 ## 🌍 Overview  
 This project was developed for the course **Knowledge Organisation and Extraction** by **Aldo Gangemi** at **Alma Mater Studiorum – University of Bologna**, within the **Master’s Degree in Digital Humanities and Digital Knowledge**.  
