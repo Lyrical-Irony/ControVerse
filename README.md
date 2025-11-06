@@ -1,5 +1,5 @@
-# <h1 align="center"><img src="assets/img/favicon.png" alt="ControVerse logo" width="50"/> <br>ControVerse: <br>an ontology on Lyrical Irony</h1>
-<hr>
+# <h1 align="center"><img src="assets/img/favicon.png" alt="ControVerse logo" width="150"/> <br>ControVerse: <br>an ontology on Lyrical Irony</h1>
+
 
 <p align="center">
   <img src="assets/img/about/hero.gif" alt="ControVerse logo" width="300"/>
