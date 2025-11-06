@@ -1,0 +1,15 @@
+Source,Target
+Author,Actor	
+Ironist,Author	
+Sincerity,CreativeIdea	
+Song,LyricalWork	
+VerbalIrony,Irony	
+SituationalIrony,Irony	
+Irony,CreativeIdea	
+Poem,LyricalWork	
+Performer,Actor	
+LyricalWork,CreativeWork	
+IronicEvent,CreativeEvent	
+SincereEvent,CreativeEvent	
+Interpreter,Actor	
+CreativeEvent,Event
