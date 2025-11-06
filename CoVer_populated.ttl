@@ -1,0 +1,1855 @@
+@prefix cover: <https://w3id.org/controverse#> .
+@prefix covercore: <https://w3id.org/controverse/> .
+@prefix creon: <http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dc:creator a owl:AnnotationProperty .
+
+creon:Agent a owl:Class ;
+    owl:equivalentClass cover:Actor .
+
+creon:CreativeDomain a owl:Class ;
+    owl:equivalentClass cover:LyricalWork .
+
+creon:CreativeIdea a owl:Class ;
+    owl:equivalentClass cover:CreativeIdea .
+
+creon:CreativeProduct a owl:Class ;
+    owl:equivalentClass cover:CreativeWork .
+
+creon:CreativeSituation a owl:Class ;
+    owl:equivalentClass cover:IronicEvent .
+
+prov:wasAttributedTo a owl:AnnotationProperty .
+
+cover: a owl:Ontology ;
+    dc:creator "Fahmida Islam",
+        "Ilaria De Dominicis",
+        "Regina Manyara" ;
+    rdfs:comment "An ontology about irony in Lyrical works." ;
+    owl:versionInfo "November 2025" .
+
+cover:createdDuring a owl:ObjectProperty ;
+    rdfs:label "created during" ;
+    rdfs:comment "Points a creative event to the larger event it is taking place in." ;
+    rdfs:domain cover:CreativeEvent ;
+    rdfs:range [ a owl:Class ;
+            owl:oneOf ( cover:ListeningEvent cover:ReadingEvent ) ] .
+
+cover:createdFrom a owl:ObjectProperty ;
+    rdfs:label "created during" ;
+    rdfs:comment "Points a creative event to the larger event it is taking place in." ;
+    rdfs:domain cover:CreativeIdea ;
+    rdfs:range cover:CreativeEvent ;
+    owl:inverseOf cover:createsIdea .
+
+cover:createsWork a owl:ObjectProperty ;
+    rdfs:label "creates work" ;
+    rdfs:comment "connects a creator to their work" ;
+    rdfs:domain cover:Author ;
+    rdfs:range cover:CreativeWork ;
+    owl:inverseOf cover:hasCreator .
+
+cover:foundIn a owl:ObjectProperty ;
+    rdfs:label "found in" ;
+    rdfs:comment "Links a creative idea to the lyrical work it was found in" ;
+    rdfs:domain cover:CreativeIdea ;
+    rdfs:range cover:LyricalWork ;
+    owl:inverseOf cover:hasIdea .
+
+cover:hasActor a owl:ObjectProperty ;
+    rdfs:label "has actor" ;
+    rdfs:comment "Any person involved in a Creative Process." ;
+    rdfs:domain cover:CreativeEvent ;
+    rdfs:range cover:Actor ;
+    owl:inverseOf cover:takesPartIn .
+
+cover:hasCreationDate a owl:DatatypeProperty ;
+    rdfs:label "has creation date" ;
+    rdfs:comment "Date when the work was created. Can be expressed as a year or a string." ;
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:gYear xsd:string ) ] .
+
+cover:hasCreationLocation a owl:DatatypeProperty ;
+    rdfs:label "has creation location" ;
+    rdfs:comment "Location where the work was created." ;
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range xsd:string .
+
+cover:hasDescription a owl:DatatypeProperty ;
+    rdfs:label "has description" ;
+    rdfs:comment "Any general description." ;
+    rdfs:range xsd:string .
+
+cover:hasEpistemicScenario a owl:DatatypeProperty ;
+    rdfs:label "has epistemic scenario" ;
+    rdfs:comment "Links an event (ironic or sincere) to an epistemic scenario" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( cover:IronicEvent cover:SincereEvent ) ] ;
+    rdfs:range xsd:string ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:hasEventLocation a owl:DatatypeProperty ;
+    rdfs:label "has event location" ;
+    rdfs:comment "Location where the event took place." ;
+    rdfs:domain cover:Event ;
+    rdfs:range xsd:string .
+
+cover:hasGenre a owl:DatatypeProperty ;
+    rdfs:label "has genre" ;
+    rdfs:comment "Indicates the musical or literary genre." ;
+    rdfs:domain cover:LyricalWork ;
+    rdfs:range xsd:string .
+
+cover:hasInterpreter a owl:ObjectProperty ;
+    rdfs:label "has interpreter" ;
+    rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." ;
+    rdfs:domain cover:CreativeEvent ;
+    rdfs:range [ a owl:Class ;
+            owl:oneOf ( cover:Listener cover:Reader ) ] .
+
+cover:hasIronist a owl:ObjectProperty ;
+    rdfs:label "has interpreter" ;
+    rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." ;
+    rdfs:domain cover:IronicEvent ;
+    rdfs:range cover:Author ;
+    owl:inverseOf cover:isIronistOf .
+
+cover:hasIronyType a owl:ObjectProperty ;
+    rdfs:label "has irony type" ;
+    rdfs:comment "Specifies the verbal or situational type of irony" ;
+    rdfs:domain cover:Irony ;
+    rdfs:range [ a owl:Class ;
+            owl:oneOf ( cover:DramatizedIrony cover:ImpersonalIrony cover:IngenuIrony cover:IronyOfDilemma cover:IronyOfDrama cover:IronyOfEvents cover:IronyOfSelfBetrayal cover:IronyOfSimpleIncongruency cover:SelfDisparagingIrony ) ] .
+
+cover:hasLanguage a owl:DatatypeProperty ;
+    rdfs:label "has language" ;
+    rdfs:comment "Language of the work or the instance." ;
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range xsd:string .
+
+cover:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name" ;
+    rdfs:comment "The name of the actor involved in a creative event." ;
+    rdfs:domain cover:Actor ;
+    rdfs:range xsd:string .
+
+cover:hasObservableScenario a owl:DatatypeProperty ;
+    rdfs:label "has observable scenario" ;
+    rdfs:comment "Links an event (ironic or sincere) to an observable scenario" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( cover:IronicEvent cover:SincereEvent ) ] ;
+    rdfs:range xsd:string ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:hasPerformer a owl:ObjectProperty ;
+    rdfs:label "has performer" ;
+    rdfs:comment "Links a creative work to the person or entity who performed it." ;
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range cover:Performer .
+
+cover:hasPoeticForm a owl:DatatypeProperty ;
+    rdfs:label "has poetic form" ;
+    rdfs:comment "Specifies the poetic form (e.g., sonnet, ballad, cantata)." ;
+    rdfs:domain cover:LyricalWork ;
+    rdfs:range xsd:string .
+
+cover:hasTarget a owl:ObjectProperty ;
+    rdfs:label "has target" ;
+    rdfs:comment "Indicates the target or object of irony." ;
+    rdfs:domain cover:CreativeIdea ;
+    rdfs:range cover:Target .
+
+cover:hasTargetDescription a owl:DatatypeProperty ;
+    rdfs:label "has target description" ;
+    rdfs:comment "Connects a description of a target to the creative idea directed towards it." ;
+    rdfs:domain cover:CreativeIdea ;
+    rdfs:range xsd:string .
+
+cover:hasText a owl:DatatypeProperty ;
+    rdfs:label "has text" ;
+    rdfs:comment "The text which makes up a creative idea." ;
+    rdfs:domain cover:CreativeIdea ;
+    rdfs:range xsd:string .
+
+cover:hasTitle a owl:DatatypeProperty ;
+    rdfs:label "has title" ;
+    rdfs:comment "Title of the work." ;
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range xsd:string .
+
+cover:hasTranslation a owl:DatatypeProperty ;
+    rdfs:label "has translation" ;
+    rdfs:comment "The translation of a creative text." ;
+    rdfs:domain cover:CreativeIdea ;
+    rdfs:range xsd:string .
+
+covercore:1 a cover:Sincerity ;
+    rdfs:label "Creative Instance 1" ;
+    cover:createdFrom covercore:event1 ;
+    cover:foundIn covercore:LookOfAgony ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Human nature" ;
+    cover:hasText """The Beads upon the Forehead
+By homely Anguish strung.
+""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:10 a cover:Irony ;
+    rdfs:label "Creative Instance 10" ;
+    cover:createdFrom covercore:event10 ;
+    cover:foundIn covercore:IrishMan ;
+    cover:hasIronyType cover:IronyOfEvents ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:StateOfAffair ;
+    cover:hasTargetDescription "The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs" ;
+    cover:hasText """"Nor law, nor duty bade me fight,
+Nor public men, nor cheering crowds,
+A lonely impulse of delight
+Drove to this tumult in the clouds;\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:11 a cover:Sincerity ;
+    rdfs:label "Creative Instance 11" ;
+    cover:createdFrom covercore:event11 ;
+    cover:foundIn covercore:Catullus ;
+    cover:hasLanguage "Latin" ;
+    cover:hasTarget cover:StateOfAffair ;
+    cover:hasTargetDescription "The poverty of the author" ;
+    cover:hasText """"Haec si, inquam, attuleris, venuste noster,
+cenabis bene; nam tui Catulli
+plenus sacculus est aranearum.\"""" ;
+    cover:hasTranslation """"These things, I say, if you bring, my charming friend,
+you’ll dine well; for your Catullus’
+purse is full of cobwebs.\"""" .
+
+covercore:12 a cover:Irony ;
+    rdfs:label "Creative Instance 12" ;
+    cover:createdFrom covercore:event12 ;
+    cover:foundIn covercore:Catullus ;
+    cover:hasIronyType cover:IngenuIrony ;
+    cover:hasLanguage "Latin" ;
+    cover:hasTarget cover:StateOfAffair ;
+    cover:hasTargetDescription "The poet makes fun of the poor situation he is in but still invites his friend in a ironic way" ;
+    cover:hasText """"Cenabis bene, mi Fabulle, apud me
+paucis, si tibi di favent, diebus,
+si tecum attuleris bonam atque magnam
+cenam, non sine candida puella
+et vino et sale et omnibus cachinnis.\"""" ;
+    cover:hasTranslation """"You’ll dine well, my dear Fabullus, at my place
+in a few days, if the gods favor you,
+provided that you bring with you a good and big
+dinner — not without a fair girl,
+and wine, and wit, and all kinds of laughter.\"""" .
+
+covercore:13 a cover:Irony ;
+    rdfs:label "Creative Instance 13" ;
+    cover:createdFrom covercore:event13 ;
+    cover:foundIn covercore:BoComedy ;
+    cover:hasIronyType cover:SelfDisparagingIrony ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Performative activism" ;
+    cover:hasText """"Healing the world with comedy
+Making a literal difference, metaphorically
+A Jew walks into a bar, and I've saved him a seat
+That's healing the world with comedy\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:14 a cover:Irony ;
+    rdfs:label "Creative Instance 14" ;
+    cover:createdFrom covercore:event14 ;
+    cover:foundIn covercore:InfComedy ;
+    cover:hasIronyType cover:SelfDisparagingIrony ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Heartbreak" ;
+    cover:hasText """"And mother doesn't get the joke
+Where I want love and I get none
+I cried for weeks when the last one left
+Oh, isn't that hilarious?
+I guess it's sad from the outside in
+But it's so funny, it's so funny to me"
+""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:15 a cover:Sincerity ;
+    rdfs:label "Creative Instance 15" ;
+    cover:createdFrom covercore:event15 ;
+    cover:foundIn covercore:Purgatory ;
+    cover:hasLanguage "Italian" ;
+    cover:hasTarget cover:Institution ;
+    cover:hasTargetDescription "The italian governments" ;
+    cover:hasText """"Ahi serva Italia, di dolore ostello,\r
+nave sanza nocchiere in gran tempesta,\r
+non donna di provincie, ma bordello!\"""" ;
+    cover:hasTranslation """"Ah, servile Italy, inn of sorrow,\r
+ship without a helmsman in a great storm,\r
+not lady of provinces, but a brothel!\"""" .
+
+covercore:16 a cover:Irony ;
+    rdfs:label "Creative Instance 16" ;
+    cover:createdFrom covercore:event16 ;
+    cover:foundIn covercore:Purgatory ;
+    cover:hasIronyType cover:ImpersonalIrony ;
+    cover:hasLanguage "Italian" ;
+    cover:hasTarget cover:Community ;
+    cover:hasTargetDescription "Florence's politicians" ;
+    cover:hasText """"Fiorenza mia, ben puoi esser contenta\r
+di questa digression che non ti tocca,\r
+mercé del popol tuo che si argomenta.\"""" ;
+    cover:hasTranslation "\"My Florence, how delighted you must be to follow my tirade here because your citizens are so innocent!\"" .
+
+covercore:17 a cover:Sincerity ;
+    rdfs:label "Creative Instance 17" ;
+    cover:createdFrom covercore:event17 ;
+    cover:foundIn covercore:Ddaeng ;
+    cover:hasLanguage "Korean" ;
+    cover:hasTarget cover:Community ;
+    cover:hasTargetDescription "Haters" ;
+    cover:hasText """"여지껏 무시해줘 고맙다
+덕분에 스타디움, 돔, 빌보드
+많은 것을 덕분에 많이도 얻었다\"""" ;
+    cover:hasTranslation """"Thank you for ignoring us until now
+Thank you, stadium, dome, Billboard
+Thanks to you, we became successful\"""" .
+
+covercore:18 a cover:Irony ;
+    rdfs:label "Creative Instance 18" ;
+    cover:createdFrom covercore:event18 ;
+    cover:foundIn covercore:Ddaeng ;
+    cover:hasIronyType cover:ImpersonalIrony ;
+    cover:hasLanguage "Korean" ;
+    cover:hasTarget cover:Community ;
+    cover:hasTargetDescription "Haters" ;
+    cover:hasText """"힙합? 땡
+Rap style? 땡
+걍 랩퍼, 땡
+방탄, 땡 [...] 
+일팔, 일삼, 삼팔, 땡\r
+You wrong, me right, 잘 봐 땡\r
+학교종 울려라, brr, brr, 땡\r
+야 이번 생은 글렀어, 넌 땡\"""" ;
+    cover:hasTranslation """"Hip-hop? Ddaeng
+Rap style? Ddaeng
+Just a rapper, ddaeng
+Bangtan = Ddaeng [...]
+One-eight, one-three, three-eight, ddaeng\r
+You wrong, me right, look carefully, ddaeng\r
+Ring the school bell, brr brr, ddaeng\r
+Hey, your life’s over, you’re ddaeng\"""" .
+
+covercore:19 a cover:Sincerity ;
+    rdfs:label "Creative Instance 19" ;
+    cover:createdFrom covercore:event19 ;
+    cover:foundIn covercore:Brecht ;
+    cover:hasLanguage "German" ;
+    cover:hasTarget cover:Institution ;
+    cover:hasTargetDescription "The Nazist regime" ;
+    cover:hasText """"Als das Regime befahl, Bücher mit schädlichem Wissen
+öffentlich zu verbrennen und überall
+Ochsen gezwungen wurden, Karren mit Büchern zu den Scheiterhaufen zu ziehen,
+entdeckte ein verjagter Dichter, einer der besten,
+die Liste der Verurteilten,
+entsetzt, dass seine Bücher vergessen waren.\"""" ;
+    cover:hasTranslation """"When the regime ordered that books with harmful knowledge
+be publicly burned, and everywhere
+oxen were forced to drag carts full of books to the bonfires,
+a banished poet, one of the best,
+discovered, among the condemned,
+that his own books had been forgotten.\"""" .
+
+covercore:2 a cover:Irony ;
+    rdfs:label "Creative Instance 2" ;
+    cover:createdFrom covercore:event2 ;
+    cover:foundIn covercore:LookOfAgony ;
+    cover:hasIronyType cover:ImpersonalIrony ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Human nature - and the tendancy to not say what you mean" ;
+    cover:hasText """I like a look of Agony,
+Because I know it's true -
+""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:20 a cover:Irony ;
+    rdfs:label "Creative Instance 20" ;
+    cover:createdFrom covercore:event20 ;
+    cover:foundIn covercore:Brecht ;
+    cover:hasIronyType cover:IronyOfEvents ;
+    cover:hasLanguage "German" ;
+    cover:hasTarget cover:Institution ;
+    cover:hasTargetDescription "Book burning" ;
+    cover:hasText """"Verbrennt mich! schrieb er mit fliegender Feder, verbrennt mich!\r
+\r
+Tut mir das nicht an! Laßt mich nicht übrig! Habe ich nicht\r
+\r
+Immer die Wahrheit berichtet in meinen Büchern? Und jetzt\r
+\r
+Werd ich von euch wie ein Lügner behandelt!\"""" ;
+    cover:hasTranslation """""Burn me!", he wrote about flight, "burn me!
+Do not do me this wrong! Do not leave me out! Perhaps
+I have not always declared the truth in my books?"\"""" .
+
+covercore:21 a cover:Sincerity ;
+    rdfs:label "Creative Instance 21" ;
+    cover:createdFrom covercore:event21 ;
+    cover:foundIn covercore:ElPadre ;
+    cover:hasLanguage "Spanish" ;
+    cover:hasTarget cover:StateOfAffair ;
+    cover:hasTargetDescription "Murder" ;
+    cover:hasText """y las venenosas zarzas pisa
+Que roen como tòsigos las plantas
+Del criminal, en el dominio lòbrego
+Donde andan sin cesar los asesinos!""" ;
+    cover:hasTranslation """and the poisonous brambles he steps on
+That gnaw at plants like poisons
+Of the criminal, in the gloomy domain
+Where the murderers roam endlessly
+""" .
+
+covercore:22 a cover:Irony ;
+    rdfs:label "Creative Instance 22" ;
+    cover:createdFrom covercore:event22 ;
+    cover:foundIn covercore:Anthem ;
+    cover:hasIronyType cover:SelfDisparagingIrony ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Community ;
+    cover:hasTargetDescription "Haters" ;
+    cover:hasText """"I love the way it feels to be a hater
+Something so sweet about thinking that I'm better"
+""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:23 a cover:Sincerity ;
+    rdfs:label "Creative Instance 23" ;
+    cover:createdFrom covercore:event23 ;
+    cover:foundIn covercore:inTaberna ;
+    cover:hasLanguage "Latin" ;
+    cover:hasTarget cover:StateOfAffair ;
+    cover:hasTargetDescription "Playing and betting in the tavern" ;
+    cover:hasText """"In taberna quando sumus,\r
+non curamus quid sit humus,\r
+sed ad ludum properamus,\r
+cui semper insudamus.\"""" ;
+    cover:hasTranslation """"When we are in the tavern,
+we care not about the earth (or death),
+but we hurry to the game,
+at which we always toil.\"""" .
+
+covercore:24 a cover:Irony ;
+    rdfs:label "Creative Instance 24" ;
+    cover:createdFrom covercore:event24 ;
+    cover:foundIn covercore:inTaberna ;
+    cover:hasIronyType cover:IronyOfEvents ;
+    cover:hasLanguage "Latin" ;
+    cover:hasTarget cover:Institution ;
+    cover:hasTargetDescription "Clergy" ;
+    cover:hasText """"bibit presul et decanus,\r
+bibit soror, bibit frater\"""" ;
+    cover:hasTranslation "\"the bishop drinks, and the deacon, the sister drinks, the father drinks\"" .
+
+covercore:25 a cover:Sincerity ;
+    rdfs:label "Creative Instance 25" ;
+    cover:createdFrom covercore:event25 ;
+    cover:foundIn covercore:Ironic ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Life" ;
+    cover:hasText """"Well, life has a funny way of sneaking up on you\r
+When you think everything's okay and everything's going right\r
+And life has a funny way of helping you out\r
+When you think everything's gone wrong\r
+And everything blows up in your face\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:26 a cover:Irony ;
+    rdfs:label "Creative Instance 26" ;
+    cover:createdFrom covercore:event26 ;
+    cover:foundIn covercore:Ironic ;
+    cover:hasIronyType cover:IronyOfEvents ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Life" ;
+    cover:hasText """"Mr. Play-It-Safe was afraid to fly\r
+He packed his suitcase and kissed his kids goodbye\r
+He waited his whole damn life to take that flight\r
+And as the plane crashed down\r
+He thought, "Well, isn't this nice?\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:27 a cover:Irony ;
+    rdfs:label "Creative Instance 27" ;
+    cover:createdFrom covercore:event27 ;
+    cover:foundIn covercore:Albatros ;
+    cover:hasIronyType cover:IronyOfSimpleIncongruency ;
+    cover:hasLanguage "French" ;
+    cover:hasTarget cover:Self ;
+    cover:hasTargetDescription "The poet is refering to himself" ;
+    cover:hasText """À peine les ont-ils déposés sur les planches,
+Que ces rois de l'azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à côté d'eux.
+
+""" ;
+    cover:hasTranslation """Scarcely have they placed them on the deck
+Than these kings of the sky, clumsy, ashamed,
+Pathetically let their great white wings
+Drag beside them like oars.""" .
+
+covercore:28 a cover:Sincerity ;
+    rdfs:label "Creative Instance 28" ;
+    cover:createdFrom covercore:event28 ;
+    cover:foundIn covercore:Leda ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:StateOfAffair ;
+    cover:hasTargetDescription "Sexual violence" ;
+    cover:hasText """How can those terrified vague fingers push
+The feathered glory from her loosening thighs?
+""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:29 a cover:Sincerity ;
+    rdfs:label "Creative Instance 29" ;
+    cover:createdFrom covercore:event29 ;
+    cover:foundIn covercore:Capa ;
+    cover:hasLanguage "Italian" ;
+    cover:hasTarget cover:Person ;
+    cover:hasTargetDescription "The listener, which is not a real artist but pretends to be one" ;
+    cover:hasText """"Lui olio su tela, e creò dipinti\r
+Tu olio su muscoli, e gare di body building\r
+Lui paesane, modelle, prostitute\r
+Tu passi le notti nel letto con il computer\"""" ;
+    cover:hasTranslation """"He, oil on canvas, and he created paintings.
+You, oil on muscles, and bodybuilding contests.
+He had country girls, models, prostitutes.
+You spend your nights in bed with the computer\"""" .
+
+covercore:3 a cover:Sincerity ;
+    rdfs:label "Creative Instance 3" ;
+    cover:createdFrom covercore:event3 ;
+    cover:foundIn covercore:Alivella ;
+    cover:hasLanguage "Neapolitan" ;
+    cover:hasTarget cover:Community ;
+    cover:hasTargetDescription "The use of going to the cemetery on the 2nd of November" ;
+    cover:hasText "\"Ogn'anno, il due novembre, c'è l'usanza per i defunti andare al Cimitero. Ognuno ll'adda fà chesta crianza; ognuno adda tené chistu penziero. \"" ;
+    cover:hasTranslation "\"Every year, on the second of November, it’s the custom to go to the cemetery for the dead. Everyone must follow this tradition; everyone must keep this thought in mind.\"\r" .
+
+covercore:30 a cover:Irony ;
+    rdfs:label "Creative Instance 30" ;
+    cover:createdFrom covercore:event30 ;
+    cover:foundIn covercore:Capa ;
+    cover:hasIronyType cover:ImpersonalIrony ;
+    cover:hasLanguage "Italian" ;
+    cover:hasTarget cover:Person ;
+    cover:hasTargetDescription "The listener" ;
+    cover:hasText "\"Tu sei pazzo, mica Van Gogh\"" ;
+    cover:hasTranslation "\"You are crazy; not Van Gogh\"" .
+
+covercore:31 a cover:Irony ;
+    rdfs:label "Creative Instance 31" ;
+    cover:createdFrom covercore:event31 ;
+    cover:foundIn covercore:SelfishChild ;
+    cover:hasIronyType cover:ImpersonalIrony ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Selfishness" ;
+    cover:hasText """"And if I die before I wake,
+I pray the Lord my toys to break.
+So none of the other kids can use ’em. . . .
+Amen.\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:32 a cover:Sincerity ;
+    rdfs:label "Creative Instance 32" ;
+    cover:createdFrom covercore:event32 ;
+    cover:foundIn covercore:SilverSpoon ;
+    cover:hasLanguage "Korean" ;
+    cover:hasTarget cover:Community ;
+    cover:hasTargetDescription "Generational Inequality" ;
+    cover:hasText """"난 뱁새다리 (다리), 넌 황새다리 (새다리)
+걔넨 말하지, "내 다린 백만 불짜리" (불짜리)
+내 게 짧은데 어찌 같은 종목 하니? (What?)
+They say, "똑같은 초원이면 괜찮잖니"
+ (Never, never, woo)\"""" ;
+    cover:hasTranslation """"I have crow-tit legs, and you have stork's legs
+They say, ''My legs are worth a million bucks''
+My legs are shorter, so how do you expect me to keep up?
+They say, ''It's the same field, so it shouldn't matter, right?''
+Never, never, never\"""" .
+
+covercore:33 a cover:Irony ;
+    rdfs:label "Creative Instance 33" ;
+    cover:createdFrom covercore:event33 ;
+    cover:foundIn covercore:SilverSpoon ;
+    cover:hasIronyType cover:IronyOfEvents ;
+    cover:hasLanguage "Korean" ;
+    cover:hasTarget cover:Community ;
+    cover:hasTargetDescription "Generational Inequality" ;
+    cover:hasText """"알바 가면 (가면, 가면) 열정페이 (Ayy)
+학교 가면 (가면, 가면) 선생님 (Shit, woo)
+상사들은 (No, woo, woo) 행패 (Yeah, yeah)
+언론에선 맨날 몇 포 세대 (Woo, bang) [...] 아, 노력, 노력 타령 좀 그만둬
+아, 오그라들어 내 두 손발도
+아, 노-노력, 아, 노-노력
+아, 노-노랗구나 싹수가 (역시 황새)\"""" ;
+    cover:hasTranslation """"At a part-time job (Go, go), it's "all for experience"
+ (Ay)
+Go to school (Go, go), there's the teachers (Shit, woo)
+Bosses (No, woo, woo) act up (Yeah, yeah)
+In the media they go on about "the generation that's given up"
+ (Woo, bang) [...] Ah, stop going on about "effort" and more "effort"\r
+Ah, it makes my skin crawl\r
+Ah, try harder, ah, try harder\r
+Ah, you really don't have a chance\r
+As expected from the ones before us\"""" .
+
+covercore:34 a cover:Sincerity ;
+    rdfs:label "Creative Instance 34" ;
+    cover:createdFrom covercore:event34 ;
+    cover:foundIn covercore:Sober ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Internal Conflict" ;
+    cover:hasText """"I don't wanna be the girl that has to fill the silence
+The quiet scares me 'cause it screams the truth
+Please don't tell me that we had that conversation
+I won't remember, save your breath 'cause what's the use?\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:35 a cover:Irony ;
+    rdfs:label "Creative Instance 35" ;
+    cover:createdFrom covercore:event35 ;
+    cover:foundIn covercore:Sober ;
+    cover:hasIronyType cover:IronyOfSelfBetrayal ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Internal Conflict" ;
+    cover:hasText """"I'm safe up high\r
+Nothing can touch me\r
+Why do I feel this party's over?\r
+Whoahhh\r
+No pain inside\r
+You're like perfection\r
+But how do I feel this good sober?\r
+(How do I feel this good sober)\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:36 a cover:Sincerity ;
+    rdfs:label "Creative Instance 36" ;
+    cover:createdFrom covercore:event36 ;
+    cover:foundIn covercore:SpineBreaker ;
+    cover:hasLanguage "Korean" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Consumerism and Fashion Trends" ;
+    cover:hasText """"21세기 계급은 반으로 딱 나눠져
+있는 자와 없는 자, 신은 자와 없는 자
+입은 자와 벗는 자, 또 기를 써서 얻는 자\"""" ;
+    cover:hasTranslation """"The class system of the 21st century is split right down the middle
+The haves and have-nots, those who wear and those who can't
+And those who try hard to get those things\"""" .
+
+covercore:37 a cover:Irony ;
+    rdfs:label "Creative Instance 37" ;
+    cover:createdFrom covercore:event37 ;
+    cover:foundIn covercore:SpineBreaker ;
+    cover:hasIronyType cover:IronyOfSelfBetrayal ;
+    cover:hasLanguage "Korean" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Consumerism and Fashion Trends" ;
+    cover:hasText """"휘어지는 부모 등골을 봐도 넌 매몰차
+친구는 다 있다고 졸라대니 안 사줄 수도 없다고
+(Ayo baby) 철딱서니 없게 굴지 말어
+그깟 패딩 안 입는다고 얼어 죽진 않어
+패딩 안에 거위털을 채우기 전에
+니 머릿속 개념을 채우길, 늦기 전에\"""" ;
+    cover:hasTranslation """"Even seeing your parents' bent backs, you stay coldhearted
+You nag, saying all your friends have one, so they can't say no
+(Ayo baby) Stop being so immature
+You won't freeze to death just because you don't wear that coat
+Before you stuff your jacket with goose fea
+thers
+Try stuffing your brain with some sense, before it's too late\"""" .
+
+covercore:38 a cover:Irony ;
+    rdfs:label "Creative Instance 38" ;
+    cover:createdFrom covercore:event38 ;
+    cover:foundIn covercore:FunnyFeeling ;
+    cover:hasIronyType cover:IronyOfSimpleIncongruency ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Late-stage capitalism" ;
+    cover:hasText "A gift shop at the gun range, a mass shooting at the mall" ;
+    cover:hasTranslation "N/A" .
+
+covercore:39 a cover:Sincerity ;
+    rdfs:label "Creative Instance 39" ;
+    cover:createdFrom covercore:event39 ;
+    cover:foundIn covercore:Letter ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Person ;
+    cover:hasTargetDescription "The author's lover" ;
+    cover:hasText """"So I wrote you a word,\r
+and then another word,\r
+and another, and another,\r
+until I wrote you a sentence.\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:4 a cover:Irony ;
+    rdfs:label "Creative Instance 4" ;
+    cover:createdFrom covercore:event4 ;
+    cover:foundIn covercore:Alivella ;
+    cover:hasIronyType cover:IngenuIrony ;
+    cover:hasLanguage "Neapolitan" ;
+    cover:hasTarget cover:Community ;
+    cover:hasTargetDescription "The rich" ;
+    cover:hasText "\"<<Lurido porco! Come ti permetti paragonarti a me ch’ebbi natali illustri, nobilissimi e perfetti, da fare invidia a Principi Reali?>>  <<tu qua’ nòatale, Pasca e Pifanìa!!! T’o vvuo’ mettere ‘ncapo, ‘int’a cervella che staje malato ancora ‘e fantasia? ‘A morte ‘o ssaje ched’è? E’ ‘na livella:  ‘nu rre, ‘nu maggistrato, ‘nu grand’ommo, trasenno ‘stu canciello ha fatt’o punto c’ha perzo tutto, ‘a vita e pur’o nomme. Tu nun t’he’ fatto ancora chistu cunto?  Perciò, stamme a ssentì, nun fa’ ‘o restivo, suppuorteme vicino, che te ‘mporta? ‘Sti ppagliacciate ‘e ffanno sul’e vive: nuje simme serje… appartenimmo a morte!>\"" ;
+    cover:hasTranslation """“Filthy pig! How dare you compare yourself to me,
+born of illustrious, noble, and perfect lineage
+enough to make royal princes envious?”
+
+“Your lineage, Easter and Epiphany, my foot!
+Get it through your head,
+you’re still sick with fantasies!
+Do you know what death is? It’s a leveler:
+a king, a judge, a great man
+once he’s passed through this gate,
+he’s lost everything: life, and even his name.
+Haven’t you figured that out yet?
+So listen to me, don’t be stubborn;
+put up with me here beside you what do you care?
+These clownish acts are for the living:
+we are serious… we belong to death!”""" .
+
+covercore:40 a cover:Irony ;
+    rdfs:label "Creative Instance 40" ;
+    cover:createdFrom covercore:event40 ;
+    cover:foundIn covercore:Letter ;
+    cover:hasIronyType cover:ImpersonalIrony ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Thing ;
+    cover:hasTargetDescription "Letter" ;
+    cover:hasText "\"I wrote you a letter [...] until I wrote you a letter\"" ;
+    cover:hasTranslation "N/A" .
+
+covercore:41 a cover:Sincerity ;
+    rdfs:label "Creative Instance 41" ;
+    cover:createdFrom covercore:event41 ;
+    cover:foundIn covercore:Usseewa ;
+    cover:hasLanguage "Japanese" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Japanese society's \"Common sense\"" ;
+    cover:hasText """"ちっちゃな頃から優等生\r
+気づいたら大人になっていた\r
+ナイフの様な思考回路\r
+持ち合わせる訳もなく\r
+でも遊び足りない 何か足りない\r
+困っちまうこれは誰かのせい\r
+あてもなくただ混乱するエイデイ\"""" ;
+    cover:hasTranslation """"I was an honor student being young\r
+Before I realized, I was already grown up\r
+A train of thought like a knife\r
+Which I didn't have that with me\r
+But I'm not having enough fun\r
+Something is missing\r
+These troubles better are somebody's fault\r
+I'm just confused today\"""" .
+
+covercore:42 a cover:Irony ;
+    rdfs:label "Creative Instance 42" ;
+    cover:createdFrom covercore:event42 ;
+    cover:foundIn covercore:Usseewa ;
+    cover:hasIronyType cover:IronyOfEvents ;
+    cover:hasLanguage "Japanese" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "Japanese society's \"Common sense\"" ;
+    cover:hasText """「 最新の流行は当然の把握
+経済の動向も通勤時チェック
+純情な精神で入社しワーク
+社会人じゃ当然のルールです [..]
+クソだりぃな
+酒が空いたグラスあれば直ぐに注ぎなさい
+皆がつまみ易いように串外しなさい
+会計や注文は先陣を切る
+不文律最低限のマナーです 」""" ;
+    cover:hasTranslation """"Understanding the latest trends
+Checking the stock market on my way to work
+Joining a company with the pure spirit
+These are the obvious rules for us workers
+[...] I'm f***ing tired
+Pour drinks when glasses are empty
+Take off the skewer so it's easier for everyone to eat
+Check and order before anyone does
+These are the minimum rules for the social manner\"""" .
+
+covercore:5 a cover:Sincerity ;
+    rdfs:label "Creative Instance 5" ;
+    cover:createdFrom covercore:event5 ;
+    cover:foundIn covercore:Saba ;
+    cover:hasLanguage "Italian" ;
+    cover:hasTarget cover:Person ;
+    cover:hasTargetDescription """
+The poet's wife""" ;
+    cover:hasText """"You are like a thing that is
+simple, natural, and true,
+like the bread and the wine,
+like the sun and the air.""" ;
+    cover:hasTranslation """"Tu sei come una cosa che è
+semplice, naturale e vera,
+come il pane e il vino,
+come il sole e l’aria.\"""" .
+
+covercore:6 a cover:Irony ;
+    rdfs:label "Creative Instance 6" ;
+    cover:createdFrom covercore:event6 ;
+    cover:foundIn covercore:Saba ;
+    cover:hasIronyType cover:DramatizedIrony ;
+    cover:hasLanguage "Italian" ;
+    cover:hasTarget cover:Person ;
+    cover:hasTargetDescription "The poet's wife" ;
+    cover:hasText """"Tu sei come una giovane\r
+una bianca pollastra.\r
+Le si arruffano al vento\r
+le piume, il collo china\r
+per bere, e in terra raspa;\r
+ma, nell'andare, ha il lento\r
+tuo passo di regina,\r
+ed incede sull'erba\r
+pettoruta e superba. [...]\"""" ;
+    cover:hasTranslation """"You are like a young,\r
+white hen.\r
+Her feathers ruffle in the wind,\r
+she bends her neck\r
+to drink, and scratches the ground;\r
+but as she walks, she has\r
+your slow, regal step,\r
+and moves over the grass,\r
+proud and full-chested.\r
+""" .
+
+covercore:7 a cover:Sincerity ;
+    rdfs:label "Creative Instance 7" ;
+    cover:createdFrom covercore:event7 ;
+    cover:foundIn covercore:AllStar ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Thing ;
+    cover:hasTargetDescription "The life of the author" ;
+    cover:hasText """"My world's on fire, how 'bout yours?\r
+That's the way I like it, and I'll never get bored\"""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:8 a cover:Irony ;
+    rdfs:label "Creative Instance 8" ;
+    cover:createdFrom covercore:event8 ;
+    cover:foundIn covercore:AllStar ;
+    cover:hasIronyType cover:ImpersonalIrony ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Thing ;
+    cover:hasTargetDescription "The temperature" ;
+    cover:hasText "\"It's a cool place, and they say it gets colder\"" ;
+    cover:hasTranslation "N/A" .
+
+covercore:9 a cover:Sincerity ;
+    rdfs:label "Creative Instance 9" ;
+    cover:createdFrom covercore:event9 ;
+    cover:foundIn covercore:IrishMan ;
+    cover:hasLanguage "English" ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "The meaning and purpose of life" ;
+    cover:hasText """The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death.
+""" ;
+    cover:hasTranslation "N/A" .
+
+covercore:Ado a cover:Performer ;
+    rdfs:label "Ado" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q104012678> ;
+    cover:hasName "Ado" .
+
+covercore:Burnum a cover:Performer ;
+    rdfs:label "Bo Burnum" ;
+    owl:sameAs <http://viaf.org/viaf/162392861> ;
+    cover:hasName "Bo Burnum" .
+
+covercore:Inst1 a owl:NamedIndividual,
+        cover:Irony ;
+    cover:createdFrom covercore:IEvent1 ;
+    cover:foundIn covercore:IrishAirman ;
+    cover:hasIronyType cover:IronyOfEvents ;
+    cover:hasTarget cover:StateOfAffair ;
+    cover:hasTargetDescription "The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs." ;
+    cover:hasText "Nor law, nor duty bade me fight,/Nor public men, nor cheering crowds,/A lonely impulse of delight/Drove to this tumult in the clouds;" .
+
+covercore:Inst2 a owl:NamedIndividual,
+        cover:Sincerity ;
+    cover:createdFrom covercore:SEvent2 ;
+    cover:foundIn covercore:IrishAirman ;
+    cover:hasTarget cover:Concept ;
+    cover:hasTargetDescription "The meaning and purpose of life." ;
+    cover:hasText "The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death." .
+
+xsd:gYear a rdfs:Datatype .
+
+cover:IronyOfDilemma a owl:NamedIndividual,
+        cover:SituationalIrony ;
+    rdfs:label "Irony of Dilemma" ;
+    rdfs:comment "The victim of a dilemma or some other impossible situation may be a victim of an ironic situation in several different ways. He may, for example, be confidently unaware of being so situated. (Muecke, D.C., 2020, p. 113)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+cover:IronyOfDrama a owl:NamedIndividual,
+        cover:SituationalIrony ;
+    rdfs:label "Irony of Drama" ;
+    rdfs:comment "Generally speaking the irony is more striking when an observer already knows what the victim has yet to find out. To the examiner who has already failed the student whom he hears expressing a confident expectation of passing, the situation is already ironic; to others there is no irony until the results come out. (Muecke, D.C., 2020, p. 104)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+cover:Self a owl:NamedIndividual,
+        cover:Target ;
+    rdfs:label "Self" ;
+    rdfs:comment "The self as the target of a creative idea." ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:createsIdea a owl:ObjectProperty ;
+    rdfs:label "creates idea" ;
+    rdfs:domain cover:CreativeEvent ;
+    rdfs:range cover:CreativeIdea .
+
+cover:hasCreator a owl:ObjectProperty ;
+    rdfs:label "has creator" ;
+    rdfs:comment "Links a creative work to its creator (Author or Ironist)." ;
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( cover:Author cover:Ironist ) ] .
+
+cover:hasIdea a owl:ObjectProperty ;
+    rdfs:label "has creative idea" ;
+    rdfs:comment "connects a work to a particular creative idea" ;
+    rdfs:domain cover:CreativeWork ;
+    rdfs:range cover:CreativeIdea .
+
+cover:isIronistOf a owl:ObjectProperty ;
+    rdfs:label "is ironist of" ;
+    rdfs:comment "connects an actor to an instance of irony they have created" ;
+    rdfs:domain cover:Author ;
+    rdfs:range cover:IronicEvent .
+
+cover:takesPartIn a owl:ObjectProperty ;
+    rdfs:label "takes part in" ;
+    rdfs:comment "connects an actor to the event they are a part of" ;
+    rdfs:domain cover:Actor ;
+    rdfs:range cover:CreativeEvent .
+
+covercore:Albatros a cover:Poem ;
+    rdfs:label "L'Albatros" ;
+    cover:hasCreationDate "1859"^^xsd:gYear ;
+    cover:hasCreationLocation "France" ;
+    cover:hasCreator covercore:Baudelaire ;
+    cover:hasLanguage "French" ;
+    cover:hasPoeticForm "" ;
+    cover:hasTitle "L'Albatros" .
+
+covercore:Anthem a cover:Song ;
+    rdfs:label "Hater's Anthem" ;
+    cover:hasCreationDate "2024"^^xsd:gYear ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:InfinitySong ;
+    cover:hasGenre "Folk/Pop" ;
+    cover:hasLanguage "English" ;
+    cover:hasPerformer covercore:InfinitySong ;
+    cover:hasTitle "Hater's Anthem" .
+
+covercore:BoComedy a cover:Song ;
+    rdfs:label "Comedy" ;
+    cover:hasCreationDate "2021"^^xsd:gYear ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:Burnham ;
+    cover:hasGenre "Comedy/Pop" ;
+    cover:hasLanguage "English" ;
+    cover:hasTitle "Comedy" .
+
+covercore:ElPadre a cover:Poem ;
+    rdfs:label "El Padre Suizo" ;
+    cover:hasCreationDate "1880s" ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:Martí ;
+    cover:hasLanguage "Spanish" ;
+    cover:hasPoeticForm "Free-form" ;
+    cover:hasTitle "El Padre Suizo" .
+
+covercore:FunnyFeeling a cover:Song ;
+    rdfs:label "That Funny Feeling" ;
+    cover:hasCreationDate "2021"^^xsd:gYear ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:Burnham ;
+    cover:hasGenre "Comedy/Pop" ;
+    cover:hasLanguage "English" ;
+    cover:hasTitle "That Funny Feeling" .
+
+covercore:IEvent1 a owl:NamedIndividual,
+        cover:IronicEvent ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "A fighter pilot flies for honour and duty to his country" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:WBYeats ;
+    cover:hasObservableScenario "The airman does not care about honour but flies just for the pleasure of being in the sky" .
+
+covercore:InfComedy a cover:Song ;
+    rdfs:label "Comedy" ;
+    cover:hasCreationDate "2024"^^xsd:gYear ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:InfinitySong ;
+    cover:hasGenre "Folk/Pop" ;
+    cover:hasLanguage "English" ;
+    cover:hasPerformer covercore:InfinitySong ;
+    cover:hasTitle "Comedy" .
+
+covercore:Leda a cover:Poem ;
+    rdfs:label "Leda and the Swan" ;
+    cover:hasCreationDate "1923"^^xsd:gYear ;
+    cover:hasCreationLocation "Ireland" ;
+    cover:hasCreator covercore:Yeats ;
+    cover:hasLanguage "English" ;
+    cover:hasPoeticForm "Petrarchan sonnet" ;
+    cover:hasTitle "Leda and the Swan" .
+
+covercore:SEvent2 a owl:NamedIndividual,
+        cover:SincereEvent ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:WBYeats ;
+    cover:hasEpistemicScenario "In the face of death, everything about life can seem meaningless." ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "In the face of death, everything about life can seem meaningless." .
+
+covercore:SelfishChild a cover:Poem ;
+    rdfs:label "Prayer of the Selfish Child" ;
+    cover:hasCreationDate "1981"^^xsd:gYear ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:Silverstein ;
+    cover:hasLanguage "English" ;
+    cover:hasPoeticForm "Prayer" ;
+    cover:hasTitle "Prayer of the Selfish Child" .
+
+covercore:event1 a cover:SincereEvent ;
+    rdfs:label "Event 1" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Dickinson ;
+    cover:hasEpistemicScenario "Agony creates strain and sweat on the face" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "Agony creates strain and sweat on the face" .
+
+covercore:event10 a cover:IronicEvent ;
+    rdfs:label "Event 10" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "A fighter pilot flies for honour and duty to his country" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Yeats ;
+    cover:hasObservableScenario "The airman does not care about honour but flies just for the pleasure of being in the sky" .
+
+covercore:event11 a cover:SincereEvent ;
+    rdfs:label "Event 11" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Catullus ;
+    cover:hasEpistemicScenario "The author is saying that if the host will bring what he asked, he will dine well, since he has no money and things to offer him. " ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "The author is saying that if the host will bring what he asked, he will dine well, since he has no money and things to offer him. " .
+
+covercore:event12 a cover:IronicEvent ;
+    rdfs:label "Event 12" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "The poet is inviting his friend to dinner pretending to offer him a lot of things" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Catullus ;
+    cover:hasObservableScenario "In reality, the poet is inviting his friend and he is asking him to bring with him what it is needed to have dinner" .
+
+covercore:event13 a cover:IronicEvent ;
+    rdfs:label "Event 13" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "Comedian says he wants to change the world, and this should be through meaningful action" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:Burnham ;
+    cover:hasObservableScenario "Comedian only tells jokes and does not make any meaningful changes" .
+
+covercore:event14 a cover:IronicEvent ;
+    rdfs:label "Event 14" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "Someone who is failing at love should feel sad about it" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:InfinitySong ;
+    cover:hasObservableScenario "The fact that they are failing in love is actually funny to them" .
+
+covercore:event15 a cover:SincereEvent ;
+    rdfs:label "Event 15" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Dante ;
+    cover:hasEpistemicScenario "Dante delivers a bitter accusation against Italy, divided and corrupt; he compares it to a rudderless ship and a degraded homeland, unable to preserve its dignity.\r" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "Dante delivers a bitter accusation against Italy, divided and corrupt; he compares it to a rudderless ship and a degraded homeland, unable to preserve its dignity.\r" .
+
+covercore:event16 a cover:IronicEvent ;
+    rdfs:label "Event 16" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "It looks like the author is praising Florence" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Dante ;
+    cover:hasObservableScenario "The author is actually resenting the city's actions" .
+
+covercore:event17 a cover:SincereEvent ;
+    rdfs:label "Event 17" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor covercore:BTS ;
+    cover:hasEpistemicScenario "The artists express genuine appreciation for their success, to their fans but also to the haters who motivated them to prove them wrong." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "The artists express genuine appreciation for their success, to their fans but also to the haters who motivated them to prove them wrong." .
+
+covercore:event18 a cover:IronicEvent ;
+    rdfs:label "Event 18" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "People are always ready to criticize you, especially online, insulting and saying \"ddaeng\" (slang for \"wrong!\" in korean)." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:BTS ;
+    cover:hasObservableScenario "They flip the insult \"ddaeng\" back at their critics with genius wordplay and rythmical onomatopeia; showing how the same word can have different meanings like \"invincible\" in a korean card game and that's how the artists make the haters' words seem useless." .
+
+covercore:event19 a cover:SincereEvent ;
+    rdfs:label "Event 19" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Brecht ;
+    cover:hasEpistemicScenario "The regime is destroying “books with harmful knowledge,” meaning works considered dangerous or oppositional." ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "The regime is destroying “books with harmful knowledge,” meaning works considered dangerous or oppositional." .
+
+covercore:event2 a cover:IronicEvent ;
+    rdfs:label "Event 2" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "Agony is something we feel negatively about,  and because of this we tend to not like seeing others in Agony" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Dickinson ;
+    cover:hasObservableScenario "The speaker says she likes Agony because it can't be faked and therefore it is something you can trust to be true" .
+
+covercore:event20 a cover:IronicEvent ;
+    rdfs:label "Event 20" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "A poet usually doesn't want his books to be burnt" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Brecht ;
+    cover:hasObservableScenario """
+The poet feels insulted that his books weren’t banned, because being condemned by a corrupt regime would confirm his integrity.""" .
+
+covercore:event21 a cover:SincereEvent ;
+    rdfs:label "Event 21" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Martí ;
+    cover:hasEpistemicScenario "Those who murder in life will be forever condemned even after death" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "Those who murder in life will be forever condemned even after death" .
+
+covercore:event22 a cover:IronicEvent ;
+    rdfs:label "Event 22" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "Being a hater is a negative thing, that shouldn't be celebrated" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:InfinitySong ;
+    cover:hasObservableScenario "The speaker relishes in the idea of being a hater" .
+
+covercore:event23 a cover:SincereEvent ;
+    rdfs:label "Event 23" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor covercore:Vagantes ;
+    cover:hasEpistemicScenario "In the tavern, people forget mortality and responsibilities, focusing only on gambling and pleasure." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "In the tavern, people forget mortality and responsibilities, focusing only on gambling and pleasure." .
+
+covercore:event24 a cover:IronicEvent ;
+    rdfs:label "Event 24" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "Members of clergy shouldn't drink" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:Vagantes ;
+    cover:hasObservableScenario "Members of clergy are drinking" .
+
+covercore:event25 a cover:SincereEvent ;
+    rdfs:label "Event 25" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor covercore:Morissette ;
+    cover:hasEpistemicScenario "The ironic situations remind us how unpredictable life can be." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "The ironic situations remind us how unpredictable life can be." .
+
+covercore:event26 a cover:IronicEvent ;
+    rdfs:label "Event 26" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "The song is called \"Ironic\" and the lyrics present several ironic situations." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:Morissette ;
+    cover:hasObservableScenario "A song called “Ironic” isn’t filled with ironies. The central theme is frustration with life's unfair twists." .
+
+covercore:event27 a cover:IronicEvent ;
+    rdfs:label "Event 27" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "Being a king means you move and behave in a regal manner" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Baudelaire ;
+    cover:hasObservableScenario "The speaker calls the albatross the king of the sky, but that also means the bird is ugly and awkward on the ground" .
+
+covercore:event28 a cover:SincereEvent ;
+    rdfs:label "Event 28" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Yeats ;
+    cover:hasEpistemicScenario "Being sexually attacked by a giant swan would be a very terrifying experience" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "Being sexually attacked by a giant swan would be a very terrifying experience" .
+
+covercore:event29 a cover:SincereEvent ;
+    rdfs:label "Event 29" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor covercore:Caparezza ;
+    cover:hasEpistemicScenario "The author compares the traditional artist and the modern wannabe “artist” It compares classical painting (“oil on canvas”) with physical training (“oil on muscles”) and the real world of models with the virtual solitude of nights spent at the computer." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "The author compares the traditional artist and the modern wannabe “artist” It compares classical painting (“oil on canvas”) with physical training (“oil on muscles”) and the real world of models with the virtual solitude of nights spent at the computer." .
+
+covercore:event3 a cover:SincereEvent ;
+    rdfs:label "Event 3" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:de_Cursits_\(Totò\) ;
+    cover:hasEpistemicScenario "Every year everybody has to have in mind to go to the cemitery on the 2nd of November" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "Every year everybody has to have in mind to go to the cemitery on the 2nd of November" .
+
+covercore:event30 a cover:IronicEvent ;
+    rdfs:label "Event 30" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "The author is saying that the listener is not Van Gogh" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:Caparezza ;
+    cover:hasObservableScenario "The author really means that the listener is crazy, while Van Gogh is not. " .
+
+covercore:event31 a cover:IronicEvent ;
+    rdfs:label "Event 31" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "Now I lay me down to sleep is the start to a common prayer which prays for the soul even after death" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Silverstein ;
+    cover:hasObservableScenario "The child does not pray for their soul but for their toys to break so that no one can use them after they die" .
+
+covercore:event32 a cover:SincereEvent ;
+    rdfs:label "Event 32" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor covercore:BTS ;
+    cover:hasEpistemicScenario "The crow-tit and stork metaphor (a Korean idiom) is used to describe how younger generations are expected to compete equally with older ones despite unequal starting points." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "The crow-tit and stork metaphor (a Korean idiom) is used to describe how younger generations are expected to compete equally with older ones despite unequal starting points." .
+
+covercore:event33 a cover:IronicEvent ;
+    rdfs:label "Event 33" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "As old generations say \"Work hard and you'll succeed!\"" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:BTS ;
+    cover:hasObservableScenario "The artists are ironically echoing what society preaches while showing how hollow it sounds to people struggling in real life." .
+
+covercore:event34 a cover:SincereEvent ;
+    rdfs:label "Event 34" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor <https://w3id.org/controverse/P!nk> ;
+    cover:hasEpistemicScenario "A statement of fear and emptiness, showing self-awareness about her dependence on noise, distraction, or substances to avoid introspection." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "A statement of fear and emptiness, showing self-awareness about her dependence on noise, distraction, or substances to avoid introspection." .
+
+covercore:event35 a cover:IronicEvent ;
+    rdfs:label "Event 35" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "A person feeling great when using substances" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist <https://w3id.org/controverse/P!nk> ;
+    cover:hasObservableScenario "The person wishes to be able to achieve that \"good\" feeling through authenticity and being present in her own life, without any external aid." .
+
+covercore:event36 a cover:SincereEvent ;
+    rdfs:label "Event 36" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor covercore:BTS ;
+    cover:hasEpistemicScenario "The song shows how warped the system has become with the economic divide and consumerism creating new forms of inequality." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "The song shows how warped the system has become with the economic divide and consumerism creating new forms of inequality." .
+
+covercore:event37 a cover:IronicEvent ;
+    rdfs:label "Event 37" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "Songs targeted at the youth typically take the side of young people, seing things from their persepctive" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:BTS ;
+    cover:hasObservableScenario "This song actually criticizes the youth and takes the side of their parents viewing the young people as \"spine breakers\"" .
+
+covercore:event38 a cover:IronicEvent ;
+    rdfs:label "Event 38" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "The gun range is a place to practice a dangerous skill not to shop for gifts, while the mall should be a place to shop free from danger" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:Burnham ;
+    cover:hasObservableScenario "The space of the gun range is now just another comerical endevour and the mall is no longer to happy comercial utopia it may have set itself up to be and can just as easily become a space of violence" .
+
+covercore:event39 a cover:SincereEvent ;
+    rdfs:label "Event 39" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Burnham ;
+    cover:hasEpistemicScenario "The poet is writing a series of words, until he writes a sentence." ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "The poet is writing a series of words, until he writes a sentence." .
+
+covercore:event4 a cover:IronicEvent ;
+    rdfs:label "Event 4" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "Dead people shouldn't care about where they are buried" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:deCursits\(Totò\) ;
+    cover:hasObservableScenario "Two dead people are fighting cause the richer one wants to be far away from the poorer man." .
+
+covercore:event40 a cover:IronicEvent ;
+    rdfs:label "Event 40" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "You would expect a climax" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Burnham ;
+    cover:hasObservableScenario "The poem comes back where it started" .
+
+covercore:event41 a cover:SincereEvent ;
+    rdfs:label "Event 41" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor covercore:Syudou ;
+    cover:hasEpistemicScenario "The singer reflects honestly on feeling lost, unfulfilled, and frustrated with adulthood despite following all the “right” paths." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "The singer reflects honestly on feeling lost, unfulfilled, and frustrated with adulthood despite following all the “right” paths." .
+
+covercore:event42 a cover:IronicEvent ;
+    rdfs:label "Event 42" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "Following the rules of society and the path they chose for you will make you successfull and a proper worker contributing to society. " ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:Syudou ;
+    cover:hasObservableScenario "You are tired and not the successfull person they promised you'll be. Instead of an office worker you are working part time jobs; drinking; and competing with other people that were promised the same thing." .
+
+covercore:event5 a cover:SincereEvent ;
+    rdfs:label "Event 5" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Saba ;
+    cover:hasEpistemicScenario "The author describes his lover faithfully, as every poet does. " ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "The author describes his lover faithfully, as every poet does. " .
+
+covercore:event6 a cover:IronicEvent ;
+    rdfs:label "Event 6" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasEpistemicScenario "The poet seems to insult the wife because he is comparing her to any kind of animal" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasIronist covercore:Saba ;
+    cover:hasObservableScenario "The poet describes his wife like other poets do, but in a reversed way: instead of comparing her to noble or idealized creatures, he likens her to simple, everyday animals. In reality, he is describing her as if he was a child, with pure and innocent love." .
+
+covercore:event7 a cover:SincereEvent ;
+    rdfs:label "Event 7" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasActor covercore:SmashMouth ;
+    cover:hasEpistemicScenario "The author's life is messy and he asks the listener about his situation." ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasObservableScenario "The author's life is messy and he asks the listener about his situation." .
+
+covercore:event8 a cover:IronicEvent ;
+    rdfs:label "Event 8" ;
+    cover:createdDuring cover:ListeningEvent ;
+    cover:hasEpistemicScenario "Cool is a quality of the place" ;
+    cover:hasInterpreter cover:Listener ;
+    cover:hasIronist covercore:SmashMouth ;
+    cover:hasObservableScenario "Cool refers to the temperature" .
+
+covercore:event9 a cover:SincereEvent ;
+    rdfs:label "Event 9" ;
+    cover:createdDuring cover:ReadingEvent ;
+    cover:hasActor covercore:Yeats ;
+    cover:hasEpistemicScenario "In the face of death, everything about life can seem meaningless" ;
+    cover:hasInterpreter cover:Reader ;
+    cover:hasObservableScenario "In the face of death, everything about life can seem meaningless" .
+
+cover:DramatizedIrony a owl:NamedIndividual,
+        cover:VerbalIrony ;
+    rdfs:label "Dramatized Irony" ;
+    rdfs:comment "The function of the ironist in Dramatized Irony is simply to present ironic situations or events to our sense of irony. (Ironic situations and events themselves I shall discuss and attempt to classify in the next chapter.) In this ironic mode the ironist does not appear either as an impersonal voice or in any disguise. He simply arranges that the characters of his play or novel, story, verse narrative, or dramatic monologue expose themselves in their ironic predicament directly to the audience or reader. He himself is the puppet-master and as such out of sight. This is the only way in which dramatists can be ironical (short of bringing themselves more or less identifiably on stage). This is the way in which such novelists as Flaubert and Joyce are ironical. Novelists, such as Thackeray, who comment on their characters. (Muecke, D.C., 2020, pp. 92-93)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+covercore:Alivella a cover:Poem ;
+    rdfs:label "A livella " ;
+    cover:hasCreationDate "1964"^^xsd:gYear ;
+    cover:hasCreationLocation "Italy" ;
+    cover:hasCreator covercore:deCursits\(Totò\),
+        covercore:de_Cursits_\(Totò\) ;
+    cover:hasLanguage "Neapolitan" ;
+    cover:hasPoeticForm "Free-form" ;
+    cover:hasTitle "A livella " .
+
+covercore:AllStar a cover:Song ;
+    rdfs:label "All Star" ;
+    cover:hasCreationDate "1999"^^xsd:gYear ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:SmashMouth ;
+    cover:hasGenre "Alternative Rock" ;
+    cover:hasLanguage "English" ;
+    cover:hasPerformer covercore:SmashMouth ;
+    cover:hasTitle "All Star" .
+
+covercore:Baudelaire a cover:Author,
+        cover:Ironist ;
+    rdfs:label "Charles Baudelaire" ;
+    owl:sameAs <http://viaf.org/viaf/17218730> ;
+    cover:hasName "Charles Baudelaire" .
+
+covercore:Capa a cover:Song ;
+    rdfs:label "Mica Van Gogh " ;
+    cover:hasCreationDate "2014"^^xsd:gYear ;
+    cover:hasCreationLocation "Italy" ;
+    cover:hasCreator covercore:Caparezza ;
+    cover:hasGenre "Hip Hop" ;
+    cover:hasLanguage "Italian" ;
+    cover:hasPerformer covercore:Caparezza ;
+    cover:hasTitle "Mica Van Gogh " .
+
+covercore:Ddaeng a cover:Song ;
+    rdfs:label "Ddaeng (땡)" ;
+    cover:hasCreationDate "2018"^^xsd:gYear ;
+    cover:hasCreationLocation "South Korea" ;
+    cover:hasCreator covercore:BTS ;
+    cover:hasGenre "Hip Hop" ;
+    cover:hasLanguage "Korean" ;
+    cover:hasPerformer covercore:BTS ;
+    cover:hasPoeticForm "Diss track" ;
+    cover:hasTitle "Ddaeng (땡)" .
+
+covercore:IrishAirman a owl:NamedIndividual,
+        cover:Poem ;
+    rdfs:label "An Irish Airman forsees his Death" ;
+    cover:hasCreationDate "1919"^^xsd:gYear ;
+    cover:hasCreationLocation "Ireland" ;
+    cover:hasCreator covercore:WBYeats ;
+    cover:hasLanguage "English" ;
+    cover:hasPoeticForm "Elegy" ;
+    cover:hasTitle "An Irish Airman forsees his Death" .
+
+covercore:IrishMan a cover:Poem ;
+    rdfs:label "An Irish Airman forsees his death" ;
+    cover:hasCreationDate "1919"^^xsd:gYear ;
+    cover:hasCreationLocation "Ireland" ;
+    cover:hasCreator covercore:Yeats ;
+    cover:hasLanguage "English" ;
+    cover:hasPoeticForm "Elegy" ;
+    cover:hasTitle "An Irish Airman forsees his death" .
+
+covercore:Ironic a cover:Song ;
+    rdfs:label "Ironic" ;
+    cover:hasCreationDate "1996"^^xsd:gYear ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:Morissette ;
+    cover:hasGenre "Alternative Rock" ;
+    cover:hasLanguage "English" ;
+    cover:hasPerformer covercore:Morissette ;
+    cover:hasPoeticForm "Series of Vignettes" ;
+    cover:hasTitle "Ironic" .
+
+covercore:Letter a cover:Poem ;
+    rdfs:label "The Letter" ;
+    cover:hasCreationDate "2013"^^xsd:gYear ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:Burnham ;
+    cover:hasLanguage "English" ;
+    cover:hasPoeticForm "Free-form" ;
+    cover:hasTitle "The Letter" .
+
+covercore:LookOfAgony a cover:Poem ;
+    rdfs:label "241 - I like a look of Agony" ;
+    cover:hasCreationDate "mid-1860s" ;
+    cover:hasCreationLocation "USA" ;
+    cover:hasCreator covercore:Dickinson ;
+    cover:hasLanguage "English" ;
+    cover:hasPoeticForm "Ballad" ;
+    cover:hasTitle "241 - I like a look of Agony" .
+
+covercore:Martí a cover:Author ;
+    rdfs:label "Martí" ;
+    owl:sameAs <http://viaf.org/viaf/73865537> ;
+    cover:hasName "Martí" .
+
+covercore:Purgatory a cover:Poem ;
+    rdfs:label "Dante's canto VI " ;
+    cover:hasCreationDate "1321"^^xsd:gYear ;
+    cover:hasCreationLocation "Italy" ;
+    cover:hasCreator covercore:Dante ;
+    cover:hasLanguage "Italian" ;
+    cover:hasPoeticForm "Canto" ;
+    cover:hasTitle "Dante's canto VI " .
+
+covercore:SilverSpoon a cover:Song ;
+    rdfs:label "Silver Spoon (Bapsae=Crow-tit/뱁새)" ;
+    cover:hasCreationDate "2015"^^xsd:gYear ;
+    cover:hasCreationLocation "South Korea" ;
+    cover:hasCreator covercore:BTS ;
+    cover:hasGenre "K-pop, Hip Hop" ;
+    cover:hasLanguage "Korean" ;
+    cover:hasPerformer covercore:BTS ;
+    cover:hasTitle "Silver Spoon (Bapsae=Crow-tit/뱁새)" .
+
+covercore:Silverstein a cover:Author,
+        cover:Ironist ;
+    rdfs:label "Shel Silverstein" ;
+    owl:sameAs <http://viaf.org/viaf/19880380> ;
+    cover:hasName "Shel Silverstein" .
+
+covercore:Sober a cover:Song ;
+    rdfs:label "Sober" ;
+    cover:hasCreationDate "2008"^^xsd:gYear ;
+    cover:hasCreationLocation "UK" ;
+    cover:hasCreator <https://w3id.org/controverse/P!nk> ;
+    cover:hasGenre "Power  Pop" ;
+    cover:hasLanguage "English" ;
+    cover:hasPerformer <https://w3id.org/controverse/P!nk> ;
+    cover:hasTitle "Sober" .
+
+covercore:SpineBreaker a cover:Song ;
+    rdfs:label "Spine Breaker (척추브레이커)" ;
+    cover:hasCreationDate "2014"^^xsd:gYear ;
+    cover:hasCreationLocation "South Korea" ;
+    cover:hasCreator covercore:BTS ;
+    cover:hasGenre "Dark Hip Hop" ;
+    cover:hasLanguage "Korean" ;
+    cover:hasPerformer covercore:BTS ;
+    cover:hasTitle "Spine Breaker (척추브레이커)" .
+
+covercore:Usseewa a cover:Song ;
+    rdfs:label "Usseewa (うっせぇわ)" ;
+    cover:hasCreationDate "2020"^^xsd:gYear ;
+    cover:hasCreationLocation "Japan" ;
+    cover:hasCreator covercore:Syudou ;
+    cover:hasGenre "Japanese Rock, J-pop, Vocaloid Utaite" ;
+    cover:hasLanguage "Japanese" ;
+    cover:hasPoeticForm "J-pop, Electronic Rock" ;
+    cover:hasTitle "Usseewa (うっせぇわ)" .
+
+covercore:deCursits\(Totò\) a cover:Author,
+        cover:Ironist ;
+    rdfs:label "Antonio de Cursits (Totò)" ;
+    owl:sameAs <http://viaf.org/viaf/90293369> ;
+    cover:hasName "Antonio de Cursits (Totò)" .
+
+covercore:de_Cursits_\(Totò\) a cover:Author ;
+    rdfs:label "Antonio de Cursits (Totò)" ;
+    owl:sameAs <http://viaf.org/viaf/90293369> ;
+    cover:hasName "Antonio de Cursits (Totò)" .
+
+covercore:inTaberna a cover:Song ;
+    rdfs:label "In Taberna quando sumus" ;
+    cover:hasCreationDate "XII and XIII century" ;
+    cover:hasCreationLocation "Europe" ;
+    cover:hasCreator covercore:Vagantes ;
+    cover:hasLanguage "Latin" ;
+    cover:hasPerformer covercore:Vagantes ;
+    cover:hasPoeticForm "Ballad" ;
+    cover:hasTitle "In Taberna quando sumus" .
+
+cover:IngenuIrony a owl:NamedIndividual,
+        cover:VerbalIrony ;
+    rdfs:label "Ingenu Irony" ;
+    rdfs:comment "Ingénu Irony is almost archetypically represented by Hans Andersen's fable, The Emperor's New Clothes. The effectiveness of this kind of irony conies from its economy of means: mere common sense or even simple innocence or ignorance may suffice to see through the woven complexities of hypocrisy and rationalization or pierce the protective tissues of convention and idées revues. The ironist does not need to put forth all his powers. (Muecke, D.C., 2020, p. 91)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+cover:Interpreter a owl:Class ;
+    rdfs:comment "The one who perceives or decodes irony and makes the Ironic Event possible. It can be a listener or a reader." ;
+    rdfs:subClassOf cover:Actor ;
+    owl:disjointWith cover:Ironist ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:IronyOfSelfBetrayal a owl:NamedIndividual,
+        cover:SituationalIrony ;
+    rdfs:label "Irony of Self Betrayal" ;
+    rdfs:comment "It is exemplified whenever someone, by what he says or does (not by what happens to him), exposes unawares his own ignorance, weaknesses, errors, or follies [...] The dramatist or novelist who is interested in people will be aware that, in spite of much unexceptionable advice, mankind's progress in self-knowledge has been indifferent; he hath ever but slenderly known himself, and consequently can scarcely open his mouth without betraying himself. (Muecke, D.C., 2020, p. 107)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+cover:IronyOfSimpleIncongruency a owl:NamedIndividual,
+        cover:SituationalIrony ;
+    rdfs:label "Irony of Simple Incongruency" ;
+    rdfs:comment "Since there is incongruity in all ironic situations, the kind of ironic situation that, for want of any other distinguishing characteristic, appears under this unsatisfactory heading must be regarded as, formally speaking, a sort of minimal irony. It is irony in its barest and simplest terms uncomplicated by the presentation of action or character or the victim's imperception (though, of course, there is an imperception to be inferred). (Muecke, D.C., 2020, p. 100)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+cover:Thing a owl:NamedIndividual,
+        cover:Target ;
+    rdfs:label "Thing" ;
+    rdfs:comment "The concrete object towards which a creative idea is directed." ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+covercore:Dante a cover:Author,
+        cover:Ironist ;
+    rdfs:label "Dante Alighieri" ;
+    owl:sameAs <http://viaf.org/viaf/97105654> ;
+    cover:hasName "Dante Alighieri" .
+
+covercore:Dickinson a cover:Author,
+        cover:Ironist ;
+    rdfs:label "Emily Dickinson" ;
+    owl:sameAs <http://viaf.org/viaf/31995584> ;
+    cover:hasName "Emily Dickinson" .
+
+covercore:Syudou a cover:Author,
+        cover:Ironist ;
+    rdfs:label "Syudou" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q86743591> ;
+    cover:hasName "Syudou" .
+
+covercore:WBYeats a owl:NamedIndividual,
+        cover:Author,
+        cover:Ironist ;
+    rdfs:label "W.B. Yeats" ;
+    cover:hasName "W.B. Yeats" .
+
+cover:Event a owl:Class ;
+    rdfs:comment "A situation or condition in which irony may or may not arise." .
+
+cover:Institution a owl:NamedIndividual,
+        cover:Target ;
+    rdfs:label "Institution" ;
+    rdfs:comment "The collective entity towards which a creative idea is directed." ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:SelfDisparagingIrony a owl:NamedIndividual,
+        cover:VerbalIrony ;
+    rdfs:label "Self Disparaging Irony" ;
+    rdfs:comment "The ironist is present not simply as an impersonal voice but, in disguise, as a person with certain characteristics. And the sort of person the ironist presents himself as being is our guide to his real opinion. He understates or overstates himself, assuming such qualities as ignorance, deference, complaisance, co-operativeness, naivety, over-enthusiasm, eagerness to learn, and inability to understand. But his disguise is meant to be penetrated, and our judgement is directed not against the ignorance or naivety of the speaker but against the object of the irony.(Muecke, D.C., 2020, p. 87)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+cover:VerbalIrony a owl:Class ;
+    rdfs:comment "Verbal Irony implies an ironist, someone consciously and intentionally employing a technique. (Muecke, D.C., 2020, p. 42)" ;
+    rdfs:subClassOf cover:Irony ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+covercore:Caparezza a cover:Author,
+        cover:Ironist,
+        cover:Performer ;
+    rdfs:label "Caparezza" ;
+    owl:sameAs <http://viaf.org/viaf/80369270> ;
+    cover:hasName "Caparezza" .
+
+covercore:Morissette a cover:Author,
+        cover:Ironist,
+        cover:Performer ;
+    rdfs:label "Alanis Morissette" ;
+    owl:sameAs <http://viaf.org/viaf/22337187> ;
+    cover:hasName "Alanis Morissette" .
+
+<https://w3id.org/controverse/P!nk> a cover:Author,
+        cover:Ironist,
+        cover:Performer ;
+    rdfs:label "P!nk" ;
+    owl:sameAs <http://viaf.org/viaf/125145969949332250345> ;
+    cover:hasName "P!nk" .
+
+covercore:SmashMouth a cover:Author,
+        cover:Ironist,
+        cover:Performer ;
+    rdfs:label "Smash Mouth" ;
+    owl:sameAs <http://viaf.org/viaf/152678682> ;
+    cover:hasName "Smash Mouth" .
+
+covercore:Vagantes a cover:Author,
+        cover:Ironist,
+        cover:Performer ;
+    rdfs:label "Clerici Vagantes" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q2078646> ;
+    cover:hasName "Clerici Vagantes" .
+
+cover:Person a owl:NamedIndividual,
+        cover:Target ;
+    rdfs:label "Person" ;
+    rdfs:comment "The individual towards which a creative idea is directed." ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:SituationalIrony a owl:Class ;
+    rdfs:comment "Situational Irony does not imply an ironist but merely 'a condition of affairs' or 'outcome of events' which, we add, is seen and felt to be ironic. (Muecke, D.C., 2020, p. 42)" ;
+    rdfs:subClassOf cover:Irony ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+covercore:Brecht a cover:Author,
+        cover:Ironist,
+        cover:Poem ;
+    rdfs:label "Brecht",
+        "Die Bücherverbrennung" ;
+    owl:sameAs <http://viaf.org/viaf/2467372> ;
+    cover:hasCreationDate "1930s" ;
+    cover:hasCreationLocation "Germany" ;
+    cover:hasCreator covercore:Brecht ;
+    cover:hasLanguage "German" ;
+    cover:hasName "Brecht" ;
+    cover:hasPoeticForm "Free-form" ;
+    cover:hasTitle "Die Bücherverbrennung" .
+
+covercore:Catullus a cover:Author,
+        cover:Ironist,
+        cover:Poem ;
+    rdfs:label "Carme 13",
+        "Catullus" ;
+    owl:sameAs <http://viaf.org/viaf/100218993> ;
+    cover:hasCreationDate "I century b.C" ;
+    cover:hasCreationLocation "Roman Republic" ;
+    cover:hasCreator covercore:Catullus ;
+    cover:hasLanguage "Latin" ;
+    cover:hasName "Catullus" ;
+    cover:hasPoeticForm "Carme" ;
+    cover:hasTitle "Carme 13" .
+
+covercore:Saba a cover:Author,
+        cover:Ironist,
+        cover:Poem ;
+    rdfs:label "A mia moglie",
+        "Umberto Saba" ;
+    owl:sameAs <http://viaf.org/viaf/22148345> ;
+    cover:hasCreationDate "1911"^^xsd:gYear ;
+    cover:hasCreationLocation "Italy" ;
+    cover:hasCreator covercore:Saba ;
+    cover:hasLanguage "Italian" ;
+    cover:hasName "Umberto Saba" ;
+    cover:hasPoeticForm "Free-form" ;
+    cover:hasTitle "A mia moglie" .
+
+covercore:Yeats a cover:Author,
+        cover:Ironist ;
+    rdfs:label "W.B. Yeats" ;
+    owl:sameAs <http://viaf.org/viaf/46768718> ;
+    cover:hasName "W.B. Yeats" .
+
+cover:LyricalWork a owl:Class ;
+    rdfs:comment "A piece of writing, art, or music that is beautifully expressive and emotional, often with a poetic, song-like quality." ;
+    rdfs:subClassOf cover:CreativeWork .
+
+covercore:InfinitySong a cover:Author,
+        cover:Ironist,
+        cover:Performer ;
+    rdfs:label "Infinity Song" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q125867376> ;
+    cover:hasName "Infinity Song" .
+
+cover:Actor a owl:Class ;
+    rdfs:comment "An entity performing an action in an creative context. Includes author, performer, ironist, or interpreter." .
+
+cover:StateOfAffair a owl:NamedIndividual,
+        cover:Target ;
+    rdfs:label "State of Affairs" ;
+    rdfs:comment "The situation or condition towards which a creative idea is directed." ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+covercore:Burnham a cover:Author,
+        cover:Ironist ;
+    rdfs:label "Bo Burnham" ;
+    owl:sameAs <http://viaf.org/viaf/162392861> ;
+    cover:hasName "Bo Burnham" .
+
+cover:Community a owl:NamedIndividual,
+        cover:Target ;
+    rdfs:label "Community" ;
+    rdfs:comment "The social or cultural entity towards which a creative idea is directed." ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:CreativeEvent a owl:Class ;
+    rdfs:comment "An event in which a creative idea is created" ;
+    rdfs:subClassOf cover:Event .
+
+cover:ImpersonalIrony a owl:NamedIndividual,
+        cover:VerbalIrony ;
+    rdfs:label "Reading Event" ;
+    rdfs:comment "The irony resides more in what he (the ironist) says than in the fact that it is a man of a particular character saying it.(Muecke, D.C., 2020, p. 61)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+cover:IronyOfEvents a owl:NamedIndividual,
+        cover:SituationalIrony ;
+    rdfs:label "Irony of Events" ;
+    rdfs:comment "Here the ironic incongruity is between the expectation and the event. We say it is ironic when, after we have more or less explicitly or confidently expressed reliance in the way things go, some subsequent unforeseen turn of events reverses and frustrates our expectations or designs. It is ironic when we meet what we set out to avoid, especially when the means we take to avoid something turn out to be the very means of bringing about what we sought to avoid. It is ironic when we get at last what we no longer desire. (Muecke, D.C., 2020, p. 102)" ;
+    prov:wasAttributedTo "Muecke, Douglas Colin. 'The compass of irony'. Routledge Revivals, 2020." .
+
+cover:Target a owl:Class ;
+    rdfs:comment "We understand the notion of target as the object of the ironic remark, be it (i) a person, (ii) a state of affairs, (iii) an institution, or (iv) another type of animate or inanimate entity. If the target of the irony is a person, he/she may be either present or absent. (Lozano Palacio, 2020, p. 159)" ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:CreativeWork a owl:Class ;
+    rdfs:comment "It is something that is produced as a result of the creative process, by a specific Person" .
+
+cover:Performer a owl:Class ;
+    rdfs:comment "The person who performs or stages the Creative work work." ;
+    rdfs:subClassOf cover:Actor .
+
+cover:CreativeIdea a owl:Class .
+
+covercore:BTS a cover:Author,
+        cover:Ironist,
+        cover:Performer ;
+    rdfs:label "BTS" ;
+    owl:sameAs <http://viaf.org/viaf/916150943133426760004> ;
+    cover:hasName "BTS" .
+
+cover:Poem a owl:Class ;
+    rdfs:comment "A piece of writing in which the expression of feelings and ideas is given intensity by particular attention to diction (sometimes involving rhyme), rhythm, and imagery." ;
+    rdfs:subClassOf cover:LyricalWork ;
+    prov:wasAttributedTo "Oxford Languages" .
+
+cover:Song a owl:Class ;
+    rdfs:comment "A short poem or other set of words set to music or meant to be sung." ;
+    rdfs:subClassOf cover:LyricalWork ;
+    prov:wasAttributedTo "Oxford Languages" .
+
+cover:Concept a owl:NamedIndividual,
+        cover:Target ;
+    rdfs:label "Concept" ;
+    rdfs:comment "The abstract idea or notion towards which a creative idea is directed." ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:Ironist a owl:Class ;
+    rdfs:comment "The creator of the text or composition that contains irony." ;
+    rdfs:subClassOf cover:Author ;
+    prov:wasAttributedTo "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
+
+cover:Sincerity a owl:Class ;
+    rdfs:comment "The concept opposite to irony; there is no clash between scenarios." ;
+    rdfs:subClassOf cover:CreativeIdea .
+
+cover:Listener a owl:NamedIndividual,
+        cover:Interpreter ;
+    rdfs:label "Listener" ;
+    rdfs:comment "The one who is able to decode irony while listening to the Creative Work." .
+
+cover:ListeningEvent a owl:NamedIndividual,
+        cover:Event ;
+    rdfs:label "Listening Event" ;
+    rdfs:comment "An event of oral reception (e.g., listening to an ironic song)." .
+
+cover:Reader a owl:NamedIndividual,
+        cover:Interpreter ;
+    rdfs:label "Reader" ;
+    rdfs:comment "The one who is able to decode irony while reading to the Creative Work. " .
+
+cover:ReadingEvent a owl:NamedIndividual,
+        cover:Event ;
+    rdfs:label "Reading Event" ;
+    rdfs:comment "An event of textual reception (e.g., reading an ironic poem)." .
+
+cover:SincereEvent a owl:Class ;
+    rdfs:comment "The situation where the concept of irony does not arise: there is no clash between the Epistemic and the Observable Scenarios." ;
+    rdfs:subClassOf cover:CreativeEvent .
+
+cover:Author a owl:Class ;
+    rdfs:comment "The creator of the text or composition." ;
+    rdfs:subClassOf cover:Actor ;
+    owl:disjointWith cover:Interpreter .
+
+cover:Irony a owl:Class ;
+    rdfs:comment "The abstract concept of irony." ;
+    rdfs:subClassOf cover:CreativeIdea ;
+    owl:disjointWith cover:Sincerity .
+
+cover:IronicEvent a owl:Class ;
+    rdfs:comment "The situation where the concept of irony arises: there is a clash between the Epistemic and the Observable Scenarios." ;
+    rdfs:subClassOf cover:CreativeEvent ;
+    owl:disjointWith cover:SincereEvent .
+

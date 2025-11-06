@@ -7,7 +7,7 @@ COVERCORE = Namespace("https://w3id.org/controverse/")
 
 # Graph
 g = Graph()
-g.parse("CoVer_Ont_v2.ttl", format="turtle")
+g.parse("CoVer_ontology.ttl", format="turtle")
 
 g.bind("cover", COVER)
 g.bind("covercore", COVERCORE)
@@ -28,7 +28,7 @@ def as_node(value: str):
     return Literal(value)
 
 # read the csv
-with open("C:\\Users\\ilari\\Desktop\\PYTHON\\GANGEMI\\creative_works.csv", newline='', encoding='utf-8') as csvfile:
+with open("CoVer_dataset.csv", newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=',')
     for row in reader:
         inst_uri = COVERCORE[row["ID"].strip()]
@@ -73,6 +73,7 @@ with open("C:\\Users\\ilari\\Desktop\\PYTHON\\GANGEMI\\creative_works.csv", newl
         #triples for instance   
         g.add((inst_uri, COVER.hasText, Literal(row["Text"]))) #should we add language tags?
         g.add((inst_uri, COVER.hasTranslation, Literal(row["hasTranslation"])))
+        g.add((inst_uri, COVER.hasLanguage, Literal(row["Language"])))
         g.add((inst_uri, COVER.createdFrom, event_uri))
         g.add((inst_uri, COVER.foundIn, work_uri))
         g.add((inst_uri, COVER.hasTarget, targetTypes[row["Target Type"]]))
@@ -123,5 +124,5 @@ with open("C:\\Users\\ilari\\Desktop\\PYTHON\\GANGEMI\\creative_works.csv", newl
                 g.add((performer_uri, OWL.sameAs, URIRef(row["PerformerURI"])))
 
 # save
-g.serialize(destination="IronicCreativity_Data.ttl", format="turtle")
-print("RDF file successfully saved as 'IronicCreativity_Data.ttl'")
+g.serialize(destination="CoVer_populated.ttl", format="turtle")
+print("RDF file successfully saved as 'CoVer_populated.ttl'")

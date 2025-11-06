@@ -1,0 +1,411 @@
+ID,Instance Type,Creative Work,hasTitle,Lyrical Type,hasGenre,hasPoeticForm,Event,Epistemic Scenario,Observable Scenario,Text,Ironic Text,Sincerity Text,hasTranslation,Ironic Type,Target Type,Target Description,Interpreter Type,Creator,Creator Name,CreatorURI,Creation Date,Creation Location,Language,Performer,Performer Name,PerformerURI
+1,Sincerity,LookOfAgony,241 - I like a look of Agony,cover:Poem,N/A,Ballad,cover:ReadingEvent,Agony creates strain and sweat on the face,Agony creates strain and sweat on the face,"The Beads upon the Forehead
+By homely Anguish strung.
+",N/A,"The Beads upon the Forehead
+By homely Anguish strung.
+",N/A,N/A,cover:Concept,Human nature,cover:Reader,Dickinson,Emily Dickinson,http://viaf.org/viaf/31995584,mid-1860s,USA,English,N/A,N/A,N/A
+2,Irony,LookOfAgony,241 - I like a look of Agony,cover:Poem,N/A,Ballad,cover:ReadingEvent,"Agony is something we feel negatively about,  and because of this we tend to not like seeing others in Agony",The speaker says she likes Agony because it can't be faked and therefore it is something you can trust to be true,"I like a look of Agony,
+Because I know it's true -
+","I like a look of Agony,
+Because I know it's true -
+",N/A,N/A,cover:ImpersonalIrony,cover:Concept,Human nature - and the tendancy to not say what you mean,cover:Reader,Dickinson,Emily Dickinson,http://viaf.org/viaf/31995584,mid-1860s,USA,English,N/A,N/A,N/A
+3,Sincerity,Alivella,A livella ,cover:Poem,N/A,Free-form,cover:ReadingEvent,Every year everybody has to have in mind to go to the cemitery on the 2nd of November,Every year everybody has to have in mind to go to the cemitery on the 2nd of November,"""Ogn'anno, il due novembre, c'è l'usanza per i defunti andare al Cimitero. Ognuno ll'adda fà chesta crianza; ognuno adda tené chistu penziero. """,N/A,"""Ogn'anno, il due novembre, c'è l'usanza per i defunti andare al Cimitero. Ognuno ll'adda fà chesta crianza; ognuno adda tené chistu penziero. ""","""Every year, on the second of November, it’s the custom to go to the cemetery for the dead. Everyone must follow this tradition; everyone must keep this thought in mind.""",N/A,cover:Community,The use of going to the cemetery on the 2nd of November,cover:Reader,de_Cursits_(Totò),Antonio de Cursits (Totò),http://viaf.org/viaf/90293369,1964,Italy,Neapolitan,N/A,N/A,N/A
+4,Irony,Alivella,A livella ,cover:Poem,N/A,Free-form,cover:ReadingEvent,Dead people shouldn't care about where they are buried,Two dead people are fighting cause the richer one wants to be far away from the poorer man.,"""<<Lurido porco! Come ti permetti paragonarti a me ch’ebbi natali illustri, nobilissimi e perfetti, da fare invidia a Principi Reali?>>  <<tu qua’ nòatale, Pasca e Pifanìa!!! T’o vvuo’ mettere ‘ncapo, ‘int’a cervella che staje malato ancora ‘e fantasia? ‘A morte ‘o ssaje ched’è? E’ ‘na livella:  ‘nu rre, ‘nu maggistrato, ‘nu grand’ommo, trasenno ‘stu canciello ha fatt’o punto c’ha perzo tutto, ‘a vita e pur’o nomme. Tu nun t’he’ fatto ancora chistu cunto?  Perciò, stamme a ssentì, nun fa’ ‘o restivo, suppuorteme vicino, che te ‘mporta? ‘Sti ppagliacciate ‘e ffanno sul’e vive: nuje simme serje… appartenimmo a morte!>""","""<<Lurido porco! Come ti permetti paragonarti a me ch’ebbi natali illustri, nobilissimi e perfetti, da fare invidia a Principi Reali?>>  <<tu qua’ nòatale, Pasca e Pifanìa!!! T’o vvuo’ mettere ‘ncapo, ‘int’a cervella che staje malato ancora ‘e fantasia? ‘A morte ‘o ssaje ched’è? E’ ‘na livella:  ‘nu rre, ‘nu maggistrato, ‘nu grand’ommo, trasenno ‘stu canciello ha fatt’o punto c’ha perzo tutto, ‘a vita e pur’o nomme. Tu nun t’he’ fatto ancora chistu cunto?  Perciò, stamme a ssentì, nun fa’ ‘o restivo, suppuorteme vicino, che te ‘mporta? ‘Sti ppagliacciate ‘e ffanno sul’e vive: nuje simme serje… appartenimmo a morte!>""",N/A,"“Filthy pig! How dare you compare yourself to me,
+born of illustrious, noble, and perfect lineage
+enough to make royal princes envious?”
+
+“Your lineage, Easter and Epiphany, my foot!
+Get it through your head,
+you’re still sick with fantasies!
+Do you know what death is? It’s a leveler:
+a king, a judge, a great man
+once he’s passed through this gate,
+he’s lost everything: life, and even his name.
+Haven’t you figured that out yet?
+So listen to me, don’t be stubborn;
+put up with me here beside you what do you care?
+These clownish acts are for the living:
+we are serious… we belong to death!”",cover:IngenuIrony,cover:Community,The rich,cover:Reader,deCursits(Totò),Antonio de Cursits (Totò),http://viaf.org/viaf/90293369,1964,Italy,Neapolitan,N/A,N/A,N/A
+5,Sincerity,Saba,A mia moglie,cover:Poem,N/A,Free-form,cover:ReadingEvent,"The author describes his lover faithfully, as every poet does. ","The author describes his lover faithfully, as every poet does. ","""You are like a thing that is
+simple, natural, and true,
+like the bread and the wine,
+like the sun and the air.",N/A,"""You are like a thing that is
+simple, natural, and true,
+like the bread and the wine,
+like the sun and the air.","""Tu sei come una cosa che è
+semplice, naturale e vera,
+come il pane e il vino,
+come il sole e l’aria.""",N/A,cover:Person,"
+The poet's wife",cover:Reader,Saba,Umberto Saba,http://viaf.org/viaf/22148345,1911,Italy,Italian,N/A,N/A,N/A
+6,Irony,Saba,A mia moglie,cover:Poem,N/A,Free-form,cover:ReadingEvent,The poet seems to insult the wife because he is comparing her to any kind of animal,"The poet describes his wife like other poets do, but in a reversed way: instead of comparing her to noble or idealized creatures, he likens her to simple, everyday animals. In reality, he is describing her as if he was a child, with pure and innocent love.","""Tu sei come una giovane
+una bianca pollastra.
+Le si arruffano al vento
+le piume, il collo china
+per bere, e in terra raspa;
+ma, nell'andare, ha il lento
+tuo passo di regina,
+ed incede sull'erba
+pettoruta e superba. [...]""","""Tu sei come una giovane
+una bianca pollastra.
+Le si arruffano al vento
+le piume, il collo china
+per bere, e in terra raspa;
+ma, nell'andare, ha il lento
+tuo passo di regina,
+ed incede sull'erba
+pettoruta e superba. [...]""",N/A,"""You are like a young,
+white hen.
+Her feathers ruffle in the wind,
+she bends her neck
+to drink, and scratches the ground;
+but as she walks, she has
+your slow, regal step,
+and moves over the grass,
+proud and full-chested.
+",cover:DramatizedIrony,cover:Person,The poet's wife,cover:Reader,Saba,Umberto Saba,http://viaf.org/viaf/22148345,1911,Italy,Italian,N/A,N/A,N/A
+7,Sincerity,AllStar,All Star,cover:Song,Alternative Rock,N/A,cover:ListeningEvent,The author's life is messy and he asks the listener about his situation.,The author's life is messy and he asks the listener about his situation.,"""My world's on fire, how 'bout yours?
+That's the way I like it, and I'll never get bored""",N/A,"""My world's on fire, how 'bout yours?
+That's the way I like it, and I'll never get bored""",N/A,N/A,cover:Thing,The life of the author,cover:Listener,SmashMouth,Smash Mouth,http://viaf.org/viaf/152678682,1999,USA,English,SmashMouth,Smash Mouth,http://viaf.org/viaf/152678682
+8,Irony,AllStar,All Star,cover:Song,Alternative Rock,N/A,cover:ListeningEvent,Cool is a quality of the place,Cool refers to the temperature,"""It's a cool place, and they say it gets colder""","""It's a cool place, and they say it gets colder""",N/A,N/A,cover:ImpersonalIrony,cover:Thing,The temperature,cover:Listener,SmashMouth,Smash Mouth,http://viaf.org/viaf/152678682,1999,USA,English,SmashMouth,Smash Mouth,http://viaf.org/viaf/152678682
+9,Sincerity,IrishMan,An Irish Airman forsees his death,cover:Poem,N/A,Elegy,cover:ReadingEvent,"In the face of death, everything about life can seem meaningless","In the face of death, everything about life can seem meaningless","The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death.
+",N/A,"The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death.
+",N/A,N/A,cover:Concept,The meaning and purpose of life,cover:Reader,Yeats,W.B. Yeats,http://viaf.org/viaf/46768718,1919,Ireland,English,N/A,N/A,N/A
+10,Irony,IrishMan,An Irish Airman forsees his death,cover:Poem,N/A,Elegy,cover:ReadingEvent,A fighter pilot flies for honour and duty to his country,The airman does not care about honour but flies just for the pleasure of being in the sky,"""Nor law, nor duty bade me fight,
+Nor public men, nor cheering crowds,
+A lonely impulse of delight
+Drove to this tumult in the clouds;""","""Nor law, nor duty bade me fight,
+Nor public men, nor cheering crowds,
+A lonely impulse of delight
+Drove to this tumult in the clouds;""",N/A,N/A,cover:IronyOfEvents,cover:StateOfAffair,The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs,cover:Reader,Yeats,W.B. Yeats,http://viaf.org/viaf/46768718,1919,Ireland,English,N/A,N/A,N/A
+11,Sincerity,Catullus,Carme 13,cover:Poem,N/A,Carme,cover:ReadingEvent,"The author is saying that if the host will bring what he asked, he will dine well, since he has no money and things to offer him. ","The author is saying that if the host will bring what he asked, he will dine well, since he has no money and things to offer him. ","""Haec si, inquam, attuleris, venuste noster,
+cenabis bene; nam tui Catulli
+plenus sacculus est aranearum.""",N/A,"""Haec si, inquam, attuleris, venuste noster,
+cenabis bene; nam tui Catulli
+plenus sacculus est aranearum.""","""These things, I say, if you bring, my charming friend,
+you’ll dine well; for your Catullus’
+purse is full of cobwebs.""",N/A,cover:StateOfAffair,The poverty of the author,cover:Reader,Catullus,Catullus,http://viaf.org/viaf/100218993,I century b.C,Roman Republic,Latin,N/A,N/A,N/A
+12,Irony,Catullus,Carme 13,cover:Poem,N/A,Carme,cover:ReadingEvent,The poet is inviting his friend to dinner pretending to offer him a lot of things,"In reality, the poet is inviting his friend and he is asking him to bring with him what it is needed to have dinner","""Cenabis bene, mi Fabulle, apud me
+paucis, si tibi di favent, diebus,
+si tecum attuleris bonam atque magnam
+cenam, non sine candida puella
+et vino et sale et omnibus cachinnis.""","""Cenabis bene, mi Fabulle, apud me
+paucis, si tibi di favent, diebus,
+si tecum attuleris bonam atque magnam
+cenam, non sine candida puella
+et vino et sale et omnibus cachinnis.""",N/A,"""You’ll dine well, my dear Fabullus, at my place
+in a few days, if the gods favor you,
+provided that you bring with you a good and big
+dinner — not without a fair girl,
+and wine, and wit, and all kinds of laughter.""",cover:IngenuIrony,cover:StateOfAffair,The poet makes fun of the poor situation he is in but still invites his friend in a ironic way,cover:Reader,Catullus,Catullus,http://viaf.org/viaf/100218993,I century b.C,Roman Republic,Latin,N/A,N/A,N/A
+13,Irony,BoComedy,Comedy,cover:Song,Comedy/Pop,N/A,cover:ListeningEvent,"Comedian says he wants to change the world, and this should be through meaningful action",Comedian only tells jokes and does not make any meaningful changes,"""Healing the world with comedy
+Making a literal difference, metaphorically
+A Jew walks into a bar, and I've saved him a seat
+That's healing the world with comedy""","""Healing the world with comedy
+Making a literal difference, metaphorically
+A Jew walks into a bar, and I've saved him a seat
+That's healing the world with comedy""",N/A,N/A,cover:SelfDisparagingIrony,cover:Concept,Performative activism,cover:Listener,Burnham,Bo Burnham,http://viaf.org/viaf/162392861,2021,USA,English,Burnum,Bo Burnum,http://viaf.org/viaf/162392861
+14,Irony,InfComedy,Comedy,cover:Song,Folk/Pop,N/A,cover:ListeningEvent,Someone who is failing at love should feel sad about it,The fact that they are failing in love is actually funny to them,"""And mother doesn't get the joke
+Where I want love and I get none
+I cried for weeks when the last one left
+Oh, isn't that hilarious?
+I guess it's sad from the outside in
+But it's so funny, it's so funny to me""
+","""And mother doesn't get the joke
+Where I want love and I get none
+I cried for weeks when the last one left
+Oh, isn't that hilarious?
+I guess it's sad from the outside in
+But it's so funny, it's so funny to me""
+",N/A,N/A,cover:SelfDisparagingIrony,cover:Concept,Heartbreak,cover:Listener,InfinitySong,Infinity Song,https://www.wikidata.org/wiki/Q125867376,2024,USA,English,InfinitySong,Infinity Song,https://www.wikidata.org/wiki/Q125867376
+15,Sincerity,Purgatory,Dante's canto VI ,cover:Poem,N/A,Canto,cover:ReadingEvent,"Dante delivers a bitter accusation against Italy, divided and corrupt; he compares it to a rudderless ship and a degraded homeland, unable to preserve its dignity.","Dante delivers a bitter accusation against Italy, divided and corrupt; he compares it to a rudderless ship and a degraded homeland, unable to preserve its dignity.","""Ahi serva Italia, di dolore ostello,
+nave sanza nocchiere in gran tempesta,
+non donna di provincie, ma bordello!""",N/A,"""Ahi serva Italia, di dolore ostello,
+nave sanza nocchiere in gran tempesta,
+non donna di provincie, ma bordello!""","""Ah, servile Italy, inn of sorrow,
+ship without a helmsman in a great storm,
+not lady of provinces, but a brothel!""",N/A,cover:Institution,The italian governments,cover:Reader,Dante,Dante Alighieri,http://viaf.org/viaf/97105654,1321,Italy,Italian,N/A,N/A,N/A
+16,Irony,Purgatory,Dante's canto VI ,cover:Poem,N/A,Canto,cover:ReadingEvent,It looks like the author is praising Florence,The author is actually resenting the city's actions,"""Fiorenza mia, ben puoi esser contenta
+di questa digression che non ti tocca,
+mercé del popol tuo che si argomenta.""","""Fiorenza mia, ben puoi esser contenta
+di questa digression che non ti tocca,
+mercé del popol tuo che si argomenta.""",N/A,"""My Florence, how delighted you must be to follow my tirade here because your citizens are so innocent!""",cover:ImpersonalIrony,cover:Community,Florence's politicians,cover:Reader,Dante,Dante Alighieri,http://viaf.org/viaf/97105654,1321,Italy,Italian,N/A,N/A,N/A
+17,Sincerity,Ddaeng,Ddaeng (땡),cover:Song,Hip Hop,Diss track,cover:ListeningEvent,"The artists express genuine appreciation for their success, to their fans but also to the haters who motivated them to prove them wrong.","The artists express genuine appreciation for their success, to their fans but also to the haters who motivated them to prove them wrong.","""여지껏 무시해줘 고맙다
+덕분에 스타디움, 돔, 빌보드
+많은 것을 덕분에 많이도 얻었다""",N/A,"""여지껏 무시해줘 고맙다
+덕분에 스타디움, 돔, 빌보드
+많은 것을 덕분에 많이도 얻었다""","""Thank you for ignoring us until now
+Thank you, stadium, dome, Billboard
+Thanks to you, we became successful""",N/A,cover:Community,Haters,cover:Listener,BTS,BTS,http://viaf.org/viaf/916150943133426760004,2018,South Korea,Korean,BTS,BTS,http://viaf.org/viaf/916150943133426760004
+18,Irony,Ddaeng,Ddaeng (땡),cover:Song,Hip Hop,Diss track,cover:ListeningEvent,"People are always ready to criticize you, especially online, insulting and saying ""ddaeng"" (slang for ""wrong!"" in korean).","They flip the insult ""ddaeng"" back at their critics with genius wordplay and rythmical onomatopeia; showing how the same word can have different meanings like ""invincible"" in a korean card game and that's how the artists make the haters' words seem useless.","""힙합? 땡
+Rap style? 땡
+걍 랩퍼, 땡
+방탄, 땡 [...] 
+일팔, 일삼, 삼팔, 땡
+You wrong, me right, 잘 봐 땡
+학교종 울려라, brr, brr, 땡
+야 이번 생은 글렀어, 넌 땡""","""힙합? 땡
+Rap style? 땡
+걍 랩퍼, 땡
+방탄, 땡 [...] 
+일팔, 일삼, 삼팔, 땡
+You wrong, me right, 잘 봐 땡
+학교종 울려라, brr, brr, 땡
+야 이번 생은 글렀어, 넌 땡""",N/A,"""Hip-hop? Ddaeng
+Rap style? Ddaeng
+Just a rapper, ddaeng
+Bangtan = Ddaeng [...]
+One-eight, one-three, three-eight, ddaeng
+You wrong, me right, look carefully, ddaeng
+Ring the school bell, brr brr, ddaeng
+Hey, your life’s over, you’re ddaeng""",cover:ImpersonalIrony,cover:Community,Haters,cover:Listener,BTS,BTS,http://viaf.org/viaf/916150943133426760004,2018,South Korea,Korean,BTS,BTS,http://viaf.org/viaf/916150943133426760004
+19,Sincerity,Brecht,Die Bücherverbrennung,cover:Poem,N/A,Free-form,cover:ReadingEvent,"The regime is destroying “books with harmful knowledge,” meaning works considered dangerous or oppositional.","The regime is destroying “books with harmful knowledge,” meaning works considered dangerous or oppositional.","""Als das Regime befahl, Bücher mit schädlichem Wissen
+öffentlich zu verbrennen und überall
+Ochsen gezwungen wurden, Karren mit Büchern zu den Scheiterhaufen zu ziehen,
+entdeckte ein verjagter Dichter, einer der besten,
+die Liste der Verurteilten,
+entsetzt, dass seine Bücher vergessen waren.""",N/A,"""Als das Regime befahl, Bücher mit schädlichem Wissen
+öffentlich zu verbrennen und überall
+Ochsen gezwungen wurden, Karren mit Büchern zu den Scheiterhaufen zu ziehen,
+entdeckte ein verjagter Dichter, einer der besten,
+die Liste der Verurteilten,
+entsetzt, dass seine Bücher vergessen waren.""","""When the regime ordered that books with harmful knowledge
+be publicly burned, and everywhere
+oxen were forced to drag carts full of books to the bonfires,
+a banished poet, one of the best,
+discovered, among the condemned,
+that his own books had been forgotten.""",N/A,cover:Institution,The Nazist regime,cover:Reader,Brecht,Brecht,http://viaf.org/viaf/2467372,1930s,Germany,German,N/A,N/A,N/A
+20,Irony,Brecht,Die Bücherverbrennung,cover:Poem,N/A,Free-form,cover:ReadingEvent,A poet usually doesn't want his books to be burnt,"
+The poet feels insulted that his books weren’t banned, because being condemned by a corrupt regime would confirm his integrity.","""Verbrennt mich! schrieb er mit fliegender Feder, verbrennt mich!
+
+Tut mir das nicht an! Laßt mich nicht übrig! Habe ich nicht
+
+Immer die Wahrheit berichtet in meinen Büchern? Und jetzt
+
+Werd ich von euch wie ein Lügner behandelt!""","""Verbrennt mich! schrieb er mit fliegender Feder, verbrennt mich!
+
+Tut mir das nicht an! Laßt mich nicht übrig! Habe ich nicht
+
+Immer die Wahrheit berichtet in meinen Büchern? Und jetzt
+
+Werd ich von euch wie ein Lügner behandelt!""",N/A,"""""Burn me!"", he wrote about flight, ""burn me!
+Do not do me this wrong! Do not leave me out! Perhaps
+I have not always declared the truth in my books?""""",cover:IronyOfEvents,cover:Institution,Book burning,cover:Reader,Brecht,Brecht,http://viaf.org/viaf/2467372,1930s,Germany,German,N/A,N/A,N/A
+21,Sincerity,ElPadre,El Padre Suizo,cover:Poem,N/A,Free-form,cover:ReadingEvent,Those who murder in life will be forever condemned even after death,Those who murder in life will be forever condemned even after death,"y las venenosas zarzas pisa
+Que roen como tòsigos las plantas
+Del criminal, en el dominio lòbrego
+Donde andan sin cesar los asesinos!",N/A,"y las venenosas zarzas pisa
+Que roen como tòsigos las plantas
+Del criminal, en el dominio lòbrego
+Donde andan sin cesar los asesinos!","and the poisonous brambles he steps on
+That gnaw at plants like poisons
+Of the criminal, in the gloomy domain
+Where the murderers roam endlessly
+",N/A,cover:StateOfAffair,Murder,cover:Reader,Martí,Martí,http://viaf.org/viaf/73865537,1880s,USA,Spanish,N/A,N/A,N/A
+22,Irony,Anthem,Hater's Anthem,cover:Song,Folk/Pop,N/A,cover:ListeningEvent,"Being a hater is a negative thing, that shouldn't be celebrated",The speaker relishes in the idea of being a hater,"""I love the way it feels to be a hater
+Something so sweet about thinking that I'm better""
+","""I love the way it feels to be a hater
+Something so sweet about thinking that I'm better""
+",N/A,N/A,cover:SelfDisparagingIrony,cover:Community,Haters,cover:Listener,InfinitySong,Infinity Song,https://www.wikidata.org/wiki/Q125867376,2024,USA,English,InfinitySong,Infinity Song,https://www.wikidata.org/wiki/Q125867376
+23,Sincerity,inTaberna,In Taberna quando sumus,cover:Song,N/A,Ballad,cover:ListeningEvent,"In the tavern, people forget mortality and responsibilities, focusing only on gambling and pleasure.","In the tavern, people forget mortality and responsibilities, focusing only on gambling and pleasure.","""In taberna quando sumus,
+non curamus quid sit humus,
+sed ad ludum properamus,
+cui semper insudamus.""",N/A,"""In taberna quando sumus,
+non curamus quid sit humus,
+sed ad ludum properamus,
+cui semper insudamus.""","""When we are in the tavern,
+we care not about the earth (or death),
+but we hurry to the game,
+at which we always toil.""",N/A,cover:StateOfAffair,Playing and betting in the tavern,cover:Listener,Vagantes,Clerici Vagantes,https://www.wikidata.org/wiki/Q2078646,XII and XIII century,Europe,Latin,Vagantes,Clerici Vagantes,https://www.wikidata.org/wiki/Q2078646
+24,Irony,inTaberna,In Taberna quando sumus,cover:Song,N/A,Ballad,cover:ListeningEvent,Members of clergy shouldn't drink,Members of clergy are drinking,"""bibit presul et decanus,
+bibit soror, bibit frater""","""bibit presul et decanus,
+bibit soror, bibit frater""",N/A,"""the bishop drinks, and the deacon, the sister drinks, the father drinks""",cover:IronyOfEvents,cover:Institution,Clergy,cover:Listener,Vagantes,Clerici Vagantes,https://www.wikidata.org/wiki/Q2078646,XII and XIII century,Europe,Latin,Vagantes,Clerici Vagantes,https://www.wikidata.org/wiki/Q2078646
+25,Sincerity,Ironic,Ironic,cover:Song,Alternative Rock,Series of Vignettes,cover:ListeningEvent,The ironic situations remind us how unpredictable life can be.,The ironic situations remind us how unpredictable life can be.,"""Well, life has a funny way of sneaking up on you
+When you think everything's okay and everything's going right
+And life has a funny way of helping you out
+When you think everything's gone wrong
+And everything blows up in your face""",N/A,"""Well, life has a funny way of sneaking up on you
+When you think everything's okay and everything's going right
+And life has a funny way of helping you out
+When you think everything's gone wrong
+And everything blows up in your face""",N/A,N/A,cover:Concept,Life,cover:Listener,Morissette,Alanis Morissette,http://viaf.org/viaf/22337187,1996,USA,English,Morissette,Alanis Morissette,http://viaf.org/viaf/22337187
+26,Irony,Ironic,Ironic,cover:Song,Alternative Rock,Series of Vignettes,cover:ListeningEvent,"The song is called ""Ironic"" and the lyrics present several ironic situations.",A song called “Ironic” isn’t filled with ironies. The central theme is frustration with life's unfair twists.,"""Mr. Play-It-Safe was afraid to fly
+He packed his suitcase and kissed his kids goodbye
+He waited his whole damn life to take that flight
+And as the plane crashed down
+He thought, ""Well, isn't this nice?""","""Mr. Play-It-Safe was afraid to fly
+He packed his suitcase and kissed his kids goodbye
+He waited his whole damn life to take that flight
+And as the plane crashed down
+He thought, ""Well, isn't this nice?""",N/A,N/A,cover:IronyOfEvents,cover:Concept,Life,cover:Listener,Morissette,Alanis Morissette,http://viaf.org/viaf/22337187,1996,USA,English,Morissette,Alanis Morissette,http://viaf.org/viaf/22337187
+27,Irony,Albatros,L'Albatros,cover:Poem,N/A,,cover:ReadingEvent,Being a king means you move and behave in a regal manner,"The speaker calls the albatross the king of the sky, but that also means the bird is ugly and awkward on the ground","À peine les ont-ils déposés sur les planches,
+Que ces rois de l'azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à côté d'eux.
+
+","À peine les ont-ils déposés sur les planches,
+Que ces rois de l'azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à côté d'eux.
+
+",N/A,"Scarcely have they placed them on the deck
+Than these kings of the sky, clumsy, ashamed,
+Pathetically let their great white wings
+Drag beside them like oars.",cover:IronyOfSimpleIncongruency,cover:Self,The poet is refering to himself,cover:Reader,Baudelaire,Charles Baudelaire,http://viaf.org/viaf/17218730,1859,France,French,N/A,N/A,N/A
+28,Sincerity,Leda,Leda and the Swan,cover:Poem,N/A,Petrarchan sonnet,cover:ReadingEvent,Being sexually attacked by a giant swan would be a very terrifying experience,Being sexually attacked by a giant swan would be a very terrifying experience,"How can those terrified vague fingers push
+The feathered glory from her loosening thighs?
+",N/A,"How can those terrified vague fingers push
+The feathered glory from her loosening thighs?
+",N/A,N/A,cover:StateOfAffair,Sexual violence,cover:Reader,Yeats,W.B. Yeats,http://viaf.org/viaf/46768718,1923,Ireland,English,N/A,N/A,N/A
+29,Sincerity,Capa,Mica Van Gogh ,cover:Song,Hip Hop,N/A,cover:ListeningEvent,The author compares the traditional artist and the modern wannabe “artist” It compares classical painting (“oil on canvas”) with physical training (“oil on muscles”) and the real world of models with the virtual solitude of nights spent at the computer.,The author compares the traditional artist and the modern wannabe “artist” It compares classical painting (“oil on canvas”) with physical training (“oil on muscles”) and the real world of models with the virtual solitude of nights spent at the computer.,"""Lui olio su tela, e creò dipinti
+Tu olio su muscoli, e gare di body building
+Lui paesane, modelle, prostitute
+Tu passi le notti nel letto con il computer""",N/A,"""Lui olio su tela, e creò dipinti
+Tu olio su muscoli, e gare di body building
+Lui paesane, modelle, prostitute
+Tu passi le notti nel letto con il computer""","""He, oil on canvas, and he created paintings.
+You, oil on muscles, and bodybuilding contests.
+He had country girls, models, prostitutes.
+You spend your nights in bed with the computer""",N/A,cover:Person,"The listener, which is not a real artist but pretends to be one",cover:Listener,Caparezza,Caparezza,http://viaf.org/viaf/80369270,2014,Italy,Italian,Caparezza,Caparezza,http://viaf.org/viaf/80369270
+30,Irony,Capa,Mica Van Gogh ,cover:Song,Hip Hop,N/A,cover:ListeningEvent,The author is saying that the listener is not Van Gogh,"The author really means that the listener is crazy, while Van Gogh is not. ","""Tu sei pazzo, mica Van Gogh""","""Tu sei pazzo, mica Van Gogh""",N/A,"""You are crazy; not Van Gogh""",cover:ImpersonalIrony,cover:Person,The listener,cover:Listener,Caparezza,Caparezza,http://viaf.org/viaf/80369270,2014,Italy,Italian,Caparezza,Caparezza,http://viaf.org/viaf/80369270
+31,Irony,SelfishChild,Prayer of the Selfish Child,cover:Poem,N/A,Prayer,cover:ReadingEvent,Now I lay me down to sleep is the start to a common prayer which prays for the soul even after death,The child does not pray for their soul but for their toys to break so that no one can use them after they die,"""And if I die before I wake,
+I pray the Lord my toys to break.
+So none of the other kids can use ’em. . . .
+Amen.""","""And if I die before I wake,
+I pray the Lord my toys to break.
+So none of the other kids can use ’em. . . .
+Amen.""",N/A,N/A,cover:ImpersonalIrony,cover:Concept,Selfishness,cover:Reader,Silverstein,Shel Silverstein,http://viaf.org/viaf/19880380,1981,USA,English,N/A,N/A,N/A
+32,Sincerity,SilverSpoon,Silver Spoon (Bapsae=Crow-tit/뱁새),cover:Song,"K-pop, Hip Hop",N/A,cover:ListeningEvent,The crow-tit and stork metaphor (a Korean idiom) is used to describe how younger generations are expected to compete equally with older ones despite unequal starting points.,The crow-tit and stork metaphor (a Korean idiom) is used to describe how younger generations are expected to compete equally with older ones despite unequal starting points.,"""난 뱁새다리 (다리), 넌 황새다리 (새다리)
+걔넨 말하지, ""내 다린 백만 불짜리"" (불짜리)
+내 게 짧은데 어찌 같은 종목 하니? (What?)
+They say, ""똑같은 초원이면 괜찮잖니""
+ (Never, never, woo)""",N/A,"""난 뱁새다리 (다리), 넌 황새다리 (새다리)
+걔넨 말하지, ""내 다린 백만 불짜리"" (불짜리)
+내 게 짧은데 어찌 같은 종목 하니? (What?)
+They say, ""똑같은 초원이면 괜찮잖니""
+ (Never, never, woo)""","""I have crow-tit legs, and you have stork's legs
+They say, ''My legs are worth a million bucks''
+My legs are shorter, so how do you expect me to keep up?
+They say, ''It's the same field, so it shouldn't matter, right?''
+Never, never, never""",N/A,cover:Community,Generational Inequality,cover:Listener,BTS,BTS,http://viaf.org/viaf/916150943133426760004,2015,South Korea,Korean,BTS,BTS,http://viaf.org/viaf/916150943133426760004
+33,Irony,SilverSpoon,Silver Spoon (Bapsae=Crow-tit/뱁새),cover:Song,"K-pop, Hip Hop",N/A,cover:ListeningEvent,"As old generations say ""Work hard and you'll succeed!""",The artists are ironically echoing what society preaches while showing how hollow it sounds to people struggling in real life.,"""알바 가면 (가면, 가면) 열정페이 (Ayy)
+학교 가면 (가면, 가면) 선생님 (Shit, woo)
+상사들은 (No, woo, woo) 행패 (Yeah, yeah)
+언론에선 맨날 몇 포 세대 (Woo, bang) [...] 아, 노력, 노력 타령 좀 그만둬
+아, 오그라들어 내 두 손발도
+아, 노-노력, 아, 노-노력
+아, 노-노랗구나 싹수가 (역시 황새)""","""알바 가면 (가면, 가면) 열정페이 (Ayy)
+학교 가면 (가면, 가면) 선생님 (Shit, woo)
+상사들은 (No, woo, woo) 행패 (Yeah, yeah)
+언론에선 맨날 몇 포 세대 (Woo, bang) [...] 아, 노력, 노력 타령 좀 그만둬
+아, 오그라들어 내 두 손발도
+아, 노-노력, 아, 노-노력
+아, 노-노랗구나 싹수가 (역시 황새)""",N/A,"""At a part-time job (Go, go), it's ""all for experience""
+ (Ay)
+Go to school (Go, go), there's the teachers (Shit, woo)
+Bosses (No, woo, woo) act up (Yeah, yeah)
+In the media they go on about ""the generation that's given up""
+ (Woo, bang) [...] Ah, stop going on about ""effort"" and more ""effort""
+Ah, it makes my skin crawl
+Ah, try harder, ah, try harder
+Ah, you really don't have a chance
+As expected from the ones before us""",cover:IronyOfEvents,cover:Community,Generational Inequality,cover:Listener,BTS,BTS,http://viaf.org/viaf/916150943133426760004,2015,South Korea,Korean,BTS,BTS,http://viaf.org/viaf/916150943133426760004
+34,Sincerity,Sober,Sober,cover:Song,Power  Pop,N/A,cover:ListeningEvent,"A statement of fear and emptiness, showing self-awareness about her dependence on noise, distraction, or substances to avoid introspection.","A statement of fear and emptiness, showing self-awareness about her dependence on noise, distraction, or substances to avoid introspection.","""I don't wanna be the girl that has to fill the silence
+The quiet scares me 'cause it screams the truth
+Please don't tell me that we had that conversation
+I won't remember, save your breath 'cause what's the use?""",N/A,"""I don't wanna be the girl that has to fill the silence
+The quiet scares me 'cause it screams the truth
+Please don't tell me that we had that conversation
+I won't remember, save your breath 'cause what's the use?""",N/A,N/A,cover:Concept,Internal Conflict,cover:Listener,P!nk,P!nk,http://viaf.org/viaf/125145969949332250345,2008,UK,English,P!nk,P!nk,http://viaf.org/viaf/125145969949332250345
+35,Irony,Sober,Sober,cover:Song,Power  Pop,N/A,cover:ListeningEvent,A person feeling great when using substances,"The person wishes to be able to achieve that ""good"" feeling through authenticity and being present in her own life, without any external aid.","""I'm safe up high
+Nothing can touch me
+Why do I feel this party's over?
+Whoahhh
+No pain inside
+You're like perfection
+But how do I feel this good sober?
+(How do I feel this good sober)""","""I'm safe up high
+Nothing can touch me
+Why do I feel this party's over?
+Whoahhh
+No pain inside
+You're like perfection
+But how do I feel this good sober?
+(How do I feel this good sober)""",N/A,N/A,cover:IronyOfSelfBetrayal,cover:Concept,Internal Conflict,cover:Listener,P!nk,P!nk,http://viaf.org/viaf/125145969949332250345,2008,UK,English,P!nk,P!nk,http://viaf.org/viaf/125145969949332250345
+36,Sincerity,SpineBreaker,Spine Breaker (척추브레이커),cover:Song,Dark Hip Hop,N/A,cover:ListeningEvent,The song shows how warped the system has become with the economic divide and consumerism creating new forms of inequality.,The song shows how warped the system has become with the economic divide and consumerism creating new forms of inequality.,"""21세기 계급은 반으로 딱 나눠져
+있는 자와 없는 자, 신은 자와 없는 자
+입은 자와 벗는 자, 또 기를 써서 얻는 자""",N/A,"""21세기 계급은 반으로 딱 나눠져
+있는 자와 없는 자, 신은 자와 없는 자
+입은 자와 벗는 자, 또 기를 써서 얻는 자""","""The class system of the 21st century is split right down the middle
+The haves and have-nots, those who wear and those who can't
+And those who try hard to get those things""",N/A,cover:Concept,Consumerism and Fashion Trends,cover:Listener,BTS,BTS,http://viaf.org/viaf/916150943133426760004,2014,South Korea,Korean,BTS,BTS,http://viaf.org/viaf/916150943133426760004
+37,Irony,SpineBreaker,Spine Breaker (척추브레이커),cover:Song,Dark Hip Hop,N/A,cover:ListeningEvent,"Songs targeted at the youth typically take the side of young people, seing things from their persepctive","This song actually criticizes the youth and takes the side of their parents viewing the young people as ""spine breakers""","""휘어지는 부모 등골을 봐도 넌 매몰차
+친구는 다 있다고 졸라대니 안 사줄 수도 없다고
+(Ayo baby) 철딱서니 없게 굴지 말어
+그깟 패딩 안 입는다고 얼어 죽진 않어
+패딩 안에 거위털을 채우기 전에
+니 머릿속 개념을 채우길, 늦기 전에""","""휘어지는 부모 등골을 봐도 넌 매몰차
+친구는 다 있다고 졸라대니 안 사줄 수도 없다고
+(Ayo baby) 철딱서니 없게 굴지 말어
+그깟 패딩 안 입는다고 얼어 죽진 않어
+패딩 안에 거위털을 채우기 전에
+니 머릿속 개념을 채우길, 늦기 전에""",N/A,"""Even seeing your parents' bent backs, you stay coldhearted
+You nag, saying all your friends have one, so they can't say no
+(Ayo baby) Stop being so immature
+You won't freeze to death just because you don't wear that coat
+Before you stuff your jacket with goose fea
+thers
+Try stuffing your brain with some sense, before it's too late""",cover:IronyOfSelfBetrayal,cover:Concept,Consumerism and Fashion Trends,cover:Listener,BTS,BTS,http://viaf.org/viaf/916150943133426760004,2014,South Korea,Korean,BTS,BTS,http://viaf.org/viaf/916150943133426760004
+38,Irony,FunnyFeeling,That Funny Feeling,cover:Song,Comedy/Pop,N/A,cover:ListeningEvent,"The gun range is a place to practice a dangerous skill not to shop for gifts, while the mall should be a place to shop free from danger",The space of the gun range is now just another comerical endevour and the mall is no longer to happy comercial utopia it may have set itself up to be and can just as easily become a space of violence,"A gift shop at the gun range, a mass shooting at the mall","A gift shop at the gun range, a mass shooting at the mall",N/A,N/A,cover:IronyOfSimpleIncongruency,cover:Concept,Late-stage capitalism,cover:Listener,Burnham,Bo Burnham,http://viaf.org/viaf/162392861,2021,USA,English,Burnum,Bo Burnum,http://viaf.org/viaf/162392861
+39,Sincerity,Letter,The Letter,cover:Poem,N/A,Free-form,cover:ReadingEvent,"The poet is writing a series of words, until he writes a sentence.","The poet is writing a series of words, until he writes a sentence.","""So I wrote you a word,
+and then another word,
+and another, and another,
+until I wrote you a sentence.""",N/A,"""So I wrote you a word,
+and then another word,
+and another, and another,
+until I wrote you a sentence.""",N/A,N/A,cover:Person,The author's lover,cover:Reader,Burnham,Bo Burnham,http://viaf.org/viaf/162392861,2013,USA,English,N/A,N/A,N/A
+40,Irony,Letter,The Letter,cover:Poem,N/A,Free-form,cover:ReadingEvent,You would expect a climax,The poem comes back where it started,"""I wrote you a letter [...] until I wrote you a letter""","""I wrote you a letter [...] until I wrote you a letter""",N/A,N/A,cover:ImpersonalIrony,cover:Thing,Letter,cover:Reader,Burnham,Bo Burnham,http://viaf.org/viaf/162392861,2013,USA,English,N/A,N/A,N/A
+41,Sincerity,Usseewa,Usseewa (うっせぇわ),cover:Song,"Japanese Rock, J-pop, Vocaloid Utaite","J-pop, Electronic Rock",cover:ListeningEvent,"The singer reflects honestly on feeling lost, unfulfilled, and frustrated with adulthood despite following all the “right” paths.","The singer reflects honestly on feeling lost, unfulfilled, and frustrated with adulthood despite following all the “right” paths.","""ちっちゃな頃から優等生
+気づいたら大人になっていた
+ナイフの様な思考回路
+持ち合わせる訳もなく
+でも遊び足りない 何か足りない
+困っちまうこれは誰かのせい
+あてもなくただ混乱するエイデイ""",N/A,"""ちっちゃな頃から優等生
+気づいたら大人になっていた
+ナイフの様な思考回路
+持ち合わせる訳もなく
+でも遊び足りない 何か足りない
+困っちまうこれは誰かのせい
+あてもなくただ混乱するエイデイ""","""I was an honor student being young
+Before I realized, I was already grown up
+A train of thought like a knife
+Which I didn't have that with me
+But I'm not having enough fun
+Something is missing
+These troubles better are somebody's fault
+I'm just confused today""",N/A,cover:Concept,"Japanese society's ""Common sense""",cover:Listener,Syudou,Syudou,https://www.wikidata.org/wiki/Q86743591,2020,Japan,Japanese,Ado,Ado,https://www.wikidata.org/wiki/Q104012678
+42,Irony,Usseewa,Usseewa (うっせぇわ),cover:Song,"Japanese Rock, J-pop, Vocaloid Utaite","J-pop, Electronic Rock",cover:ListeningEvent,Following the rules of society and the path they chose for you will make you successfull and a proper worker contributing to society. ,You are tired and not the successfull person they promised you'll be. Instead of an office worker you are working part time jobs; drinking; and competing with other people that were promised the same thing.,"「 最新の流行は当然の把握
+経済の動向も通勤時チェック
+純情な精神で入社しワーク
+社会人じゃ当然のルールです [..]
+クソだりぃな
+酒が空いたグラスあれば直ぐに注ぎなさい
+皆がつまみ易いように串外しなさい
+会計や注文は先陣を切る
+不文律最低限のマナーです 」","「 最新の流行は当然の把握
+経済の動向も通勤時チェック
+純情な精神で入社しワーク
+社会人じゃ当然のルールです [..]
+クソだりぃな
+酒が空いたグラスあれば直ぐに注ぎなさい
+皆がつまみ易いように串外しなさい
+会計や注文は先陣を切る
+不文律最低限のマナーです 」",N/A,"""Understanding the latest trends
+Checking the stock market on my way to work
+Joining a company with the pure spirit
+These are the obvious rules for us workers
+[...] I'm f***ing tired
+Pour drinks when glasses are empty
+Take off the skewer so it's easier for everyone to eat
+Check and order before anyone does
+These are the minimum rules for the social manner""",cover:IronyOfEvents,cover:Concept,"Japanese society's ""Common sense""",cover:Listener,Syudou,Syudou,https://www.wikidata.org/wiki/Q86743591,2020,Japan,Japanese,Ado,Ado,https://www.wikidata.org/wiki/Q104012678
