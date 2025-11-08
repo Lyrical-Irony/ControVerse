@@ -15,7 +15,7 @@
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Comic Sans MS", "Montserrat",  sans-serif;
+  --heading-font: "Comic Sans MS", "Comic Neue", "Montserrat",  sans-serif;
   --nav-font: "Open Sans",  sans-serif;
 }
 
@@ -39,6 +39,21 @@
   --nav-dropdown-color: #000000; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #6e0e62eb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
+
+/* Global link style */
+a {
+  color: var(--accent-color);  /* or your custom color like #ff0099 */
+  text-decoration: underline;  /* makes it underlined everywhere */
+  font-weight: 500;            /* optional, looks cleaner */
+  transition: color 0.3s ease;
+}
+
+/* Hover effect (optional but nice) */
+a:hover {
+  color: #000; /* or a darker/lighter variant of your accent color */
+  text-decoration: underline; /* keeps underline on hover too */
+}
+
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
@@ -1161,6 +1176,215 @@ section,
   width: 100%;
   height: 80vh; /* 80% of viewport height */
   border: none;
+}
+
+/* Responsive meme section inside card */
+.meme-section {
+  margin-top: 20px;
+}
+
+.meme-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.meme-section .meme-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.meme-section img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: contain; /* ensures the full image is visible */
+  object-position: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.meme-section img:hover {
+  transform: scale(1.03);
+}
+
+/* On larger screens, let memes sit side by side neatly */
+@media (min-width: 992px) {
+  .meme-section .meme-images {
+    flex-wrap: nowrap;
+    gap: 30px;
+  }
+
+  .meme-section img {
+    max-width: 45%; /* each meme takes about half width of the container */
+  }
+}
+
+/* Responsive wordcloud section inside card */
+.wordcloud-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.wordcloud-section .wordcloud-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.wordcloud-section img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: contain; /* keeps the entire wordcloud visible */
+  object-position: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  background-color: #fff; /* optional: gives clean padding if image is transparent */
+}
+
+.wordcloud-section img:hover {
+  transform: scale(1.03);
+}
+
+/* On larger screens: side by side neatly */
+@media (min-width: 992px) {
+  .wordcloud-section .wordcloud-images {
+    flex-wrap: nowrap;
+    gap: 30px;
+  }
+
+  .wordcloud-section img {
+    max-width: 45%; /* each takes about half the width */
+    height: 300px;
+  }
+}
+
+/* On smaller screens: stack vertically */
+@media (max-width: 576px) {
+  .wordcloud-section img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/*Output Graphs style*/
+.graph-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+.graph-item:hover {
+  transform: translateY(-5px);
+}
+.graph-img {
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.graph-img:hover {
+  transform: scale(1.05);
+}
+
+#modalGraphCaption {
+  color: #fff !important; /* force white if dark background */
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6); /* makes it readable even on light images */
+  margin-top: 10px;
+}
+
+/* --- Modal layout fix (no scroll, perfectly centered) --- */
+.modal-dialog {
+  max-width: 95vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* --- Make the image fit fully on all screens --- */
+.modal-body img {
+  width: auto;
+  max-width: 85vw;
+  max-height: 65vh; /* prevents scrolling */
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* --- Navigation buttons BELOW image --- */
+.nav-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.nav-btn {
+  background: var(--accent-color);
+  border: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-btn:hover {
+  background: #fff;
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* --- Fully responsive tweaks --- */
+@media (max-width: 992px) {
+  .modal-body img {
+    max-width: 90vw;
+    max-height: 60vh;
+  }
+}
+@media (max-width: 576px) {
+  .modal-body img {
+    max-width: 92vw;
+    max-height: 55vh;
+  }
+  .nav-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
 }
 
 
