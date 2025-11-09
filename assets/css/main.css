@@ -1082,6 +1082,26 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
 
+/*links in "the project"*/
+#about a {
+  text-decoration: underline;
+  text-decoration-color: #701263; /* optional: match your accent color */
+  color: inherit; /* keeps text color consistent */
+}
+
+
+/* Force color for all states of the menu links */
+#about .section-title p.menu-links a,
+#about .section-title p.menu-links a:visited,
+#about .section-title p.menu-links a:active,
+#about .section-title p.menu-links a:focus {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  color: #ffffff; /* ← force your purple color */
+}
+
+
+
 /* About Section Carousel */
 .about-carousel {
   position: relative;
@@ -1729,4 +1749,58 @@ section,
 
 .github-link:hover {
   color: #ff52d9; /* your accent pink */
+}
+
+/*important rules*/
+
+/* default link look */
+#about .section-title p.menu-links a {
+  text-decoration: underline;
+  text-decoration-color: #ffffff;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+/* hover effect */
+#about .section-title p.menu-links a:hover {
+  color: #a7378d; /* slightly lighter purple */
+}
+
+/* active (clicked) or focused link */
+#about .section-title p.menu-links a:active,
+#about .section-title p.menu-links a:focus {
+  color: #d94bc6; /* brighter pink-purple when clicked */
+  outline: none;
+}
+
+/* 🔹 Always-pink, always-underlined links inside about cards */
+.about-card a {
+  color: #d94bc6 !important; /* pink tone */
+  text-decoration: underline !important;
+  text-decoration-color: #d31abbeb !important;
+  font-weight: 500;
+}
+
+/* optional: slightly darker on hover */
+.about-card a:hover {
+  color: #6e0e62eb !important;
+}
+
+/*callout style*/
+.callout-box {
+  background-color: rgba(211, 26, 187, 0.1); /* transparent pink background */
+  border-left: 4px solid #d31abb; /* pink accent border */
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  color: #000; /* text stays readable */
+  font-style: italic;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(211, 26, 187, 0.15);
+}
+
+.callout-box:hover {
+  box-shadow: 0 6px 25px rgba(211, 26, 187, 0.25);
+  transition: box-shadow 0.3s ease;
 }
