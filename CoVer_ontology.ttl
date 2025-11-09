@@ -41,8 +41,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/controverse#createdDuring
-cover:createdDuring rdf:type owl:ObjectProperty ;
+###  https://w3id.org/controverse#hasReceptionEvent
+cover:hasReceptionEvent rdf:type owl:ObjectProperty ;
                     rdfs:domain cover:CreativeEvent ;
                     rdfs:range [ rdf:type owl:Class ;
                                  owl:oneOf ( cover:ListeningEvent
@@ -50,7 +50,7 @@ cover:createdDuring rdf:type owl:ObjectProperty ;
                                            )
                                ] ;
                     rdfs:comment "Points a creative event to the larger event it is taking place in." ;
-                    rdfs:label "created during" .
+                    rdfs:label "has reception event" .
 
 
 ###  https://w3id.org/controverse#createdFrom
@@ -78,13 +78,13 @@ cover:createsWork rdf:type owl:ObjectProperty ;
                   rdfs:label "creates work" .
 
 
-###  https://w3id.org/controverse#foundIn
-cover:foundIn rdf:type owl:ObjectProperty ;
-              owl:inverseOf cover:hasIdea ;
+###  https://w3id.org/controverse#embodiedBy
+cover:embodiedBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf cover:embodies ;
               rdfs:domain cover:CreativeIdea ;
               rdfs:range cover:LyricalWork ;
-              rdfs:comment "Links a creative idea to the lyrical work it was found in" ;
-              rdfs:label "found in" .
+              rdfs:comment "Links a creative idea to the lyrical work it is embodied by" ;
+              rdfs:label "embodied by" .
 
 
 ###  https://w3id.org/controverse#hasActor
@@ -108,16 +108,16 @@ cover:hasCreator rdf:type owl:ObjectProperty ;
                  rdfs:label "has creator" .
 
 
-###  https://w3id.org/controverse#hasIdea
-cover:hasIdea rdf:type owl:ObjectProperty ;
+###  https://w3id.org/controverse#embodies
+cover:embodies rdf:type owl:ObjectProperty ;
               rdfs:domain cover:CreativeWork ;
               rdfs:range cover:CreativeIdea ;
               rdfs:comment "connects a work to a particular creative idea" ;
-              rdfs:label "has creative idea" .
+              rdfs:label "embodies" .
 
 
-###  https://w3id.org/controverse#hasInterpreter
-cover:hasInterpreter rdf:type owl:ObjectProperty ;
+###  https://w3id.org/controverse#interpretedBy
+cover:interpretedBy rdf:type owl:ObjectProperty ;
                      rdfs:domain cover:CreativeEvent ;
                      rdfs:range [ rdf:type owl:Class ;
                                   owl:oneOf ( cover:Listener
@@ -125,15 +125,15 @@ cover:hasInterpreter rdf:type owl:ObjectProperty ;
                                             )
                                 ] ;
                      rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." ;
-                     rdfs:label "has interpreter" .
+                     rdfs:label "interpretedBy" .
 
 
-###  https://w3id.org/controverse#hasIronist
-cover:hasIronist rdf:type owl:ObjectProperty ;
-                 owl:inverseOf cover:isIronistOf ;
+###  https://w3id.org/controverse#initiatedBy
+cover:initiatedBy rdf:type owl:ObjectProperty ;
+                 owl:inverseOf cover:initiates ;
                  rdfs:domain cover:IronicEvent ;
-                 rdfs:range cover:Author ;
-                 rdfs:comment "The one who perceives or decodes irony and can make the Ironic Event possible." ;
+                 rdfs:range cover:Ironist ;
+                 rdfs:comment "The one who starts the ironic event." ;
                  rdfs:label "has interpreter" .
 
 
@@ -172,12 +172,12 @@ cover:hasTarget rdf:type owl:ObjectProperty ;
                 rdfs:label "has target" .
 
 
-###  https://w3id.org/controverse#isIronistOf
-cover:isIronistOf rdf:type owl:ObjectProperty ;
-                  rdfs:domain cover:Author ;
+###  https://w3id.org/controverse#initiates
+cover:initiates rdf:type owl:ObjectProperty ;
+                  rdfs:domain cover:Ironist ;
                   rdfs:range cover:IronicEvent ;
                   rdfs:comment "connects an actor to an instance of irony they have created" ;
-                  rdfs:label "is ironist of" .
+                  rdfs:label "initiates" .
 
 
 ###  https://w3id.org/controverse#takesPartIn
@@ -341,8 +341,8 @@ creon:CreativeProduct rdf:type owl:Class ;
 
 
 ###  http://www.ontologydesignpatterns.org/ont/creativity/creon.owl#CreativeSituation
-creon:CreativeSituation rdf:type owl:Class ;
-                        owl:equivalentClass cover:IronicEvent .
+creon:CreativitySituation rdf:type owl:Class ;
+                        owl:equivalentClass cover:CreativeEvent .
 
 
 ###  https://w3id.org/controverse#Actor
@@ -622,67 +622,5 @@ cover:Thing rdf:type owl:NamedIndividual ,
             rdfs:comment "The concrete object towards which a creative idea is directed." ;
             rdfs:label "Thing" ;
             <http://www.w3.org/ns/prov#wasAttributedTo> "Lozano Palacio, Inés. ‘A Scenario-Based Approach to Irony. Structure, Meaning and Function’. PhD Thesis, 2020." .
-
-
-###  https://w3id.org/controverse/IEvent1
-covercore:IEvent1 rdf:type owl:NamedIndividual ,
-                           cover:IronicEvent ;
-                  cover:createdDuring cover:ReadingEvent ;
-                  cover:hasInterpreter cover:Reader ;
-                  cover:hasIronist covercore:WBYeats ;
-                  cover:hasEpistemicScenario "A fighter pilot flies for honour and duty to his country" ;
-                  cover:hasObservableScenario "The airman does not care about honour but flies just for the pleasure of being in the sky" .
-
-
-###  https://w3id.org/controverse/Inst1
-covercore:Inst1 rdf:type owl:NamedIndividual ,
-                         cover:Irony ;
-                cover:createdFrom covercore:IEvent1 ;
-                cover:foundIn covercore:IrishAirman ;
-                cover:hasIronyType cover:IronyOfEvents ;
-                cover:hasTarget cover:StateOfAffair ;
-                cover:hasTargetDescription "The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs." ;
-                cover:hasText "Nor law, nor duty bade me fight,/Nor public men, nor cheering crowds,/A lonely impulse of delight/Drove to this tumult in the clouds;" .
-
-
-###  https://w3id.org/controverse/Inst2
-covercore:Inst2 rdf:type owl:NamedIndividual ,
-                         cover:Sincerity ;
-                cover:createdFrom covercore:SEvent2 ;
-                cover:foundIn covercore:IrishAirman ;
-                cover:hasTarget cover:Concept ;
-                cover:hasTargetDescription "The meaning and purpose of life." ;
-                cover:hasText "The years to come seemed waste of breath,/A waste of breath the years behind/In balance with this life, this death." .
-
-
-###  https://w3id.org/controverse/IrishAirman
-covercore:IrishAirman rdf:type owl:NamedIndividual ,
-                               cover:Poem ;
-                      cover:hasCreator covercore:WBYeats ;
-                      cover:hasCreationDate "1919"^^xsd:gYear ;
-                      cover:hasCreationLocation "Ireland" ;
-                      cover:hasLanguage "English" ;
-                      cover:hasPoeticForm "Elegy" ;
-                      cover:hasTitle "An Irish Airman forsees his Death" ;
-                      rdfs:label "An Irish Airman forsees his Death" .
-
-
-###  https://w3id.org/controverse/SEvent2
-covercore:SEvent2 rdf:type owl:NamedIndividual ,
-                           cover:SincereEvent ;
-                  cover:createdDuring cover:ReadingEvent ;
-                  cover:hasActor covercore:WBYeats ;
-                  cover:hasInterpreter cover:Reader ;
-                  cover:hasEpistemicScenario "In the face of death, everything about life can seem meaningless." ;
-                  cover:hasObservableScenario "In the face of death, everything about life can seem meaningless." .
-
-
-###  https://w3id.org/controverse/WBYeats
-covercore:WBYeats rdf:type owl:NamedIndividual ,
-                           cover:Author ,
-                           cover:Ironist ;
-                  cover:hasName "W.B. Yeats" ;
-                  rdfs:label "W.B. Yeats" .
-
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

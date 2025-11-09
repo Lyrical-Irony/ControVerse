@@ -64,7 +64,7 @@ with open("CoVer_dataset.csv", newline='', encoding='utf-8') as csvfile:
             g.add((inst_uri, COVER.hasIronyType, ironicTypes[row["Ironic Type"]]))
             g.add((event_uri, RDF.type, COVER.IronicEvent))
             g.add((creator_uri, RDF.type, COVER.Ironist))
-            g.add((event_uri, COVER.hasIronist, creator_uri))
+            g.add((event_uri, COVER.initiatedBy, creator_uri))
         else:
             g.add((inst_uri, RDF.type, COVER.Sincerity))
             g.add((event_uri, RDF.type, COVER.SincereEvent))
@@ -75,14 +75,14 @@ with open("CoVer_dataset.csv", newline='', encoding='utf-8') as csvfile:
         g.add((inst_uri, COVER.hasTranslation, Literal(row["hasTranslation"])))
         g.add((inst_uri, COVER.hasLanguage, Literal(row["Language"])))
         g.add((inst_uri, COVER.createdFrom, event_uri))
-        g.add((inst_uri, COVER.foundIn, work_uri))
+        g.add((inst_uri, COVER.embodiedBy, work_uri))
         g.add((inst_uri, COVER.hasTarget, targetTypes[row["Target Type"]]))
         g.add((inst_uri, COVER.hasTargetDescription, Literal(row["Target Description"])))
         g.add((inst_uri, RDFS.label, Literal(f'Creative Instance {row["ID"]}')))
 
         #triples for event
-        g.add((event_uri, COVER.createdDuring, as_node(row["Event"])))
-        g.add((event_uri, COVER.hasInterpreter, as_node(row["Interpreter Type"])))
+        g.add((event_uri, COVER.hasReceptionEvent, as_node(row["Event"])))
+        g.add((event_uri, COVER.interpretedBy, as_node(row["Interpreter Type"])))
 
         g.add((event_uri, COVER.hasEpistemicScenario, Literal(row["Epistemic Scenario"])))
         g.add((event_uri, COVER.hasObservableScenario, Literal(row["Observable Scenario"])))
