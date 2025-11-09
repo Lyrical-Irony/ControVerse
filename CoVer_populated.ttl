@@ -210,10 +210,10 @@ covercore:10 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:StateOfAffair ;
     cover:hasTargetDescription "The british control of ireland leading irish soldiers to have to fight for a country that isn't theirs" ;
-    cover:hasText """"Nor law, nor duty bade me fight,
+    cover:hasText """Nor law, nor duty bade me fight,
 Nor public men, nor cheering crowds,
 A lonely impulse of delight
-Drove to this tumult in the clouds;\"""" ;
+Drove to this tumult in the clouds;""" ;
     cover:hasTranslation "N/A" .
 
 covercore:11 a cover:Sincerity ;
@@ -223,12 +223,12 @@ covercore:11 a cover:Sincerity ;
     cover:hasLanguage "Latin" ;
     cover:hasTarget cover:StateOfAffair ;
     cover:hasTargetDescription "The poverty of the author" ;
-    cover:hasText """"Haec si, inquam, attuleris, venuste noster,
+    cover:hasText """Haec si, inquam, attuleris, venuste noster,
 cenabis bene; nam tui Catulli
-plenus sacculus est aranearum.\"""" ;
-    cover:hasTranslation """"These things, I say, if you bring, my charming friend,
+plenus sacculus est aranearum.""" ;
+    cover:hasTranslation """These things, I say, if you bring, my charming friend,
 you’ll dine well; for your Catullus’
-purse is full of cobwebs.\"""" .
+purse is full of cobwebs.""" .
 
 covercore:12 a cover:Irony ;
     rdfs:label "Creative Instance 12" ;
@@ -238,16 +238,16 @@ covercore:12 a cover:Irony ;
     cover:hasLanguage "Latin" ;
     cover:hasTarget cover:StateOfAffair ;
     cover:hasTargetDescription "The poet makes fun of the poor situation he is in but still invites his friend in a ironic way" ;
-    cover:hasText """"Cenabis bene, mi Fabulle, apud me
+    cover:hasText """Cenabis bene, mi Fabulle, apud me
 paucis, si tibi di favent, diebus,
 si tecum attuleris bonam atque magnam
 cenam, non sine candida puella
-et vino et sale et omnibus cachinnis.\"""" ;
-    cover:hasTranslation """"You’ll dine well, my dear Fabullus, at my place
+et vino et sale et omnibus cachinnis.""" ;
+    cover:hasTranslation """You’ll dine well, my dear Fabullus, at my place
 in a few days, if the gods favor you,
 provided that you bring with you a good and big
 dinner — not without a fair girl,
-and wine, and wit, and all kinds of laughter.\"""" .
+and wine, and wit, and all kinds of laughter.""" .
 
 covercore:13 a cover:Irony ;
     rdfs:label "Creative Instance 13" ;
@@ -257,10 +257,10 @@ covercore:13 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Performative activism" ;
-    cover:hasText """"Healing the world with comedy
+    cover:hasText """Healing the world with comedy
 Making a literal difference, metaphorically
 A Jew walks into a bar, and I've saved him a seat
-That's healing the world with comedy\"""" ;
+That's healing the world with comedy""" ;
     cover:hasTranslation "N/A" .
 
 covercore:14 a cover:Irony ;
@@ -271,12 +271,12 @@ covercore:14 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Heartbreak" ;
-    cover:hasText """"And mother doesn't get the joke
+    cover:hasText """And mother doesn't get the joke
 Where I want love and I get none
 I cried for weeks when the last one left
 Oh, isn't that hilarious?
 I guess it's sad from the outside in
-But it's so funny, it's so funny to me"
+But it's so funny, it's so funny to me
 """ ;
     cover:hasTranslation "N/A" .
 
@@ -287,12 +287,12 @@ covercore:15 a cover:Sincerity ;
     cover:hasLanguage "Italian" ;
     cover:hasTarget cover:Institution ;
     cover:hasTargetDescription "The italian governments" ;
-    cover:hasText """"Ahi serva Italia, di dolore ostello,\r
-nave sanza nocchiere in gran tempesta,\r
-non donna di provincie, ma bordello!\"""" ;
-    cover:hasTranslation """"Ah, servile Italy, inn of sorrow,\r
-ship without a helmsman in a great storm,\r
-not lady of provinces, but a brothel!\"""" .
+    cover:hasText """Ahi serva Italia, di dolore ostello,
+nave sanza nocchiere in gran tempesta,
+non donna di provincie, ma bordello!""" ;
+    cover:hasTranslation """Ah, servile Italy, inn of sorrow,
+ship without a helmsman in a great storm,
+not lady of provinces, but a brothel!""" .
 
 covercore:16 a cover:Irony ;
     rdfs:label "Creative Instance 16" ;
@@ -302,10 +302,10 @@ covercore:16 a cover:Irony ;
     cover:hasLanguage "Italian" ;
     cover:hasTarget cover:Community ;
     cover:hasTargetDescription "Florence's politicians" ;
-    cover:hasText """"Fiorenza mia, ben puoi esser contenta\r
-di questa digression che non ti tocca,\r
-mercé del popol tuo che si argomenta.\"""" ;
-    cover:hasTranslation "\"My Florence, how delighted you must be to follow my tirade here because your citizens are so innocent!\"" .
+    cover:hasText """Fiorenza mia, ben puoi esser contenta
+di questa digression che non ti tocca,
+mercé del popol tuo che si argomenta.""" ;
+    cover:hasTranslation "My Florence, how delighted you must be to follow my tirade here because your citizens are so innocent!" .
 
 covercore:17 a cover:Sincerity ;
     rdfs:label "Creative Instance 17" ;
@@ -314,12 +314,12 @@ covercore:17 a cover:Sincerity ;
     cover:hasLanguage "Korean" ;
     cover:hasTarget cover:Community ;
     cover:hasTargetDescription "Haters" ;
-    cover:hasText """"여지껏 무시해줘 고맙다
+    cover:hasText """여지껏 무시해줘 고맙다
 덕분에 스타디움, 돔, 빌보드
-많은 것을 덕분에 많이도 얻었다\"""" ;
-    cover:hasTranslation """"Thank you for ignoring us until now
+많은 것을 덕분에 많이도 얻었다""" ;
+    cover:hasTranslation """Thank you for ignoring us until now
 Thank you, stadium, dome, Billboard
-Thanks to you, we became successful\"""" .
+Thanks to you, we became successful""" .
 
 covercore:18 a cover:Irony ;
     rdfs:label "Creative Instance 18" ;
@@ -329,22 +329,22 @@ covercore:18 a cover:Irony ;
     cover:hasLanguage "Korean" ;
     cover:hasTarget cover:Community ;
     cover:hasTargetDescription "Haters" ;
-    cover:hasText """"힙합? 땡
+    cover:hasText """힙합? 땡
 Rap style? 땡
 걍 랩퍼, 땡
 방탄, 땡 [...] 
-일팔, 일삼, 삼팔, 땡\r
-You wrong, me right, 잘 봐 땡\r
-학교종 울려라, brr, brr, 땡\r
-야 이번 생은 글렀어, 넌 땡\"""" ;
-    cover:hasTranslation """"Hip-hop? Ddaeng
+일팔, 일삼, 삼팔, 땡
+You wrong, me right, 잘 봐 땡
+학교종 울려라, brr, brr, 땡
+야 이번 생은 글렀어, 넌 땡""" ;
+    cover:hasTranslation """Hip-hop? Ddaeng
 Rap style? Ddaeng
 Just a rapper, ddaeng
 Bangtan = Ddaeng [...]
-One-eight, one-three, three-eight, ddaeng\r
-You wrong, me right, look carefully, ddaeng\r
-Ring the school bell, brr brr, ddaeng\r
-Hey, your life’s over, you’re ddaeng\"""" .
+One-eight, one-three, three-eight, ddaeng
+You wrong, me right, look carefully, ddaeng
+Ring the school bell, brr brr, ddaeng
+Hey, your life’s over, you’re ddaeng""" .
 
 covercore:19 a cover:Sincerity ;
     rdfs:label "Creative Instance 19" ;
@@ -353,18 +353,18 @@ covercore:19 a cover:Sincerity ;
     cover:hasLanguage "German" ;
     cover:hasTarget cover:Institution ;
     cover:hasTargetDescription "The Nazist regime" ;
-    cover:hasText """"Als das Regime befahl, Bücher mit schädlichem Wissen
+    cover:hasText """Als das Regime befahl, Bücher mit schädlichem Wissen
 öffentlich zu verbrennen und überall
 Ochsen gezwungen wurden, Karren mit Büchern zu den Scheiterhaufen zu ziehen,
 entdeckte ein verjagter Dichter, einer der besten,
 die Liste der Verurteilten,
-entsetzt, dass seine Bücher vergessen waren.\"""" ;
-    cover:hasTranslation """"When the regime ordered that books with harmful knowledge
+entsetzt, dass seine Bücher vergessen waren.""" ;
+    cover:hasTranslation """When the regime ordered that books with harmful knowledge
 be publicly burned, and everywhere
 oxen were forced to drag carts full of books to the bonfires,
 a banished poet, one of the best,
 discovered, among the condemned,
-that his own books had been forgotten.\"""" .
+that his own books had been forgotten.""" .
 
 covercore:2 a cover:Irony ;
     rdfs:label "Creative Instance 2" ;
@@ -387,16 +387,16 @@ covercore:20 a cover:Irony ;
     cover:hasLanguage "German" ;
     cover:hasTarget cover:Institution ;
     cover:hasTargetDescription "Book burning" ;
-    cover:hasText """"Verbrennt mich! schrieb er mit fliegender Feder, verbrennt mich!\r
-\r
-Tut mir das nicht an! Laßt mich nicht übrig! Habe ich nicht\r
-\r
-Immer die Wahrheit berichtet in meinen Büchern? Und jetzt\r
-\r
-Werd ich von euch wie ein Lügner behandelt!\"""" ;
-    cover:hasTranslation """""Burn me!", he wrote about flight, "burn me!
+    cover:hasText """Verbrennt mich! schrieb er mit fliegender Feder, verbrennt mich!
+
+Tut mir das nicht an! Laßt mich nicht übrig! Habe ich nicht
+
+Immer die Wahrheit berichtet in meinen Büchern? Und jetzt
+
+Werd ich von euch wie ein Lügner behandelt!""" ;
+    cover:hasTranslation """Burn me!', he wrote about flight, 'burn me!
 Do not do me this wrong! Do not leave me out! Perhaps
-I have not always declared the truth in my books?"\"""" .
+I have not always declared the truth in my books?'""" .
 
 covercore:21 a cover:Sincerity ;
     rdfs:label "Creative Instance 21" ;
@@ -423,8 +423,8 @@ covercore:22 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Community ;
     cover:hasTargetDescription "Haters" ;
-    cover:hasText """"I love the way it feels to be a hater
-Something so sweet about thinking that I'm better"
+    cover:hasText """I love the way it feels to be a hater
+Something so sweet about thinking that I'm better
 """ ;
     cover:hasTranslation "N/A" .
 
@@ -435,14 +435,14 @@ covercore:23 a cover:Sincerity ;
     cover:hasLanguage "Latin" ;
     cover:hasTarget cover:StateOfAffair ;
     cover:hasTargetDescription "Playing and betting in the tavern" ;
-    cover:hasText """"In taberna quando sumus,\r
-non curamus quid sit humus,\r
-sed ad ludum properamus,\r
-cui semper insudamus.\"""" ;
-    cover:hasTranslation """"When we are in the tavern,
+    cover:hasText """In taberna quando sumus,
+non curamus quid sit humus,
+sed ad ludum properamus,
+cui semper insudamus.""" ;
+    cover:hasTranslation """When we are in the tavern,
 we care not about the earth (or death),
 but we hurry to the game,
-at which we always toil.\"""" .
+at which we always toil.""" .
 
 covercore:24 a cover:Irony ;
     rdfs:label "Creative Instance 24" ;
@@ -452,9 +452,9 @@ covercore:24 a cover:Irony ;
     cover:hasLanguage "Latin" ;
     cover:hasTarget cover:Institution ;
     cover:hasTargetDescription "Clergy" ;
-    cover:hasText """"bibit presul et decanus,\r
-bibit soror, bibit frater\"""" ;
-    cover:hasTranslation "\"the bishop drinks, and the deacon, the sister drinks, the father drinks\"" .
+    cover:hasText """bibit presul et decanus,
+bibit soror, bibit frater""" ;
+    cover:hasTranslation "the bishop drinks, and the deacon, the sister drinks, the father drinks" .
 
 covercore:25 a cover:Sincerity ;
     rdfs:label "Creative Instance 25" ;
@@ -463,11 +463,11 @@ covercore:25 a cover:Sincerity ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Life" ;
-    cover:hasText """"Well, life has a funny way of sneaking up on you\r
-When you think everything's okay and everything's going right\r
-And life has a funny way of helping you out\r
-When you think everything's gone wrong\r
-And everything blows up in your face\"""" ;
+    cover:hasText """Well, life has a funny way of sneaking up on you
+When you think everything's okay and everything's going right
+And life has a funny way of helping you out
+When you think everything's gone wrong
+And everything blows up in your face""" ;
     cover:hasTranslation "N/A" .
 
 covercore:26 a cover:Irony ;
@@ -478,11 +478,11 @@ covercore:26 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Life" ;
-    cover:hasText """"Mr. Play-It-Safe was afraid to fly\r
-He packed his suitcase and kissed his kids goodbye\r
-He waited his whole damn life to take that flight\r
-And as the plane crashed down\r
-He thought, "Well, isn't this nice?\"""" ;
+    cover:hasText """Mr. Play-It-Safe was afraid to fly
+He packed his suitcase and kissed his kids goodbye
+He waited his whole damn life to take that flight
+And as the plane crashed down
+He thought, 'Well, isn't this nice?'""" ;
     cover:hasTranslation "N/A" .
 
 covercore:27 a cover:Irony ;
@@ -523,14 +523,14 @@ covercore:29 a cover:Sincerity ;
     cover:hasLanguage "Italian" ;
     cover:hasTarget cover:Person ;
     cover:hasTargetDescription "The listener, which is not a real artist but pretends to be one" ;
-    cover:hasText """"Lui olio su tela, e creò dipinti\r
-Tu olio su muscoli, e gare di body building\r
-Lui paesane, modelle, prostitute\r
-Tu passi le notti nel letto con il computer\"""" ;
-    cover:hasTranslation """"He, oil on canvas, and he created paintings.
+    cover:hasText """Lui olio su tela, e creò dipinti
+Tu olio su muscoli, e gare di body building
+Lui paesane, modelle, prostitute
+Tu passi le notti nel letto con il computer""" ;
+    cover:hasTranslation """He, oil on canvas, and he created paintings.
 You, oil on muscles, and bodybuilding contests.
 He had country girls, models, prostitutes.
-You spend your nights in bed with the computer\"""" .
+You spend your nights in bed with the computer""" .
 
 covercore:3 a cover:Sincerity ;
     rdfs:label "Creative Instance 3" ;
@@ -539,8 +539,9 @@ covercore:3 a cover:Sincerity ;
     cover:hasLanguage "Neapolitan" ;
     cover:hasTarget cover:Community ;
     cover:hasTargetDescription "The use of going to the cemetery on the 2nd of November" ;
-    cover:hasText "\"Ogn'anno, il due novembre, c'è l'usanza per i defunti andare al Cimitero. Ognuno ll'adda fà chesta crianza; ognuno adda tené chistu penziero. \"" ;
-    cover:hasTranslation "\"Every year, on the second of November, it’s the custom to go to the cemetery for the dead. Everyone must follow this tradition; everyone must keep this thought in mind.\"\r" .
+    cover:hasText "Ogn'anno, il due novembre, c'è l'usanza per i defunti andare al Cimitero. Ognuno ll'adda fà chesta crianza; ognuno adda tené chistu penziero." ;
+    cover:hasTranslation """Every year, on the second of November, it’s the custom to go to the cemetery for the dead. Everyone must follow this tradition; everyone must keep this thought in mind.
+""" .
 
 covercore:30 a cover:Irony ;
     rdfs:label "Creative Instance 30" ;
@@ -550,8 +551,8 @@ covercore:30 a cover:Irony ;
     cover:hasLanguage "Italian" ;
     cover:hasTarget cover:Person ;
     cover:hasTargetDescription "The listener" ;
-    cover:hasText "\"Tu sei pazzo, mica Van Gogh\"" ;
-    cover:hasTranslation "\"You are crazy; not Van Gogh\"" .
+    cover:hasText "Tu sei pazzo, mica Van Gogh" ;
+    cover:hasTranslation "You are crazy; not Van Gogh" .
 
 covercore:31 a cover:Irony ;
     rdfs:label "Creative Instance 31" ;
@@ -561,10 +562,10 @@ covercore:31 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Selfishness" ;
-    cover:hasText """"And if I die before I wake,
+    cover:hasText """And if I die before I wake,
 I pray the Lord my toys to break.
 So none of the other kids can use ’em. . . .
-Amen.\"""" ;
+Amen.""" ;
     cover:hasTranslation "N/A" .
 
 covercore:32 a cover:Sincerity ;
@@ -574,16 +575,16 @@ covercore:32 a cover:Sincerity ;
     cover:hasLanguage "Korean" ;
     cover:hasTarget cover:Community ;
     cover:hasTargetDescription "Generational Inequality" ;
-    cover:hasText """"난 뱁새다리 (다리), 넌 황새다리 (새다리)
-걔넨 말하지, "내 다린 백만 불짜리" (불짜리)
+    cover:hasText """난 뱁새다리 (다리), 넌 황새다리 (새다리)
+걔넨 말하지, '내 다린 백만 불짜리' (불짜리)
 내 게 짧은데 어찌 같은 종목 하니? (What?)
-They say, "똑같은 초원이면 괜찮잖니"
- (Never, never, woo)\"""" ;
-    cover:hasTranslation """"I have crow-tit legs, and you have stork's legs
+They say, '똑같은 초원이면 괜찮잖니'
+ (Never, never, woo)""" ;
+    cover:hasTranslation """I have crow-tit legs, and you have stork's legs
 They say, ''My legs are worth a million bucks''
 My legs are shorter, so how do you expect me to keep up?
 They say, ''It's the same field, so it shouldn't matter, right?''
-Never, never, never\"""" .
+Never, never, never""" .
 
 covercore:33 a cover:Irony ;
     rdfs:label "Creative Instance 33" ;
@@ -593,23 +594,23 @@ covercore:33 a cover:Irony ;
     cover:hasLanguage "Korean" ;
     cover:hasTarget cover:Community ;
     cover:hasTargetDescription "Generational Inequality" ;
-    cover:hasText """"알바 가면 (가면, 가면) 열정페이 (Ayy)
+    cover:hasText """알바 가면 (가면, 가면) 열정페이 (Ayy)
 학교 가면 (가면, 가면) 선생님 (Shit, woo)
 상사들은 (No, woo, woo) 행패 (Yeah, yeah)
 언론에선 맨날 몇 포 세대 (Woo, bang) [...] 아, 노력, 노력 타령 좀 그만둬
 아, 오그라들어 내 두 손발도
 아, 노-노력, 아, 노-노력
-아, 노-노랗구나 싹수가 (역시 황새)\"""" ;
-    cover:hasTranslation """"At a part-time job (Go, go), it's "all for experience"
+아, 노-노랗구나 싹수가 (역시 황새)""" ;
+    cover:hasTranslation """At a part-time job (Go, go), it's 'all for experience'
  (Ay)
 Go to school (Go, go), there's the teachers (Shit, woo)
 Bosses (No, woo, woo) act up (Yeah, yeah)
-In the media they go on about "the generation that's given up"
- (Woo, bang) [...] Ah, stop going on about "effort" and more "effort"\r
-Ah, it makes my skin crawl\r
-Ah, try harder, ah, try harder\r
-Ah, you really don't have a chance\r
-As expected from the ones before us\"""" .
+In the media they go on about 'the generation that's given up'
+ (Woo, bang) [...] Ah, stop going on about 'effort' and more 'effort'
+Ah, it makes my skin crawl
+Ah, try harder, ah, try harder
+Ah, you really don't have a chance
+As expected from the ones before us""" .
 
 covercore:34 a cover:Sincerity ;
     rdfs:label "Creative Instance 34" ;
@@ -618,10 +619,10 @@ covercore:34 a cover:Sincerity ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Internal Conflict" ;
-    cover:hasText """"I don't wanna be the girl that has to fill the silence
+    cover:hasText """I don't wanna be the girl that has to fill the silence
 The quiet scares me 'cause it screams the truth
 Please don't tell me that we had that conversation
-I won't remember, save your breath 'cause what's the use?\"""" ;
+I won't remember, save your breath 'cause what's the use?""" ;
     cover:hasTranslation "N/A" .
 
 covercore:35 a cover:Irony ;
@@ -632,14 +633,14 @@ covercore:35 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Internal Conflict" ;
-    cover:hasText """"I'm safe up high\r
-Nothing can touch me\r
-Why do I feel this party's over?\r
-Whoahhh\r
-No pain inside\r
-You're like perfection\r
-But how do I feel this good sober?\r
-(How do I feel this good sober)\"""" ;
+    cover:hasText """I'm safe up high
+Nothing can touch me
+Why do I feel this party's over?
+Whoahhh
+No pain inside
+You're like perfection
+But how do I feel this good sober?
+(How do I feel this good sober)""" ;
     cover:hasTranslation "N/A" .
 
 covercore:36 a cover:Sincerity ;
@@ -649,12 +650,12 @@ covercore:36 a cover:Sincerity ;
     cover:hasLanguage "Korean" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Consumerism and Fashion Trends" ;
-    cover:hasText """"21세기 계급은 반으로 딱 나눠져
+    cover:hasText """21세기 계급은 반으로 딱 나눠져
 있는 자와 없는 자, 신은 자와 없는 자
-입은 자와 벗는 자, 또 기를 써서 얻는 자\"""" ;
-    cover:hasTranslation """"The class system of the 21st century is split right down the middle
+입은 자와 벗는 자, 또 기를 써서 얻는 자""" ;
+    cover:hasTranslation """The class system of the 21st century is split right down the middle
 The haves and have-nots, those who wear and those who can't
-And those who try hard to get those things\"""" .
+And those who try hard to get those things""" .
 
 covercore:37 a cover:Irony ;
     rdfs:label "Creative Instance 37" ;
@@ -664,19 +665,18 @@ covercore:37 a cover:Irony ;
     cover:hasLanguage "Korean" ;
     cover:hasTarget cover:Concept ;
     cover:hasTargetDescription "Consumerism and Fashion Trends" ;
-    cover:hasText """"휘어지는 부모 등골을 봐도 넌 매몰차
+    cover:hasText """휘어지는 부모 등골을 봐도 넌 매몰차
 친구는 다 있다고 졸라대니 안 사줄 수도 없다고
 (Ayo baby) 철딱서니 없게 굴지 말어
 그깟 패딩 안 입는다고 얼어 죽진 않어
 패딩 안에 거위털을 채우기 전에
-니 머릿속 개념을 채우길, 늦기 전에\"""" ;
-    cover:hasTranslation """"Even seeing your parents' bent backs, you stay coldhearted
+니 머릿속 개념을 채우길, 늦기 전에""" ;
+    cover:hasTranslation """Even seeing your parents' bent backs, you stay coldhearted
 You nag, saying all your friends have one, so they can't say no
 (Ayo baby) Stop being so immature
 You won't freeze to death just because you don't wear that coat
-Before you stuff your jacket with goose fea
-thers
-Try stuffing your brain with some sense, before it's too late\"""" .
+Before you stuff your jacket with goose feathers
+Try stuffing your brain with some sense, before it's too late""" .
 
 covercore:38 a cover:Irony ;
     rdfs:label "Creative Instance 38" ;
@@ -696,10 +696,10 @@ covercore:39 a cover:Sincerity ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Person ;
     cover:hasTargetDescription "The author's lover" ;
-    cover:hasText """"So I wrote you a word,\r
-and then another word,\r
-and another, and another,\r
-until I wrote you a sentence.\"""" ;
+    cover:hasText """So I wrote you a word,
+and then another word,
+and another, and another,
+until I wrote you a sentence.""" ;
     cover:hasTranslation "N/A" .
 
 covercore:4 a cover:Irony ;
@@ -710,12 +710,12 @@ covercore:4 a cover:Irony ;
     cover:hasLanguage "Neapolitan" ;
     cover:hasTarget cover:Community ;
     cover:hasTargetDescription "The rich" ;
-    cover:hasText "\"<<Lurido porco! Come ti permetti paragonarti a me ch’ebbi natali illustri, nobilissimi e perfetti, da fare invidia a Principi Reali?>>  <<tu qua’ nòatale, Pasca e Pifanìa!!! T’o vvuo’ mettere ‘ncapo, ‘int’a cervella che staje malato ancora ‘e fantasia? ‘A morte ‘o ssaje ched’è? E’ ‘na livella:  ‘nu rre, ‘nu maggistrato, ‘nu grand’ommo, trasenno ‘stu canciello ha fatt’o punto c’ha perzo tutto, ‘a vita e pur’o nomme. Tu nun t’he’ fatto ancora chistu cunto?  Perciò, stamme a ssentì, nun fa’ ‘o restivo, suppuorteme vicino, che te ‘mporta? ‘Sti ppagliacciate ‘e ffanno sul’e vive: nuje simme serje… appartenimmo a morte!>\"" ;
-    cover:hasTranslation """“Filthy pig! How dare you compare yourself to me,
+    cover:hasText "<<Lurido porco! Come ti permetti paragonarti a me ch’ebbi natali illustri, nobilissimi e perfetti, da fare invidia a Principi Reali?>>  <<tu qua’ nòatale, Pasca e Pifanìa!!! T’o vvuo’ mettere ‘ncapo, ‘int’a cervella che staje malato ancora ‘e fantasia? ‘A morte ‘o ssaje ched’è? E’ ‘na livella:  ‘nu rre, ‘nu maggistrato, ‘nu grand’ommo, trasenno ‘stu canciello ha fatt’o punto c’ha perzo tutto, ‘a vita e pur’o nomme. Tu nun t’he’ fatto ancora chistu cunto?  Perciò, stamme a ssentì, nun fa’ ‘o restivo, suppuorteme vicino, che te ‘mporta? ‘Sti ppagliacciate ‘e ffanno sul’e vive: nuje simme serje… appartenimmo a morte!>" ;
+    cover:hasTranslation """Filthy pig! How dare you compare yourself to me,
 born of illustrious, noble, and perfect lineage
-enough to make royal princes envious?”
+enough to make royal princes envious?
 
-“Your lineage, Easter and Epiphany, my foot!
+Your lineage, Easter and Epiphany, my foot!
 Get it through your head,
 you’re still sick with fantasies!
 Do you know what death is? It’s a leveler:
@@ -726,7 +726,7 @@ Haven’t you figured that out yet?
 So listen to me, don’t be stubborn;
 put up with me here beside you what do you care?
 These clownish acts are for the living:
-we are serious… we belong to death!”""" .
+we are serious… we belong to death!""" .
 
 covercore:40 a cover:Irony ;
     rdfs:label "Creative Instance 40" ;
@@ -736,7 +736,7 @@ covercore:40 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Thing ;
     cover:hasTargetDescription "Letter" ;
-    cover:hasText "\"I wrote you a letter [...] until I wrote you a letter\"" ;
+    cover:hasText "I wrote you a letter [...] until I wrote you a letter" ;
     cover:hasTranslation "N/A" .
 
 covercore:41 a cover:Sincerity ;
@@ -745,22 +745,22 @@ covercore:41 a cover:Sincerity ;
     cover:embodiedBy covercore:Usseewa ;
     cover:hasLanguage "Japanese" ;
     cover:hasTarget cover:Concept ;
-    cover:hasTargetDescription "Japanese society's \"Common sense\"" ;
-    cover:hasText """"ちっちゃな頃から優等生\r
-気づいたら大人になっていた\r
-ナイフの様な思考回路\r
-持ち合わせる訳もなく\r
-でも遊び足りない 何か足りない\r
-困っちまうこれは誰かのせい\r
-あてもなくただ混乱するエイデイ\"""" ;
-    cover:hasTranslation """"I was an honor student being young\r
-Before I realized, I was already grown up\r
-A train of thought like a knife\r
-Which I didn't have that with me\r
-But I'm not having enough fun\r
-Something is missing\r
-These troubles better are somebody's fault\r
-I'm just confused today\"""" .
+    cover:hasTargetDescription "Japanese society's 'Common sense'" ;
+    cover:hasText """ちっちゃな頃から優等生
+気づいたら大人になっていた
+ナイフの様な思考回路
+持ち合わせる訳もなく
+でも遊び足りない 何か足りない
+困っちまうこれは誰かのせい
+あてもなくただ混乱するエイデイ""" ;
+    cover:hasTranslation """I was an honor student being young
+Before I realized, I was already grown up
+A train of thought like a knife
+Which I didn't have that with me
+But I'm not having enough fun
+Something is missing
+These troubles better are somebody's fault
+I'm just confused today""" .
 
 covercore:42 a cover:Irony ;
     rdfs:label "Creative Instance 42" ;
@@ -769,7 +769,7 @@ covercore:42 a cover:Irony ;
     cover:hasIronyType cover:IronyOfEvents ;
     cover:hasLanguage "Japanese" ;
     cover:hasTarget cover:Concept ;
-    cover:hasTargetDescription "Japanese society's \"Common sense\"" ;
+    cover:hasTargetDescription "Japanese society's 'Common sense'" ;
     cover:hasText """「 最新の流行は当然の把握
 経済の動向も通勤時チェック
 純情な精神で入社しワーク
@@ -779,7 +779,7 @@ covercore:42 a cover:Irony ;
 皆がつまみ易いように串外しなさい
 会計や注文は先陣を切る
 不文律最低限のマナーです 」""" ;
-    cover:hasTranslation """"Understanding the latest trends
+    cover:hasTranslation """Understanding the latest trends
 Checking the stock market on my way to work
 Joining a company with the pure spirit
 These are the obvious rules for us workers
@@ -787,7 +787,7 @@ These are the obvious rules for us workers
 Pour drinks when glasses are empty
 Take off the skewer so it's easier for everyone to eat
 Check and order before anyone does
-These are the minimum rules for the social manner\"""" .
+These are the minimum rules for the social manner""" .
 
 covercore:5 a cover:Sincerity ;
     rdfs:label "Creative Instance 5" ;
@@ -797,14 +797,14 @@ covercore:5 a cover:Sincerity ;
     cover:hasTarget cover:Person ;
     cover:hasTargetDescription """
 The poet's wife""" ;
-    cover:hasText """"You are like a thing that is
+    cover:hasText """You are like a thing that is
 simple, natural, and true,
 like the bread and the wine,
 like the sun and the air.""" ;
-    cover:hasTranslation """"Tu sei come una cosa che è
+    cover:hasTranslation """Tu sei come una cosa che è
 semplice, naturale e vera,
 come il pane e il vino,
-come il sole e l’aria.\"""" .
+come il sole e l’aria.""" .
 
 covercore:6 a cover:Irony ;
     rdfs:label "Creative Instance 6" ;
@@ -814,24 +814,24 @@ covercore:6 a cover:Irony ;
     cover:hasLanguage "Italian" ;
     cover:hasTarget cover:Person ;
     cover:hasTargetDescription "The poet's wife" ;
-    cover:hasText """"Tu sei come una giovane\r
-una bianca pollastra.\r
-Le si arruffano al vento\r
-le piume, il collo china\r
-per bere, e in terra raspa;\r
-ma, nell'andare, ha il lento\r
-tuo passo di regina,\r
-ed incede sull'erba\r
-pettoruta e superba. [...]\"""" ;
-    cover:hasTranslation """"You are like a young,\r
-white hen.\r
-Her feathers ruffle in the wind,\r
-she bends her neck\r
-to drink, and scratches the ground;\r
-but as she walks, she has\r
-your slow, regal step,\r
-and moves over the grass,\r
-proud and full-chested.\r
+    cover:hasText """Tu sei come una giovane
+una bianca pollastra.
+Le si arruffano al vento
+le piume, il collo china
+per bere, e in terra raspa;
+ma, nell'andare, ha il lento
+tuo passo di regina,
+ed incede sull'erba
+pettoruta e superba. [...]""" ;
+    cover:hasTranslation """You are like a young,
+white hen.
+Her feathers ruffle in the wind,
+she bends her neck
+to drink, and scratches the ground;
+but as she walks, she has
+your slow, regal step,
+and moves over the grass,
+proud and full-chested.
 """ .
 
 covercore:7 a cover:Sincerity ;
@@ -841,8 +841,8 @@ covercore:7 a cover:Sincerity ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Thing ;
     cover:hasTargetDescription "The life of the author" ;
-    cover:hasText """"My world's on fire, how 'bout yours?\r
-That's the way I like it, and I'll never get bored\"""" ;
+    cover:hasText """My world's on fire, how 'bout yours?
+That's the way I like it, and I'll never get bored""" ;
     cover:hasTranslation "N/A" .
 
 covercore:8 a cover:Irony ;
@@ -853,7 +853,7 @@ covercore:8 a cover:Irony ;
     cover:hasLanguage "English" ;
     cover:hasTarget cover:Thing ;
     cover:hasTargetDescription "The temperature" ;
-    cover:hasText "\"It's a cool place, and they say it gets colder\"" ;
+    cover:hasText "It's a cool place, and they say it gets colder" ;
     cover:hasTranslation "N/A" .
 
 covercore:9 a cover:Sincerity ;
@@ -1075,8 +1075,8 @@ covercore:event17 a cover:SincereEvent ;
 
 covercore:event18 a cover:IronicEvent ;
     rdfs:label "Event 18" ;
-    cover:hasEpistemicScenario "People are always ready to criticize you, especially online, insulting and saying \"ddaeng\" (slang for \"wrong!\" in korean)." ;
-    cover:hasObservableScenario "They flip the insult \"ddaeng\" back at their critics with genius wordplay and rythmical onomatopeia; showing how the same word can have different meanings like \"invincible\" in a korean card game and that's how the artists make the haters' words seem useless." ;
+    cover:hasEpistemicScenario "People are always ready to criticize you, especially online, insulting and saying 'ddaeng' (slang for 'wrong!' in korean)." ;
+    cover:hasObservableScenario "They flip the insult 'ddaeng' back at their critics with genius wordplay and rythmical onomatopeia; showing how the same word can have different meanings like 'invincible' in a korean card game and that's how the artists make the haters' words seem useless." ;
     cover:hasReceptionEvent cover:ListeningEvent ;
     cover:initiatedBy covercore:BTS ;
     cover:interpretedBy cover:Listener .
@@ -1148,7 +1148,7 @@ covercore:event25 a cover:SincereEvent ;
 
 covercore:event26 a cover:IronicEvent ;
     rdfs:label "Event 26" ;
-    cover:hasEpistemicScenario "The song is called \"Ironic\" and the lyrics present several ironic situations." ;
+    cover:hasEpistemicScenario "The song is called 'Ironic' and the lyrics present several ironic situations." ;
     cover:hasObservableScenario "A song called “Ironic” isn’t filled with ironies. The central theme is frustration with life's unfair twists." ;
     cover:hasReceptionEvent cover:ListeningEvent ;
     cover:initiatedBy covercore:Morissette ;
@@ -1212,7 +1212,7 @@ covercore:event32 a cover:SincereEvent ;
 
 covercore:event33 a cover:IronicEvent ;
     rdfs:label "Event 33" ;
-    cover:hasEpistemicScenario "As old generations say \"Work hard and you'll succeed!\"" ;
+    cover:hasEpistemicScenario "As old generations say 'Work hard and you'll succeed!'" ;
     cover:hasObservableScenario "The artists are ironically echoing what society preaches while showing how hollow it sounds to people struggling in real life." ;
     cover:hasReceptionEvent cover:ListeningEvent ;
     cover:initiatedBy covercore:BTS ;
@@ -1229,7 +1229,7 @@ covercore:event34 a cover:SincereEvent ;
 covercore:event35 a cover:IronicEvent ;
     rdfs:label "Event 35" ;
     cover:hasEpistemicScenario "A person feeling great when using substances" ;
-    cover:hasObservableScenario "The person wishes to be able to achieve that \"good\" feeling through authenticity and being present in her own life, without any external aid." ;
+    cover:hasObservableScenario "The person wishes to be able to achieve that 'good' feeling through authenticity and being present in her own life, without any external aid." ;
     cover:hasReceptionEvent cover:ListeningEvent ;
     cover:initiatedBy <https://w3id.org/controverse/P!nk> ;
     cover:interpretedBy cover:Listener .
@@ -1245,7 +1245,7 @@ covercore:event36 a cover:SincereEvent ;
 covercore:event37 a cover:IronicEvent ;
     rdfs:label "Event 37" ;
     cover:hasEpistemicScenario "Songs targeted at the youth typically take the side of young people, seing things from their persepctive" ;
-    cover:hasObservableScenario "This song actually criticizes the youth and takes the side of their parents viewing the young people as \"spine breakers\"" ;
+    cover:hasObservableScenario "This song actually criticizes the youth and takes the side of their parents viewing the young people as 'spine breakers'" ;
     cover:hasReceptionEvent cover:ListeningEvent ;
     cover:initiatedBy covercore:BTS ;
     cover:interpretedBy cover:Listener .
