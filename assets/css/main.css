@@ -703,7 +703,6 @@ section,
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  padding-right: 20px;
   color: var(--heading-color);
 }
 
@@ -1123,7 +1122,7 @@ section,
 /*links in "the project"*/
 #about a {
   text-decoration: underline;
-  text-decoration-color: #701263;
+  text-decoration-color: #ffffff;
   /* optional: match your accent color */
   color: inherit;
   /* keeps text color consistent */
@@ -1139,6 +1138,15 @@ section,
   text-decoration-color: var(--accent-color);
   color: #ffffff;
   /* ← force your purple color */
+}
+
+/* Highlight the active link */
+.menu-links a.active-link {
+  color: var(--accent-color);        /* your pink color */
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  font-weight: 600;                  /* optional: make it bolder */
+  transition: color 0.3s ease;
 }
 
 
@@ -1781,4 +1789,31 @@ pre {
 code {
   background-color: #eeeeee;
   border-radius: 3px;
+}
+
+/* img in card1*/
+.about-card .center-img {
+  display: block;          /* makes it a block element */
+  margin: 20px auto;       /* centers it horizontally */
+  max-width: 80%;         /* makes it responsive */
+  height: auto;            /* keeps aspect ratio */
+  border-radius: 10px;     /* optional – soft corners */
+}
+
+/* Footer links: always pink + underlined */
+#footer a,
+#footer a:visited,
+#footer a:active,
+#footer a:hover,
+#footer a:focus {
+  color: var(--accent-color);             /* use your pink variable */
+  text-decoration: underline;             /* always underlined */
+  text-decoration-color: var(--accent-color);
+  font-weight: 600;                       /* optional: make them stand out */
+  transition: color 0.3s ease;
+}
+
+/* Optional: keep the underline visible but add a subtle hover effect */
+#footer a:hover {
+  opacity: 0.8;                           /* slight fade on hover */
 }
