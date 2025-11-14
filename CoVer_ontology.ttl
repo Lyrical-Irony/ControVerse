@@ -14,8 +14,20 @@
                                  dc:creator "Fahmida Islam" ,
                                             "Ilaria De Dominicis" ,
                                             "Regina Manyara" ;
-                                 rdfs:comment "An ontology about irony in Lyrical works." ;
-                                 owl:versionInfo "November 2025" .
+                                 owl:versionInfo "November 2025" ;
+                                 rdfs:comment "An ontology about irony in Lyrical works:
+
+How can irony be defined? It is the art of saying something while meaning its opposite — a delicate balance between appearance and reality. 
+But irony is also a deeply creative act: it relies on imagination, interpretation, and shared understanding between the ironist and the observer: 
+'An ironist, therefore, is not just like an artist, but is an artist, governed by the artist's need for perfection of form and expression and all 'the nameless graces which no methods teach'' (D.C. Muecke, The Compass of Irony, p. 15). 
+
+This ontology aims to map that creative tension, revealing how irony emerges, evolves, and connects minds through layers of meaning. In order to define and abstract the concept of irony, 
+we reviewed various academic resources focusing in on two closely related works: D. C. Muecke’s 'The Compass of Irony' and Inés Lozano Palacio’s dissertation 'A Scenario-Based Approach to Irony. Structure, meaning and function'. 
+
+Muecke’s classification distinguishes two main forms of irony: Verbal Irony (with its four subclasses) and Situational Irony (with its 5 subclasses). 
+Palacio explains how irony is the product of a clash between an epistemic scenario created by an ironist and an observable scenario perceived by an interpreter. 
+
+Therefore, a lyrical work’s instance contains an Ironic Event (that could be listened or read) when there is a clash between two other Events (epistemic scenario and observable scenario), has an Author (which, in that case, will be called Ironist) and an Interpreter as Actors, has some specific Targets, and produces an Irony Type (verbal or situational and their subtypes). If the Clash between the two scenarios is not present, the Event produced is Sincere, therefore Irony does not arise." .
 
 #################################################################
 #    Annotation properties
